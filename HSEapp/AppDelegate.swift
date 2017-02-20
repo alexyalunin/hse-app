@@ -9,6 +9,7 @@
 import UIKit
 
 var hseColor = UIColor(red: 0/255.0, green: 71/255.0, blue: 136/255.0, alpha: 1.0)
+var hseColorPassive = UIColor(red: 128/255.0, green: 128/255.0, blue: 128/255.0, alpha: 1.0)
 var headerColor = UIColor(red: 216/255.0, green: 216/255.0, blue: 216/255.0, alpha: 1.0)
 
 @UIApplicationMain

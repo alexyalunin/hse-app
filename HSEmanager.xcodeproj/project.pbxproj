@@ -173,7 +173,7 @@
 		1168A8821E34CEF000A28865 = {
 			isa = PBXGroup;
 			children = (
-				1168A88D1E34CEF000A28865 /* HSEapp */,
+				1168A88D1E34CEF000A28865 /* HSEmanager */,
 				1168A88C1E34CEF000A28865 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1168A88D1E34CEF000A28865 /* HSEapp */ = {
+		1168A88D1E34CEF000A28865 /* HSEmanager */ = {
 			isa = PBXGroup;
 			children = (
 				1168A8941E34CEF000A28865 /* Main.storyboard */,
@@ -198,6 +198,7 @@
 				11C2E3F11E3BF91F00D5B717 /* Settings */,
 				1168A8A21E34CF2300A28865 /* Supporting files */,
 			);
+			name = HSEmanager;
 			path = HSEapp;
 			sourceTree = "<group>";
 		};

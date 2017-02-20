@@ -13,7 +13,7 @@
         <!--Расписание-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="ScheduleViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="ScheduleViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -81,7 +81,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lessonCell" rowHeight="100" id="EN1-Zz-fnO" customClass="LessonCell" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lessonCell" rowHeight="100" id="EN1-Zz-fnO" customClass="LessonCell" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="141" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EN1-Zz-fnO" id="roh-hD-IFc">
@@ -237,7 +237,7 @@
         <!--Доска объявлений-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="NewsViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="NewsViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -304,7 +304,7 @@
         <!--Выбрать неделю-->
         <scene sceneID="yiW-Ak-7Ac">
             <objects>
-                <tableViewController id="adi-fK-Mk5" customClass="ChooseWeekTableViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="adi-fK-Mk5" customClass="ChooseWeekTableViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="267" sectionHeaderHeight="18" sectionFooterHeight="18" id="FYr-54-bcC">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +313,7 @@
                         <sections>
                             <tableViewSection id="Tx5-ma-BEU">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="5OQ-fU-G0g" customClass="TimePickerCell" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="5OQ-fU-G0g" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5OQ-fU-G0g" id="Yg4-7M-bVM">
@@ -359,7 +359,7 @@
                                             <outlet property="tlTop" destination="UBK-A5-oEz" id="jXf-Gf-1xk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="0ui-2f-oVt" customClass="TimePickerCell" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="0ui-2f-oVt" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="295" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ui-2f-oVt" id="2Oi-mt-muB">
@@ -405,7 +405,7 @@
                                             <outlet property="tlTop" destination="ssf-gx-7TG" id="UWz-sB-2U2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="u7b-4n-aO3" customClass="TimePickerCell" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="u7b-4n-aO3" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="555" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u7b-4n-aO3" id="Iv7-i1-B7T">
@@ -484,7 +484,7 @@
         <!--Рубрики-->
         <scene sceneID="4Ln-cd-i5w">
             <objects>
-                <tableViewController id="PBc-xt-sSx" customClass="ChooseRubricViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="PBc-xt-sSx" customClass="ChooseRubricViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="d8U-yP-dbh">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -492,7 +492,7 @@
                         <sections>
                             <tableViewSection id="ia1-As-ZuS">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="kHz-BB-D0J" customClass="TimePickerCell" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="kHz-BB-D0J" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kHz-BB-D0J" id="HZz-OL-U5l">
@@ -538,7 +538,7 @@
                                             <outlet property="tlTop" destination="zwX-1a-3e9" id="DbH-DF-mEl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="wXa-wh-8gS" customClass="TimePickerCell" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="wXa-wh-8gS" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="295" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wXa-wh-8gS" id="jzh-XT-wBJ">
@@ -616,7 +616,7 @@
         <!--Piece Of News View Controller-->
         <scene sceneID="Xjh-LQ-q26">
             <objects>
-                <viewController id="bB5-74-acf" customClass="PieceOfNewsViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bB5-74-acf" customClass="PieceOfNewsViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TDi-op-RW5"/>
                         <viewControllerLayoutGuide type="bottom" id="CBv-zL-26j"/>
@@ -660,7 +660,7 @@
         <!--One Contact View Controller-->
         <scene sceneID="1Gf-SH-jfH">
             <objects>
-                <viewController id="1pQ-cg-cc0" customClass="OneContactViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1pQ-cg-cc0" customClass="OneContactViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6SY-yf-tDU"/>
                         <viewControllerLayoutGuide type="bottom" id="cRJ-SS-cw3"/>
@@ -738,7 +738,7 @@
         <!--Phone And Email Table View Controller-->
         <scene sceneID="Cr3-4l-bLn">
             <objects>
-                <tableViewController storyboardIdentifier="PhoneAndEmailTableViewController" id="k3X-wj-2KJ" customClass="PhoneAndEmailTableViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PhoneAndEmailTableViewController" id="k3X-wj-2KJ" customClass="PhoneAndEmailTableViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="62" sectionHeaderHeight="1" sectionFooterHeight="18" id="p0r-zI-N0Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -746,7 +746,7 @@
                         <sections>
                             <tableViewSection id="mWe-5v-vfl">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="6Go-FM-q3W" customClass="CellWithDetailBlueText" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="6Go-FM-q3W" customClass="CellWithDetailBlueText" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Go-FM-q3W" id="kP4-sU-KEC">
@@ -799,7 +799,7 @@
                                             <outlet property="mainTextLabel" destination="bTw-Lx-aIo" id="sFg-hZ-EMh"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="x0a-dR-mhL" customClass="CellWithDetailBlueText" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="x0a-dR-mhL" customClass="CellWithDetailBlueText" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="97" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0a-dR-mhL" id="G8l-cm-QFw">
@@ -874,7 +874,7 @@
         <!--Application Info View Controller-->
         <scene sceneID="Yr0-VC-GSN">
             <objects>
-                <viewController id="E08-hi-asY" customClass="ApplicationInfoViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="E08-hi-asY" customClass="ApplicationInfoViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4dj-Av-yd3"/>
                         <viewControllerLayoutGuide type="bottom" id="007-OM-5sX"/>
@@ -912,7 +912,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWk-4T-24R" customClass="MainButton" customModule="HSEapp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWk-4T-24R" customClass="MainButton" customModule="HSEmanager" customModuleProvider="target">
                                 <rect key="frame" x="16" y="283" width="343" height="42"/>
                                 <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -926,7 +926,7 @@
                                     <action selector="contactWithDevelopers:" destination="E08-hi-asY" eventType="touchUpInside" id="gbI-32-BQZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-eO-22L" customClass="MainButton" customModule="HSEapp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-eO-22L" customClass="MainButton" customModule="HSEmanager" customModuleProvider="target">
                                 <rect key="frame" x="16" y="333" width="343" height="42"/>
                                 <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -970,7 +970,7 @@
         <!--Contacts View Controller-->
         <scene sceneID="ycT-u1-Gfs">
             <objects>
-                <viewController id="yrV-b5-SPs" customClass="ContactsViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yrV-b5-SPs" customClass="ContactsViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bz2-DS-4lm"/>
                         <viewControllerLayoutGuide type="bottom" id="xrl-2T-qDx"/>
@@ -1063,7 +1063,7 @@
         <!--Авторизация-->
         <scene sceneID="86q-MU-KhI">
             <objects>
-                <viewController id="opP-MU-aeR" customClass="AuthViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="opP-MU-aeR" customClass="AuthViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mtw-Ez-cIi"/>
                         <viewControllerLayoutGuide type="bottom" id="Rzj-z9-h0u"/>
@@ -1072,7 +1072,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCx-Q2-XnR" customClass="MainButton" customModule="HSEapp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCx-Q2-XnR" customClass="MainButton" customModule="HSEmanager" customModuleProvider="target">
                                 <rect key="frame" x="16" y="146" width="343" height="48"/>
                                 <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1086,7 +1086,7 @@
                                     <segue destination="49e-Tb-3d3" kind="presentation" modalTransitionStyle="flipHorizontal" id="JMz-yv-Mgq"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Корпоративная почта" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-4x-ETt" customClass="MainTextField" customModule="HSEapp" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Корпоративная почта" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-4x-ETt" customClass="MainTextField" customModule="HSEmanager" customModuleProvider="target">
                                 <rect key="frame" x="16" y="20" width="343" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1096,7 +1096,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o4e-Xs-lsz" customClass="MainTextField" customModule="HSEapp" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o4e-Xs-lsz" customClass="MainTextField" customModule="HSEmanager" customModuleProvider="target">
                                 <rect key="frame" x="16" y="78" width="343" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1106,7 +1106,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBI-h4-iu9" customClass="HelpButton" customModule="HSEapp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBI-h4-iu9" customClass="HelpButton" customModule="HSEmanager" customModuleProvider="target">
                                 <rect key="frame" x="16" y="202" width="144" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="FWo-5a-JJi"/>
@@ -1146,7 +1146,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Eb6-hr-LCD"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -1272,7 +1272,7 @@
         <!--Настройки-->
         <scene sceneID="kN5-AC-DZe">
             <objects>
-                <tableViewController id="DSQ-FD-JnL" customClass="SettingsTableViewController" customModule="HSEapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="DSQ-FD-JnL" customClass="SettingsTableViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="25" sectionFooterHeight="1" id="etc-uD-ZzW">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1280,7 +1280,7 @@
                         <sections>
                             <tableViewSection id="C2G-MN-ef3">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="XH8-Sx-d70" customClass="TimePickerCell" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="XH8-Sx-d70" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XH8-Sx-d70" id="m6A-ut-G2g">
@@ -1326,7 +1326,7 @@
                                             <outlet property="tlTop" destination="bey-90-IiI" id="y0Z-gA-WEn"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="z1U-Bf-mHO" customClass="TimePickerCell" customModule="HSEapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="z1U-Bf-mHO" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="295" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z1U-Bf-mHO" id="mW7-XP-7HW">
