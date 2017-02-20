@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "32ADCE470BDD4CCD58E565C0FF56CCE7AFD9A901",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "32ADCE470BDD4CCD58E565C0FF56CCE7AFD9A901" : 9223372036854775807,
+    "EB0A127AB13292E54DCCA2D766B32D492B03D3D7" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9DCD658B-7C91-4FA2-BACC-B5A94F865BDA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "32ADCE470BDD4CCD58E565C0FF56CCE7AFD9A901" : "HSEapplication\/",
+    "EB0A127AB13292E54DCCA2D766B32D492B03D3D7" : "HSEapplication\/HSEapp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HSEapp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HSEapp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aleyalunin\/HSEapplication.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "32ADCE470BDD4CCD58E565C0FF56CCE7AFD9A901"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aleyalunin\/HSEapp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EB0A127AB13292E54DCCA2D766B32D492B03D3D7"
+    }
+  ]
+}
