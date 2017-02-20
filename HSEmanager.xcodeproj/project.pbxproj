@@ -55,7 +55,7 @@
 		1146BB7C1E43E9F60077D419 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1146BB801E45EBC70077D419 /* ChooseWeekTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseWeekTableViewController.swift; sourceTree = "<group>"; };
 		1146BB821E462E8F0077D419 /* TimePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
-		1168A88B1E34CEF000A28865 /* HSEapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSEapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1168A88B1E34CEF000A28865 /* HSEmanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSEmanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1168A88E1E34CEF000A28865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1168A8901E34CEF000A28865 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		1168A8921E34CEF000A28865 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		1168A88C1E34CEF000A28865 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1168A88B1E34CEF000A28865 /* HSEapp.app */,
+				1168A88B1E34CEF000A28865 /* HSEmanager.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -297,9 +297,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1168A88A1E34CEF000A28865 /* HSEapp */ = {
+		1168A88A1E34CEF000A28865 /* HSEmanager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1168A89F1E34CEF000A28865 /* Build configuration list for PBXNativeTarget "HSEapp" */;
+			buildConfigurationList = 1168A89F1E34CEF000A28865 /* Build configuration list for PBXNativeTarget "HSEmanager" */;
 			buildPhases = (
 				1168A8871E34CEF000A28865 /* Sources */,
 				1168A8881E34CEF000A28865 /* Frameworks */,
@@ -309,9 +309,9 @@
 			);
 			dependencies = (
 			);
-			name = HSEapp;
+			name = HSEmanager;
 			productName = HSEapp;
-			productReference = 1168A88B1E34CEF000A28865 /* HSEapp.app */;
+			productReference = 1168A88B1E34CEF000A28865 /* HSEmanager.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -331,7 +331,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1168A8861E34CEF000A28865 /* Build configuration list for PBXProject "HSEapp" */;
+			buildConfigurationList = 1168A8861E34CEF000A28865 /* Build configuration list for PBXProject "HSEmanager" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -344,7 +344,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1168A88A1E34CEF000A28865 /* HSEapp */,
+				1168A88A1E34CEF000A28865 /* HSEmanager */,
 			);
 		};
 /* End PBXProject section */
@@ -546,7 +546,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1168A8861E34CEF000A28865 /* Build configuration list for PBXProject "HSEapp" */ = {
+		1168A8861E34CEF000A28865 /* Build configuration list for PBXProject "HSEmanager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1168A89D1E34CEF000A28865 /* Debug */,
@@ -555,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1168A89F1E34CEF000A28865 /* Build configuration list for PBXNativeTarget "HSEapp" */ = {
+		1168A89F1E34CEF000A28865 /* Build configuration list for PBXNativeTarget "HSEmanager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1168A8A01E34CEF000A28865 /* Debug */,

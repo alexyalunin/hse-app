@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:HSEapp.xcodeproj">
+      location = "self:/Users/Alexander/Desktop/swift/HSEmanager/HSEmanager.xcodeproj">
    </FileRef>
 </Workspace>
