@@ -17,18 +17,12 @@ class LessonCell: UITableViewCell {
     @IBOutlet weak var tutorLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
 
-    var lesson: Lesson?{
-        didSet{
-            setUp()
-        }
-    }
-    
-    func setUp() {
-        startTimeLabel?.text = lesson?.startTime
-        endTimeLabel?.text = lesson?.endTime
-        lessonTypeLabel?.text = lesson?.type.desc
-        disciplineLabel?.text = lesson?.discipline
-        tutorLabel?.text = lesson?.tutor.name
-        addressLabel?.text = (lesson?.address)! + ", " + String(describing: (lesson?.lectureRoom)!)
+    func setUpLessonCellWith(lesson: Lesson) {
+        startTimeLabel?.text = lesson.startTime
+        endTimeLabel?.text = lesson.endTime
+        lessonTypeLabel?.text = lesson.type.desc
+        disciplineLabel?.text = lesson.discipline
+        tutorLabel?.text = lesson.tutor.name
+        addressLabel?.text = lesson.address + ", " + String(describing: lesson.lectureRoom)
     }
 }

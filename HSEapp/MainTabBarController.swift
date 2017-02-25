@@ -12,9 +12,9 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         UITabBar.appearance().tintColor = hseColor
+        self.tabBar.unselectedItemTintColor = .gray
     }
 
     override func didReceiveMemoryWarning() {

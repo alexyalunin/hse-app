@@ -122,6 +122,8 @@
 				1146BB721E42695D0077D419 /* Day.swift */,
 				1146BB741E4272810077D419 /* Week.swift */,
 				1146BB761E42734B0077D419 /* LessonsManager.swift */,
+				1146BB781E4348BD0077D419 /* LessonCell.swift */,
+				1146BB821E462E8F0077D419 /* TimePickerCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -130,8 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				1146BB6E1E425B0E0077D419 /* SecondaryButton.swift */,
-				1146BB781E4348BD0077D419 /* LessonCell.swift */,
-				1146BB821E462E8F0077D419 /* TimePickerCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

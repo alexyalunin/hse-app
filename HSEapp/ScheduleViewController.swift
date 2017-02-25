@@ -42,6 +42,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         return formatter.string(from: currentDateTime)
     }
     
+    // MARK: Table configuration
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return w.week.days.count
     }
@@ -64,7 +66,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
             let lesson = w.week.days[indexPath.section].lessons?[indexPath.row]
             
             if let lessonCell = cell as? LessonCell{
-                lessonCell.lesson = lesson
+                lessonCell.setUpLessonCellWith(lesson: lesson!)
             }
             return cell
         } else {

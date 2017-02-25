@@ -69,7 +69,6 @@ class Lesson{
     var address: String
     var lectureRoom: Int
     
-    
     init(date:String, dayOfWeek: DayOfWeek, startTime: String, endTime: String, type: LessonType, discipline: String, tutor: Worker, address: String, lectureRoom: Int) {
         self.date = date
         self.dayOfWeek = dayOfWeek
