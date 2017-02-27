@@ -17,12 +17,26 @@ class LessonCell: UITableViewCell {
     @IBOutlet weak var tutorLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
 
-    func setUpLessonCellWith(lesson: Lesson) {
-        startTimeLabel?.text = lesson.startTime
-        endTimeLabel?.text = lesson.endTime
-        lessonTypeLabel?.text = lesson.type.desc
-        disciplineLabel?.text = lesson.discipline
-        tutorLabel?.text = lesson.tutor.name
-        addressLabel?.text = lesson.address + ", " + String(describing: lesson.lectureRoom)
+    // Classes:
+    
+//    func setUpLessonCellWith(lesson: Lesson) {
+//        startTimeLabel?.text = lesson.startTime
+//        endTimeLabel?.text = lesson.endTime
+//        lessonTypeLabel?.text = lesson.type.desc
+//        disciplineLabel?.text = lesson.discipline
+//        tutorLabel?.text = lesson.tutor.name
+//        addressLabel?.text = lesson.address + ", " + String(describing: lesson.lectureRoom)
+//    }
+    
+    // JSON:
+    
+    func setUpLessonCellWith(lesson: JSON) {
+        startTimeLabel?.text = lesson["startTime"].string
+        endTimeLabel?.text = lesson["endTime"].string
+        lessonTypeLabel?.text = lesson["type"].string
+        disciplineLabel?.text = lesson["discipline"].string
+        tutorLabel?.text = lesson["tutor"].string
+        addressLabel?.text = lesson["address"].string! + ", " + lesson["lectureRoom"].string!
     }
+
 }
