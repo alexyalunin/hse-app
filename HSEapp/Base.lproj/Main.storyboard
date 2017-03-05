@@ -967,7 +967,7 @@
             </objects>
             <point key="canvasLocation" x="2133.5999999999999" y="2879.9100449775115"/>
         </scene>
-        <!--Contacts View Controller-->
+        <!--Контакты-->
         <scene sceneID="ycT-u1-Gfs">
             <objects>
                 <viewController id="yrV-b5-SPs" customClass="ContactsViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
@@ -980,14 +980,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hOI-do-j3X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="38" width="375" height="516"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="contactCell" id="oJD-Qt-ICd">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJD-Qt-ICd" id="maP-ZQ-sH1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -998,18 +998,18 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xr9-tp-nM0" id="o8Z-rf-jt3">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hSL-GS-tfM">
-                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z6M-Ce-YwS">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="15" y="25" width="44" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -1027,38 +1027,54 @@
                                     <outlet property="delegate" destination="yrV-b5-SPs" id="iy3-Ft-IFh"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBE-Mu-AND">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y1Q-W7-q7k">
+                                        <rect key="frame" x="74" y="2" width="227" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="sED-6K-Yna"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Учебный офис"/>
+                                            <segment title="Преподаватели"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="actionContanctsSC:" destination="yrV-b5-SPs" eventType="valueChanged" id="a2U-92-nNi"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="y1Q-W7-q7k" secondAttribute="bottom" constant="8" id="4bd-HM-jDZ"/>
+                                    <constraint firstItem="y1Q-W7-q7k" firstAttribute="centerX" secondItem="gBE-Mu-AND" secondAttribute="centerX" id="E7v-ge-H55"/>
+                                    <constraint firstItem="y1Q-W7-q7k" firstAttribute="top" secondItem="gBE-Mu-AND" secondAttribute="top" constant="2" id="h1p-Kg-epA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hOI-do-j3X" firstAttribute="leading" secondItem="J2x-gS-cn4" secondAttribute="leading" id="FRp-LY-xSg"/>
                             <constraint firstItem="hOI-do-j3X" firstAttribute="bottom" secondItem="xrl-2T-qDx" secondAttribute="top" id="Me6-LH-VaT"/>
+                            <constraint firstItem="gBE-Mu-AND" firstAttribute="leading" secondItem="J2x-gS-cn4" secondAttribute="leading" id="TCE-vW-F1t"/>
                             <constraint firstAttribute="trailing" secondItem="hOI-do-j3X" secondAttribute="trailing" id="Vbd-2O-IJg"/>
-                            <constraint firstItem="hOI-do-j3X" firstAttribute="top" secondItem="bz2-DS-4lm" secondAttribute="bottom" id="qmn-rC-Dzu"/>
+                            <constraint firstAttribute="trailing" secondItem="gBE-Mu-AND" secondAttribute="trailing" id="cjs-l1-He5"/>
+                            <constraint firstItem="gBE-Mu-AND" firstAttribute="top" secondItem="bz2-DS-4lm" secondAttribute="bottom" id="dWc-IW-iwR"/>
+                            <constraint firstItem="hOI-do-j3X" firstAttribute="top" secondItem="gBE-Mu-AND" secondAttribute="bottom" id="rXd-DQ-k3L"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ow5-4y-PJt">
-                        <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title=" " id="VoN-NX-rH2"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Iv8-54-sqN">
-                            <rect key="frame" x="74" y="7" width="227" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Учебный офис"/>
-                                <segment title="Преподаватели"/>
-                            </segments>
-                            <connections>
-                                <action selector="actionContanctsSC:" destination="yrV-b5-SPs" eventType="valueChanged" id="Bp3-th-hYc"/>
-                            </connections>
-                        </segmentedControl>
+                    <navigationItem key="navigationItem" title="Контакты" id="Ow5-4y-PJt">
+                        <barButtonItem key="backBarButtonItem" title="Контакты" id="VoN-NX-rH2"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="contactsSegmentedControl" destination="Iv8-54-sqN" id="jVM-Ry-8jY"/>
+                        <outlet property="contactsSegmentedControl" destination="y1Q-W7-q7k" id="MFy-g8-aOb"/>
                         <outlet property="contactsTableView" destination="hOI-do-j3X" id="deF-q2-fc1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLF-t5-yxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="2156"/>
+            <point key="canvasLocation" x="568.79999999999995" y="2155.7721139430287"/>
         </scene>
         <!--Авторизация-->
         <scene sceneID="86q-MU-KhI">

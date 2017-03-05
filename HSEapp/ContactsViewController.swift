@@ -43,8 +43,11 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contactsSegmentedControl.tintColor = UIColor.white
-        contactsTableView.backgroundColor = UIColor.clear
+        
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        navigationBar?.shadowImage = UIImage()
+        
         sort()
     }
     
@@ -52,7 +55,8 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewWillAppear(animated)
         contactsTableView.reloadData()
     }
-    
+
+    // MARK: table
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
