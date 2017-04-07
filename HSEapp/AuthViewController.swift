@@ -21,5 +21,4 @@ class AuthViewController: UIViewController {
         passwordField.type = .Password
         mailField.becomeFirstResponder()
     }
-    
 }

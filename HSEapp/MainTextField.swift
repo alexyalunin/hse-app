@@ -16,7 +16,7 @@ enum keyType:Int{
     var desc:String{
         switch self {
         case .Default:
-            return "default"
+            return ""
         case .Email:
             return "Корпоративная почта"
         case .Password:
@@ -30,17 +30,17 @@ class MainTextField: UITextField {
     
     var type:keyType = .Default{
         didSet{
-            switch self.type.rawValue{
-            case 0:
+            switch self.type{
+            case .Default:
                 super.placeholder = ""
                 break
-            case 1:
+            case .Email:
                 super.attributedPlaceholder = NSAttributedString(string: self.type.desc,
                                                        attributes: [NSForegroundColorAttributeName: hseColorPassive])
                 
                 self.keyboardType = .emailAddress
                 break
-            case 2:
+            case .Password:
                 super.attributedPlaceholder = NSAttributedString(string: self.type.desc,
                                                                  attributes: [NSForegroundColorAttributeName: hseColorPassive])
                 self.keyboardType = .default
