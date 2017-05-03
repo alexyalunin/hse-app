@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LessonCellDelegate {
 
     var w = LessonsManager()
     var refreshControl: UIRefreshControl!
@@ -119,7 +119,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
             
             let lesson = scheduleDataJSON[indexPath.section]["lessons"][indexPath.row]
             
-            if let lessonCell = cell as? LessonCell{
+            if let lessonCell = cell as? LessonCell {
+                lessonCell.delegate = self
                 lessonCell.setUpLessonCellWith(lesson: lesson)
             }
             return cell
@@ -143,7 +144,21 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return headerView
     }
-
+    
+    // MARK: - LessonCellDelegate
+    
+    func callSegueFromCell(data: AnyObject) {
+        self.performSegue(withIdentifier: "fromScheduleToMap", sender: data)
+        
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "fromScheduleToMap" {
+            let vc = segue.destination as! MapViewController
+            vc.address = "Volokolamskoe shosse 15/22"
+        }
+    }
+    
     // Design stuff
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
