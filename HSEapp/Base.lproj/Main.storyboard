@@ -36,7 +36,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="IeD-Bp-cey"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="Предыдущая неделя">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -67,7 +67,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="9gX-Tx-ygx"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="Следующая неделя">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -82,7 +82,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="lessonCell" rowHeight="112" id="EN1-Zz-fnO" customClass="LessonCell" customModule="HSEmanager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="141" width="375" height="112"/>
+                                        <rect key="frame" x="0.0" y="140.5" width="375" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EN1-Zz-fnO" id="roh-hD-IFc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="111.5"/>
@@ -220,7 +220,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Расписание" id="YY8-is-Uar">
                         <barButtonItem key="backBarButtonItem" title=" " id="Jna-pv-tp0"/>
-                        <barButtonItem key="rightBarButtonItem" image="calendar" id="Gcg-HC-cyX">
+                        <barButtonItem key="rightBarButtonItem" image="sort" id="Gcg-HC-cyX">
                             <connections>
                                 <segue destination="civ-9u-zxN" kind="showDetail" id="SKl-SA-tZc"/>
                             </connections>
@@ -290,7 +290,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Доска объявлений" id="fvK-rV-N6x">
                         <barButtonItem key="backBarButtonItem" title=" " id="fEx-3U-gvI"/>
-                        <barButtonItem key="rightBarButtonItem" image="list" id="Iia-5f-zdy">
+                        <barButtonItem key="rightBarButtonItem" image="sort" id="Iia-5f-zdy">
                             <connections>
                                 <segue destination="dba-Ws-WRx" kind="showDetail" identifier="rubricSegue" id="RL5-a7-nd7"/>
                             </connections>
@@ -970,7 +970,7 @@
             </objects>
             <point key="canvasLocation" x="2133.5999999999999" y="2879.9100449775115"/>
         </scene>
-        <!--Контакты-->
+        <!--Contacts View Controller-->
         <scene sceneID="ycT-u1-Gfs">
             <objects>
                 <viewController id="yrV-b5-SPs" customClass="ContactsViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
@@ -983,14 +983,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hOI-do-j3X">
-                                <rect key="frame" x="0.0" y="38" width="375" height="516"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="contactCell" id="oJD-Qt-ICd">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJD-Qt-ICd" id="maP-ZQ-sH1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1030,45 +1030,32 @@
                                     <outlet property="delegate" destination="yrV-b5-SPs" id="iy3-Ft-IFh"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBE-Mu-AND">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y1Q-W7-q7k">
-                                        <rect key="frame" x="74" y="2" width="227" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="sED-6K-Yna"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="Учебный офис"/>
-                                            <segment title="Преподаватели"/>
-                                        </segments>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="actionContanctsSC:" destination="yrV-b5-SPs" eventType="valueChanged" id="a2U-92-nNi"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="y1Q-W7-q7k" secondAttribute="bottom" constant="8" id="4bd-HM-jDZ"/>
-                                    <constraint firstItem="y1Q-W7-q7k" firstAttribute="centerX" secondItem="gBE-Mu-AND" secondAttribute="centerX" id="E7v-ge-H55"/>
-                                    <constraint firstItem="y1Q-W7-q7k" firstAttribute="top" secondItem="gBE-Mu-AND" secondAttribute="top" constant="2" id="h1p-Kg-epA"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="hOI-do-j3X" firstAttribute="leading" secondItem="J2x-gS-cn4" secondAttribute="leading" id="FRp-LY-xSg"/>
-                            <constraint firstItem="hOI-do-j3X" firstAttribute="bottom" secondItem="xrl-2T-qDx" secondAttribute="top" id="Me6-LH-VaT"/>
-                            <constraint firstItem="gBE-Mu-AND" firstAttribute="leading" secondItem="J2x-gS-cn4" secondAttribute="leading" id="TCE-vW-F1t"/>
-                            <constraint firstAttribute="trailing" secondItem="hOI-do-j3X" secondAttribute="trailing" id="Vbd-2O-IJg"/>
-                            <constraint firstAttribute="trailing" secondItem="gBE-Mu-AND" secondAttribute="trailing" id="cjs-l1-He5"/>
-                            <constraint firstItem="gBE-Mu-AND" firstAttribute="top" secondItem="bz2-DS-4lm" secondAttribute="bottom" id="dWc-IW-iwR"/>
-                            <constraint firstItem="hOI-do-j3X" firstAttribute="top" secondItem="gBE-Mu-AND" secondAttribute="bottom" id="rXd-DQ-k3L"/>
+                            <constraint firstItem="hOI-do-j3X" firstAttribute="top" secondItem="bz2-DS-4lm" secondAttribute="bottom" id="7E9-cI-1BM"/>
+                            <constraint firstItem="hOI-do-j3X" firstAttribute="bottom" secondItem="xrl-2T-qDx" secondAttribute="top" id="ELc-N6-GbJ"/>
+                            <constraint firstItem="hOI-do-j3X" firstAttribute="leading" secondItem="J2x-gS-cn4" secondAttribute="leading" id="V0G-J2-qSW"/>
+                            <constraint firstAttribute="trailing" secondItem="hOI-do-j3X" secondAttribute="trailing" id="kqX-yb-vH6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Контакты" id="Ow5-4y-PJt">
-                        <barButtonItem key="backBarButtonItem" title="Контакты" id="VoN-NX-rH2"/>
+                    <navigationItem key="navigationItem" id="Ow5-4y-PJt">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="y1Q-W7-q7k">
+                            <rect key="frame" x="74" y="7.5" width="227" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="sED-6K-Yna"/>
+                            </constraints>
+                            <segments>
+                                <segment title="Учебный офис"/>
+                                <segment title="Преподаватели"/>
+                            </segments>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="actionContanctsSC:" destination="yrV-b5-SPs" eventType="valueChanged" id="a2U-92-nNi"/>
+                            </connections>
+                        </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="contactsSegmentedControl" destination="y1Q-W7-q7k" id="MFy-g8-aOb"/>
@@ -1268,11 +1255,11 @@
             </objects>
             <point key="canvasLocation" x="569" y="1433"/>
         </scene>
-        <!--Настройки-->
+        <!--Еще-->
         <scene sceneID="Tx7-ez-Tjo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R5f-2q-UZX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Настройки" image="settings" selectedImage="settings-fill" id="iwM-Wh-I0w"/>
+                    <tabBarItem key="tabBarItem" title="Еще" image="more" selectedImage="more-filled" id="iwM-Wh-I0w"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="erB-y5-JJX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1559,8 +1546,9 @@
         <image name="list" width="25" height="25"/>
         <image name="list-fill" width="25" height="25"/>
         <image name="logo for info view controller" width="200" height="200"/>
-        <image name="settings" width="25" height="25"/>
-        <image name="settings-fill" width="25" height="25"/>
+        <image name="more" width="25" height="17"/>
+        <image name="more-filled" width="25" height="18"/>
+        <image name="sort" width="23" height="18"/>
         <image name="users" width="25" height="25"/>
         <image name="users-fill" width="25" height="25"/>
     </resources>

@@ -13,10 +13,11 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
-    var address: String? 
+    var address: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("address: "+address)
         
         // Initial location
         let initialLocation = CLLocation(latitude: 55.7522200, longitude: 37.6155600)
@@ -32,7 +33,7 @@ class MapViewController: UIViewController {
         
         // Convert address to coordinate and annotate it on map
         let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address!, completionHandler: {
+        geoCoder.geocodeAddressString(address, completionHandler: {
             placemarks, error in
             if error != nil {
                 print(error!)

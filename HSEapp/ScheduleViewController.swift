@@ -155,7 +155,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "fromScheduleToMap" {
             let vc = segue.destination as! MapViewController
-            vc.address = "Volokolamskoe shosse 15/22"
+            vc.address = "kirpichnaya 33"
         }
     }
     
