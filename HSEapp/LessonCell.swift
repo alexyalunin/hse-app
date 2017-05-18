@@ -15,6 +15,7 @@ protocol LessonCellDelegate {
 class LessonCell: UITableViewCell {
     
     var delegate: LessonCellDelegate!
+    var lesson: Lesson? { didSet { updateUI() } }
 
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
@@ -42,7 +43,14 @@ class LessonCell: UITableViewCell {
 //    }
     
     // JSON:
-    
+    func updateUI() {
+        startTimeLabel?.text = lesson?.startTime
+        endTimeLabel?.text = lesson?.endTime
+        lessonTypeLabel?.text = lesson?.type
+        disciplineLabel?.text = lesson?.discipline
+        tutorLabel?.text = lesson?.lecturer
+        addressButton?.setTitle((lesson?.address)! + ", " + (lesson?.lectureRoom)!, for: .normal)
+    }
     func setUpLessonCellWith(lesson: JSON) {
         startTimeLabel?.text = lesson["startTime"].string
         endTimeLabel?.text = lesson["endTime"].string
