@@ -11,6 +11,7 @@ import UIKit
 class ScheduleViewController: UITableViewController, LessonCellDelegate {
 
     var w = LessonsManager()
+    var sm = ScheduleModel()
     
     @IBAction func previousWeek(_ sender: Any) {
     }
@@ -22,43 +23,19 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
         super.viewDidLoad()
         
         self.tableView.delaysContentTouches = false
-        lastUpdateLabel.text = "Последнее обновление: " + getCurrentDate()
+        lastUpdateLabel.text = "Последнее обновление: " + sm.getCurrentDate()
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         tableView.backgroundView = refreshControl
         
-        // Getting data
-        let url = URL(string: "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=05.15.2017&todate=05.22.2017&email=aayalunin@edu.hse.ru")
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            if error != nil {
-                print("ERROR")
-            }
-            
-            if let content = data {
-                do
-                {
-                    let myJSON = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                    
-                    if let lessons = myJSON["Lessons"] as? NSArray {
-                        if let lesson = lessons[0] as? NSDictionary {
-                            if let building = lesson["building"] as? NSString {
-                                print(building)
-                            }
-                        }
-                    }
-                }
-                catch
-                {
-                    
-                }
-            }
-            
-        }
-        task.resume()
-
-        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        sm.getWeek()
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -69,31 +46,12 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
     }
     
     func refresh(sender:AnyObject) {
-        refreshBegin(refreshEnd: {(x:Int) -> () in
-            self.lastUpdateLabel.text = "Последнее обновление: " + self.getCurrentDate()
+        sm.refreshBegin(refreshEnd: {(x:Int) -> () in
+            self.lastUpdateLabel.text = "Последнее обновление: " + self.sm.getCurrentDate()
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         })
     }
-    
-    func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
-        DispatchQueue.global(qos: .default).async() {
-            print("refreshing")
-            sleep(1)
-            DispatchQueue.main.async() {
-                refreshEnd(0)
-            }
-        }
-    }
-    
-    
-    func getCurrentDate() -> String {
-        let currentDateTime = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy, HH:mm"
-        return formatter.string(from: currentDateTime)
-    }
-    
     // MARK: Table configuration
     
     // By classes:
@@ -173,7 +131,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
             
             if let lessonCell = cell as? LessonCell {
                 lessonCell.delegate = self
-                lessonCell.setUpLessonCellWith(lesson: lesson)
+//                lessonCell.lesson = lesson
             }
             return cell
         } else {

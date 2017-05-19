@@ -24,6 +24,7 @@
 		1146BB831E462E8F0077D419 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB821E462E8F0077D419 /* TimePickerCell.swift */; };
 		11490A681ECE1D87006AF094 /* ScrollingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A671ECE1D87006AF094 /* ScrollingNavigationController.swift */; };
 		11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */; };
+		11490A6C1ECEE8A6006AF094 /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */; };
 		1168A88F1E34CEF000A28865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A88E1E34CEF000A28865 /* AppDelegate.swift */; };
 		1168A8911E34CEF000A28865 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A8901E34CEF000A28865 /* ScheduleViewController.swift */; };
 		1168A8931E34CEF000A28865 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A8921E34CEF000A28865 /* NewsViewController.swift */; };
@@ -63,6 +64,7 @@
 		1146BB821E462E8F0077D419 /* TimePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
 		11490A671ECE1D87006AF094 /* ScrollingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingNavigationController.swift; sourceTree = "<group>"; };
 		11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScrollingNavbar+Sizes.swift"; sourceTree = "<group>"; };
+		11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
 		1168A88B1E34CEF000A28865 /* HSEmanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSEmanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1168A88E1E34CEF000A28865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1168A8901E34CEF000A28865 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				1146BB741E4272810077D419 /* Week.swift */,
 				1146BB761E42734B0077D419 /* LessonsManager.swift */,
 				118235491E64A7C100698122 /* scheduleDataJSON.swift */,
+				11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */,
 				11EAA1D31E38D3FA004BB846 /* MainButton.swift in Sources */,
 				1112E9321E369F4800BC70A3 /* MainTextField.swift in Sources */,
+				11490A6C1ECEE8A6006AF094 /* ScheduleModel.swift in Sources */,
 				11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */,
 				11BBD9281E5772AD003C13E6 /* ApplicationInfoViewController.swift in Sources */,
 				1182354A1E64A7C100698122 /* scheduleDataJSON.swift in Sources */,

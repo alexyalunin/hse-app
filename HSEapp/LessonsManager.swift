@@ -18,9 +18,9 @@ class LessonsManager{
         let pr3 = Worker(name: "Гоменюк Кирилл Сергеевич", post: "Преподаватель",worksInOffice: false, faculty: "Факультет бизнеса и менеджмента / Школа бизнес-информатики / Кафедра бизнес-аналитики", address: "Кирпичная ул., д. 33, каб. 833", phone: "+7(495) 772-9590 доб. 55148", email: "kgomenyuk@hse.ru", timeAvailableInfo: "Время работы: Суббота 9:00-15:00, Вторник 9:00-12:00")
         
         
-        let l1 = Lesson(date: "30.01.16", dayOfWeek: DayOfWeek.Monday, startTime: "09:00", endTime: "10:20", type: LessonType.Lesson, discipline: "Теория вероятностей и математическая статистика (рус)", tutor: pr1, address: "Кирпичная ул., д.33", lectureRoom: 702)
-        let l2 = Lesson(date: "30.01.16", dayOfWeek: DayOfWeek.Monday, startTime: "12:10", endTime: "13:30", type: LessonType.PracticaLesson, discipline: "Проектный семинар (рус)", tutor: pr2, address: "Кирпичная ул., д.33", lectureRoom: 530)
-        let l3 = Lesson(date: "30.01.16", dayOfWeek: DayOfWeek.Monday, startTime: "13:40", endTime: "15:00", type: LessonType.Seminar, discipline: "Дискретная математика (рус)", tutor: pr3, address: "Кирпичная ул., д.33", lectureRoom: 902)
+        let l1 = Lesson(date: "30.01.16", dayOfWeek: 1, startTime: "09:00", endTime: "10:20", type: "", discipline: "Теория вероятностей и математическая статистика (рус)", lecturer: "", address: "Кирпичная ул., д.33", lectureRoom: "702")
+        let l2 = Lesson(date: "30.01.16", dayOfWeek: 1, startTime: "09:00", endTime: "10:20", type: "", discipline: "Теория вероятностей и математическая статистика (рус)", lecturer: "", address: "Кирпичная ул., д.33", lectureRoom: "702")
+        let l3 = Lesson(date: "30.01.16", dayOfWeek: 1, startTime: "09:00", endTime: "10:20", type: "", discipline: "Теория вероятностей и математическая статистика (рус)", lecturer: "", address: "Кирпичная ул., д.33", lectureRoom: "702")
         
         
         let d1 = Day(date: "Понедельник, 23.01.16", lessons: [l1,l2,l3])

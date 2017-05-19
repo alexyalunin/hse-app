@@ -41,7 +41,7 @@ let dayOfWeek: [Int: String] = [
 class Lesson{
     
     var date: String
-    var dayOfWeek: String
+    var dayOfWeek: Int
     var startTime: String
     var endTime: String
     var type: String
@@ -50,7 +50,7 @@ class Lesson{
     var address: String
     var lectureRoom: String
     
-    init(date:String, dayOfWeek: String, startTime: String, endTime: String, type: String, discipline: String, lecturer: String, address: String, lectureRoom: String) {
+    init(date:String, dayOfWeek: Int, startTime: String, endTime: String, type: String, discipline: String, lecturer: String, address: String, lectureRoom: String) {
         self.date = date
         self.dayOfWeek = dayOfWeek
         self.startTime = startTime
