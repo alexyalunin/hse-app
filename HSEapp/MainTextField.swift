@@ -45,8 +45,6 @@ class MainTextField: UITextField {
                                                                  attributes: [NSForegroundColorAttributeName: hseColorPassive])
                 self.keyboardType = .default
                 self.isSecureTextEntry = true
-            default:
-                break
             }
         }
     }

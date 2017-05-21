@@ -10,6 +10,57 @@ import UIKit
 
 class ScheduleViewController: UITableViewController, LessonCellDelegate {
 
+    func getLessons() {
+        
+        
+        let url = "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=05.15.2017&todate=05.22.2017&email=aayalunin@edu.hse.ru"
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "GET"
+        
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("ERROR")
+            }
+            
+            if let content = data {
+                do
+                {
+                    let myJSON = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                    
+                    if let lessonsFromJSON = myJSON["Lessons"] as? [[String: Any]]{
+                        for lesson in lessonsFromJSON {
+                            let date = lesson["date"] as? String
+                            let dayOfWeek = lesson["dayOfWeek"] as? Int
+                            let startTime = lesson["beginLesson"] as? String
+                            let endTime = lesson["endLesson"] as? String
+                            let type = lesson["kindOfWork"] as? String
+                            let discipline = lesson["discipline"] as? String
+                            let lecturer = lesson["lecturer"] as? String
+                            let address = lesson["building"] as? String
+                            let lectureRoom = lesson["auditorium"] as? String
+                            
+                            let initLesson = Lesson(date: date!, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
+                            lessons.append(initLesson)
+                        }
+                    }
+                    
+                    DispatchQueue.main.async{
+                        self.tableView.reloadData()
+                    }
+                }
+                catch
+                {
+                    
+                }
+            }
+        }
+        task.resume()
+    }
+    
     var w = LessonsManager()
     var sm = ScheduleModel()
     
@@ -28,12 +79,8 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         tableView.backgroundView = refreshControl
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        sm.getWeek()
+        getLessons()
+        sm.getSchedule()
     }
     
     
@@ -109,29 +156,44 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
     // By JSON:
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return scheduleDataJSON.count
+        
+        return scheduleData?.count ?? 0
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if scheduleDataJSON[section]["lessons"].count > 0
-        {
-            return scheduleDataJSON[section]["lessons"].count
-        } else{
-            return 1
-        }
+        
+        return scheduleData![section].lessons?.count ?? 0
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if scheduleDataJSON[indexPath.section]["lessons"].count > 0
+//        if Lessons.count > 0
+//        {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "lessonCell", for: indexPath)
+//            
+//            let lesson = Lessons[indexPath.row]
+//            
+//            if let lessonCell = cell as? LessonCell {
+//                lessonCell.delegate = self
+//                lessonCell.lesson = lesson
+//            }
+//            return cell
+//        } else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "noLessonsCell", for: indexPath)
+//            return cell
+//        }
+        
+        if (scheduleData?[indexPath.section].lessons?.count)! > 0
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "lessonCell", for: indexPath)
             
-            let lesson = scheduleDataJSON[indexPath.section]["lessons"][indexPath.row]
+            let lesson = scheduleData?[indexPath.section].lessons?[indexPath.row]
             
             if let lessonCell = cell as? LessonCell {
                 lessonCell.delegate = self
-//                lessonCell.lesson = lesson
+                lessonCell.lesson = lesson
             }
             return cell
         } else {
@@ -147,7 +209,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
         headerView.backgroundColor = headerColor
         
         let label = UILabel(frame: CGRect(x: 15,y: 0, width: tableView.bounds.size.width, height: 30))
-        label.text = scheduleDataJSON[section]["date"].string
+        label.text = scheduleData?[section].date
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightSemibold)
         
         headerView.addSubview(label)
@@ -168,22 +230,6 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
             vc.address = "kirpichnaya 33"
         }
     }
-    
-    // MARK: - Scroll view delegate
-    
-//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        
-//        if(velocity.y>0) {
-//            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
-//                self.navigationController?.setNavigationBarHidden(true, animated: true)
-//            }, completion: nil)
-//            
-//        } else {
-//            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
-//                self.navigationController?.setNavigationBarHidden(false, animated: true)
-//            }, completion: nil)    
-//        }
-//    }
     
     // Design stuff
     

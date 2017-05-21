@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarView?.backgroundColor = hseColor
         UIApplication.shared.statusBarStyle = .lightContent
         
+        
         return true
     }
     

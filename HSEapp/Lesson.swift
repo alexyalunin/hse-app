@@ -61,6 +61,7 @@ class Lesson{
         self.address = address
         self.lectureRoom = lectureRoom
     }
+    
 }
 
 

@@ -7,63 +7,74 @@
 //
 
 import Foundation
-
-var Lessons = [Lesson]()
+var lessons: [Lesson] = []
+var scheduleData: [Day]?
 
 class ScheduleModel {
     
-    func getWeek(){
-        // Getting data
-        let url = URL(string: "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=05.15.2017&todate=05.22.2017&email=aayalunin@edu.hse.ru")
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            if error != nil {
-                print("ERROR")
-            }
-            
-            if let content = data {
-                do
-                {
-                    let myJSON = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                    
-                    if let lessons = myJSON["Lessons"] as? [[String: Any]]{
-                        for lesson in lessons {
-                            let date = lesson["date"] as? String
-                            let dayOfWeek = lesson["dayOfWeek"] as? Int
-                            let startTime = lesson["beginLesson"] as? String
-                            let endTime = lesson["endLesson"] as? String
-                            let type = lesson["kindOfWork"] as? String
-                            let discipline = lesson["discipline"] as? String
-                            let lecturer = lesson["lecturer"] as? String
-                            let address = lesson["building"] as? String
-                            let lectureRoom = lesson["auditorium"] as? String
-                            
-                            let initLesson = Lesson(date: date!, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
-                            Lessons.append(initLesson)
-                        }
-                    }
-                }
-                catch
-                {
-                    
-                }
-            }
-            
-        }
-        task.resume()
+    func getSchedule(){
+        print(lessons.count)
+        let days: [Day] = getDays(from: lessons)
+        // MARK: make schedule
+        scheduleData = days
+        print(days.count)
     }
     
     
-    
+    private func getDays(from lessons:[Lesson]) -> [Day] {
+        var thisDate: String?
+        var lastDate: String?
+        var lessonsForDay: [Lesson] = []
+        var days: [Day] = []
+        
+        func addDay() {
+            let day = Day(date: lastDate!, lessons: lessonsForDay)
+            days.append(day)
+        }
+        
+        if !lessons.isEmpty{
+            
+            for lesson in lessons {
+                
+                thisDate = lesson.date
+                
+                if lessonsForDay.isEmpty {
+                    
+                    lessonsForDay.append(lesson)
+                    
+                } else if thisDate == lastDate {
+                    
+                    lessonsForDay.append(lesson)
+                    
+                } else {
+                    
+                    addDay()
+                    lessonsForDay = [lesson]
+                    
+                }
+                
+                lastDate = thisDate
+            }
+            
+            if !lessonsForDay.isEmpty{
+                addDay()
+            }
+        }
+        
+        return days
+    }
+
+        
     func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
         DispatchQueue.global(qos: .default).async() {
             print("refreshing")
-            sleep(1)
+            self.getSchedule()
+            sleep(3)
             DispatchQueue.main.async() {
                 refreshEnd(0)
             }
         }
     }
-    
     
     func getCurrentDate() -> String {
         let currentDateTime = Date()
