@@ -10,63 +10,35 @@ import UIKit
 
 class ScheduleViewController: UITableViewController, LessonCellDelegate {
 
-    func getLessons() {
-        
-        
-        let url = "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=05.15.2017&todate=05.22.2017&email=aayalunin@edu.hse.ru"
-        
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpMethod = "GET"
-        
-        let configuration = URLSessionConfiguration.default
-        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print("ERROR")
-            }
-            
-            if let content = data {
-                do
-                {
-                    let myJSON = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                    
-                    if let lessonsFromJSON = myJSON["Lessons"] as? [[String: Any]]{
-                        for lesson in lessonsFromJSON {
-                            let date = lesson["date"] as? String
-                            let dayOfWeek = lesson["dayOfWeek"] as? Int
-                            let startTime = lesson["beginLesson"] as? String
-                            let endTime = lesson["endLesson"] as? String
-                            let type = lesson["kindOfWork"] as? String
-                            let discipline = lesson["discipline"] as? String
-                            let lecturer = lesson["lecturer"] as? String
-                            let address = lesson["building"] as? String
-                            let lectureRoom = lesson["auditorium"] as? String
-                            
-                            let initLesson = Lesson(date: date!, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
-                            lessons.append(initLesson)
-                        }
-                    }
-                    
-                    DispatchQueue.main.async{
-                        self.tableView.reloadData()
-                    }
-                }
-                catch
-                {
-                    
-                }
-            }
-        }
-        task.resume()
-    }
-    
-    var w = LessonsManager()
     var sm = ScheduleModel()
     
+    @IBAction func setScheduleInterval(from segue: UIStoryboardSegue) {
+        if let sourceController = segue.source as? ChooseIntervalTableViewController {
+            if (Calendar.current.compare(dateStart, to: sourceController.intervalStart, toGranularity: .day) != .orderedSame) ||
+                (Calendar.current.compare(dateEnd, to: sourceController.intervalEnd, toGranularity: .day) != .orderedSame) {
+                dateStart = sourceController.intervalStart
+                dateEnd = sourceController.intervalEnd
+                reloadTableWithData()
+                print("interval changed")
+            }
+        }
+    }
+    
+    var dateStart: Date = today
+    var dateEnd: Date = inSevenDays
+    
+    private func reloadTableWithData() {
+        sm.getSchedule(from: dateStart, to: dateEnd, with: email)
+        tableView.reloadData()
+    }
+    
     @IBAction func previousWeek(_ sender: Any) {
+        dateStart = Date(timeInterval: -604800, since: dateStart)
+        reloadTableWithData()
     }
     @IBAction func nextWeek(_ sender: Any) {
+        dateEnd = Date(timeInterval: 604800, since: dateEnd)
+        reloadTableWithData()
     }
     @IBOutlet weak var lastUpdateLabel: UILabel!
     
@@ -79,8 +51,8 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         tableView.backgroundView = refreshControl
-        getLessons()
-        sm.getSchedule()
+        
+        sm.getSchedule(from: today, to: inSevenDays, with: email)
     }
     
     
@@ -94,67 +66,17 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
     
     func refresh(sender:AnyObject) {
         sm.refreshBegin(refreshEnd: {(x:Int) -> () in
+            self.dateStart = today
+            self.dateEnd = inSevenDays
+            self.sm.getSchedule(from: today, to: inSevenDays, with: email)
             self.lastUpdateLabel.text = "Последнее обновление: " + self.sm.getCurrentDate()
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         })
     }
+    
     // MARK: Table configuration
-    
-    // By classes:
-    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return w.week.days.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if w.week.days[section].lessons!.count > 0
-//        {
-//            return w.week.days[section].lessons!.count
-//        } else{
-//            return 1
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//        if w.week.days[indexPath.section].lessons!.count > 0
-//        {
-//            let cell = scheduleTableView.dequeueReusableCell(withIdentifier: "lessonCell", for: indexPath)
-//            
-//            let lesson = w.week.days[indexPath.section].lessons?[indexPath.row]
-//            
-//            if let lessonCell = cell as? LessonCell{
-//                lessonCell.setUpLessonCellWith(lesson: lesson!)
-//            }
-//            return cell
-//        } else {
-//           let cell = scheduleTableView.dequeueReusableCell(withIdentifier: "noLessonsCell", for: indexPath)
-//            return cell
-//        }
-//        
-//    }
-//    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return w.week.days[section].date
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-//        headerView.backgroundColor = headerColor
-//        
-//        let label = UILabel(frame: CGRect(x: 15,y: 0, width: tableView.bounds.size.width, height: 30))
-//        label.text = String(describing: w.week.days[section].date)
-//        label.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightSemibold)
-//        
-//        headerView.addSubview(label)
-//        
-//        return headerView
-//    }
-    
-    // By JSON:
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return scheduleData?.count ?? 0
@@ -168,22 +90,6 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        if Lessons.count > 0
-//        {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "lessonCell", for: indexPath)
-//            
-//            let lesson = Lessons[indexPath.row]
-//            
-//            if let lessonCell = cell as? LessonCell {
-//                lessonCell.delegate = self
-//                lessonCell.lesson = lesson
-//            }
-//            return cell
-//        } else {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "noLessonsCell", for: indexPath)
-//            return cell
-//        }
         
         if (scheduleData?[indexPath.section].lessons?.count)! > 0
         {
@@ -228,6 +134,11 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate {
         if segue.identifier == "fromScheduleToMap" {
             let vc = segue.destination as! MapViewController
             vc.address = "kirpichnaya 33"
+        } else if segue.identifier == "From schedule to set interval" {
+            let destinationNavigationController = segue.destination as! UINavigationController
+            let targetController = destinationNavigationController.topViewController as! ChooseIntervalTableViewController
+            targetController.intervalStart = dateStart
+            targetController.intervalEnd = dateEnd
         }
     }
     

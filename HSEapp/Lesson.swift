@@ -8,26 +8,6 @@
 
 import Foundation
 
-enum LessonType{
-    case Lesson
-    case Seminar
-    case PracticaLesson
-    case ResearchProject
-    
-    var desc: String{
-        switch self {
-        case .Lesson:
-            return "Лекция"
-        case .Seminar:
-            return "Семинар"
-        case .PracticaLesson:
-            return "Практическое занятие"
-        case .ResearchProject:
-            return "Научно-исследовательский семинар"
-        }
-    }
-}
-
 let dayOfWeek: [Int: String] = [
     1: "Понедельник",
     2: "Вторник",
