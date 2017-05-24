@@ -28,6 +28,12 @@ extension UIApplication {
     }
 }
 
+extension Date {
+    func dayNumberOfWeek() -> Int? {
+        return Calendar.current.dateComponents([.weekday], from: self).weekday
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -49,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: StatusBar
         UIApplication.shared.statusBarView?.backgroundColor = hseColor
         UIApplication.shared.statusBarStyle = .lightContent
-        
         
         return true
     }
@@ -75,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
     
 }
 

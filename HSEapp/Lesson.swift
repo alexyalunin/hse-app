@@ -8,19 +8,9 @@
 
 import Foundation
 
-let dayOfWeek: [Int: String] = [
-    1: "Понедельник",
-    2: "Вторник",
-    3: "Среда",
-    4: "Четверг",
-    5: "Пятница",
-    6: "Суббота",
-    7: "Воскресенье",
-]
-
 class Lesson{
     
-    var date: String
+    var date: Date
     var dayOfWeek: Int
     var startTime: String
     var endTime: String
@@ -30,7 +20,7 @@ class Lesson{
     var address: String
     var lectureRoom: String
     
-    init(date:String, dayOfWeek: Int, startTime: String, endTime: String, type: String, discipline: String, lecturer: String, address: String, lectureRoom: String) {
+    init(date: Date, dayOfWeek: Int, startTime: String, endTime: String, type: String, discipline: String, lecturer: String, address: String, lectureRoom: String) {
         self.date = date
         self.dayOfWeek = dayOfWeek
         self.startTime = startTime

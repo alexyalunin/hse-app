@@ -8,31 +8,47 @@
 
 import Foundation
 
-var scheduleData: [Day]?
+public protocol LessonDataDelegate: class {
+    func lessonsDidLoad(lessons: NSArray)
+}
+
 
 class ScheduleModel {
     
-    private var lessons = [Lesson]()
+    weak var delegate: LessonDataDelegate!
     
-    func getSchedule(from: Date, to: Date, with _email: String) {
+    func getSchedule(fromDate: Date, toDate: Date, lessons: [Lesson]) -> [Day] {
+        var localLessons:[Lesson] = lessons
+        var date = fromDate
+        var days: [Day] = []
         
-        let lessons: [Lesson] = getLessons(from: from, to: to, with: _email)
-        let days: [Day] = getDays(from: lessons)
-        print(days.count)
-        print(lessons.count)
-        scheduleData = days
+        while date <= toDate {
+            if date.dayNumberOfWeek() != 1 {
+                var dayLessons: [Lesson] = []
+                for lesson in localLessons {
+                    if Calendar.current.compare(lesson.date, to: date, toGranularity: .day) == .orderedSame {
+                        dayLessons.append(lesson)
+                        localLessons.remove(at: 0)
+                    } else {
+                        break
+                    }
+                }
+                let day = Day(date: date, lessons: dayLessons)
+                days.append(day)
+            }
+            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+        }
         
-        // MARK: Change this
-        self.lessons = []
-        
+        return days
     }
     
-    private func getLessons(from: Date, to: Date, with email: String) -> [Lesson] {
+    func getLessons(fromDate: Date, toDate: Date, with email: String){
+        var lessons: [Lesson] = []
         
-        let fromDate = convertDateToMakeRequest(date: from)
-        let toDate = convertDateToMakeRequest(date: to)
+        let dateStart = ScheduleModel.convertDateToMakeRequest(date: fromDate)
+        let dateEnd = ScheduleModel.convertDateToMakeRequest(date: toDate)
         
-        let url = "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=\(fromDate)&todate=\(toDate)&email=\(email)"
+        let url = "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=\(dateStart)&todate=\(dateEnd)&email=\(email)"
         
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
@@ -52,7 +68,7 @@ class ScheduleModel {
                     
                     if let lessonsFromJSON = myJSON["Lessons"] as? [[String: Any]]{
                         for lesson in lessonsFromJSON {
-                            let date = lesson["date"] as? String
+                            let date = ScheduleModel.convertStringToDate(stringDate: lesson["date"] as! String) as Date
                             let dayOfWeek = lesson["dayOfWeek"] as? Int
                             let startTime = lesson["beginLesson"] as? String
                             let endTime = lesson["endLesson"] as? String
@@ -62,72 +78,26 @@ class ScheduleModel {
                             let address = lesson["building"] as? String
                             let lectureRoom = lesson["auditorium"] as? String
                             
-                            let initLesson = Lesson(date: date!, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
-                            self.lessons.append(initLesson)
+                            let initLesson = Lesson(date: date, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
+                            lessons.append(initLesson)
                         }
                     }
-                    
                     
                 }
                 catch
                 {
-                    
+                    print("ERROR2")
                 }
-//                OperationQueue.main.addOperation({
-//                    self.tableView.reloadData()
-//                })
+                OperationQueue.main.addOperation({
+                    self.delegate.lessonsDidLoad(lessons: lessons as NSArray)
+                })
             }
         }
         task.resume()
-        
-        return lessons
     }
-
-    private func getDays(from lessons:[Lesson]) -> [Day] {
-        
-        var thisDate: String?
-        var lastDate: String?
-        var lessonsForDay: [Lesson] = []
-        var days: [Day] = []
-        
-        func addDay() {
-            let day = Day(date: lastDate!, lessons: lessonsForDay)
-            days.append(day)
-        }
-        
-        if !lessons.isEmpty{
-            for lesson in lessons {
-                thisDate = lesson.date
-                
-                if lessonsForDay.isEmpty {
-                    lessonsForDay.append(lesson)
-                } else if thisDate == lastDate {
-                    lessonsForDay.append(lesson)
-                } else {
-                    addDay()
-                    lessonsForDay = [lesson]
-                }
-                lastDate = thisDate
-            }
-            
-            if !lessonsForDay.isEmpty{
-                addDay()
-            }
-        }
-        
-        return days
-    }
-
-    func convertDateToMakeRequest(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM.dd.yyyy"
-        let result = formatter.string(from: date)
-        return result
-    }
-        
+    
     func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
         DispatchQueue.global(qos: .default).async() {
-            print("refreshing")
             sleep(1)
             DispatchQueue.main.async() {
                 refreshEnd(0)
@@ -135,17 +105,23 @@ class ScheduleModel {
         }
     }
     
-    func getCurrentDate() -> String {
+    static func convertDateToMakeRequest(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM.dd.yyyy"
+        return formatter.string(from: date)
+    }
+    
+    static func convertStringToDate(stringDate: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.date(from: stringDate)!
+    }
+    
+    static func getCurrentDate() -> String {
         let currentDateTime = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy, HH:mm"
         return formatter.string(from: currentDateTime)
     }
-    
-//    func getDate(){
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "MM.dd.yyyy"
-//        let someDateTime = formatter.date(from: "05.22.2017")
-//    }
     
 }
