@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonDataDelegate {
 
+    
+    var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    
+    
+    
+    
+    
+    
     private var sm = ScheduleModel()
     
-    private var scheduleData: [Day] = []
+    private var scheduleData: [Entities.Day] = []
     
     public var dateStart: Date = today
     public var dateEnd: Date   = inSevenDays
@@ -73,22 +82,31 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     func lessonsDidLoad(lessons: NSArray) {
         if previousWeekButtonDidPress {
-            var newScheduleData = sm.getSchedule(fromDate: dateStart, toDate: _dateEnd!, lessons: lessons as! [Lesson])
+            var newScheduleData = sm.getSchedule(fromDate: dateStart, toDate: _dateEnd!, lessons: lessons as! [Entities.Lesson])
             newScheduleData.append(contentsOf: scheduleData)
             scheduleData = newScheduleData
             previousWeekButtonDidPress = false
             
         } else if nextWeekButtonDidPress {
-            let newScheduleData = sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd, lessons: lessons as! [Lesson])
+            let newScheduleData = sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd, lessons: lessons as! [Entities.Lesson])
             scheduleData.append(contentsOf: newScheduleData)
             nextWeekButtonDidPress = true
             
         } else {
-            scheduleData = sm.getSchedule(fromDate: dateStart, toDate: dateEnd, lessons: lessons as! [Lesson])
+            scheduleData = sm.getSchedule(fromDate: dateStart, toDate: dateEnd, lessons: lessons as! [Entities.Lesson])
         }
         
+        updateDataBase(with: lessons as! [Entities.Lesson])
         tableView.reloadData()
         showElements()
+    }
+    
+    func updateDataBase(with lessons: [Entities.Lesson]) {
+        container?.performBackgroundTask({ context in
+            for lessonsInfo in lessons {
+                // add lesson
+            }
+        })
     }
     
     // MARK: - Functions

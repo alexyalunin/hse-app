@@ -16,7 +16,7 @@ class LessonCell: UITableViewCell {
     
     var delegate: LessonCellDelegate!
     
-    var lesson: Lesson? { didSet { updateUI() } }
+    var lesson: Entities.Lesson? { didSet { updateUI() } }
 
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!

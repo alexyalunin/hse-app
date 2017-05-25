@@ -8,8 +8,12 @@
 
 import Foundation
 
-let today = Date()
-let inSevenDays = Date(timeInterval: 518400, since: Date())
+var today: Date {
+    return Date()
+}
+var inSevenDays: Date {
+    return Date(timeInterval: 518400, since: Date())
+}
 
 var email: String = "aayalunin@edu.hse.ru"
 
@@ -23,14 +27,14 @@ class ScheduleModel {
     
     weak var delegate: LessonDataDelegate!
     
-    func getSchedule(fromDate: Date, toDate: Date, lessons: [Lesson]) -> [Day] {
-        var localLessons: [Lesson] = lessons
+    func getSchedule(fromDate: Date, toDate: Date, lessons: [Entities.Lesson]) -> [Entities.Day] {
+        var localLessons: [Entities.Lesson] = lessons
         var date = fromDate
-        var days: [Day] = []
+        var days: [Entities.Day] = []
         
         while date <= toDate {
             if date.dayNumberOfWeek() != 1 {
-                var dayLessons: [Lesson] = []
+                var dayLessons: [Entities.Lesson] = []
                 for lesson in localLessons {
                     if Calendar.current.compare(lesson.date, to: date, toGranularity: .day) == .orderedSame {
                         dayLessons.append(lesson)
@@ -39,7 +43,7 @@ class ScheduleModel {
                         break
                     }
                 }
-                let day = Day(date: date, lessons: dayLessons)
+                let day = Entities.Day(date: date, lessons: dayLessons)
                 days.append(day)
             }
             date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
@@ -49,7 +53,7 @@ class ScheduleModel {
     }
     
     func getLessons(fromDate: Date, toDate: Date){
-        var lessons: [Lesson] = []
+        var lessons: [Entities.Lesson] = []
         
         let dateStart = fromDate.convertDateToMakeRequest()
         let dateEnd   = toDate.convertDateToMakeRequest()
@@ -87,7 +91,7 @@ class ScheduleModel {
                             
                             let date = dateString?.convertStringToDate(format: "yyyy.MM.dd")
                             
-                            let initLesson = Lesson(date: date!, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
+                            let initLesson = Entities.Lesson(date: date!, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
                             
                             lessons.append(initLesson)
                             print(initLesson.discipline)

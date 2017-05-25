@@ -8,14 +8,3 @@
 
 import Foundation
 
-class Day{
-    
-    var date: Date
-    var lessons: [Lesson]
-    
-    init(date: Date, lessons: [Lesson]) {
-        self.date = date
-        self.lessons = lessons
-    }
-    
-}

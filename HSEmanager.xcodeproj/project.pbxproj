@@ -40,6 +40,8 @@
 		11D6A0B71E55FC9A00AE7AAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6A0B61E55FC9A00AE7AAB /* SettingsTableViewController.swift */; };
 		11EAA1D31E38D3FA004BB846 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EAA1D21E38D3FA004BB846 /* MainButton.swift */; };
 		11F439301E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4392F1E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift */; };
+		11FBAA381ED7093500401489 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */; };
+		11FBAA3A1ED71A2D00401489 /* LessonCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FBAA391ED71A2D00401489 /* LessonCD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		11D6A0B61E55FC9A00AE7AAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		11EAA1D21E38D3FA004BB846 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		11F4392F1E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAndEmailTableViewController.swift; sourceTree = "<group>"; };
+		11FBAA371ED7093500401489 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		11FBAA391ED71A2D00401489 /* LessonCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,8 @@
 		1168A88D1E34CEF000A28865 /* HSEapp */ = {
 			isa = PBXGroup;
 			children = (
+				11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */,
+				11FBAA391ED71A2D00401489 /* LessonCD.swift */,
 				1168A8941E34CEF000A28865 /* Main.storyboard */,
 				114940AC1E37BEE800EADF6F /* Auth */,
 				11C2E3EE1E3BF8FB00D5B717 /* Schedule */,
@@ -398,8 +404,10 @@
 				11C2E3FA1E3CFDCB00D5B717 /* PieceOfNews.swift in Sources */,
 				1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */,
 				11EAA1D31E38D3FA004BB846 /* MainButton.swift in Sources */,
+				11FBAA3A1ED71A2D00401489 /* LessonCD.swift in Sources */,
 				1112E9321E369F4800BC70A3 /* MainTextField.swift in Sources */,
 				11490A6C1ECEE8A6006AF094 /* ScheduleModel.swift in Sources */,
+				11FBAA381ED7093500401489 /* DataModel.xcdatamodeld in Sources */,
 				11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */,
 				11BBD9281E5772AD003C13E6 /* ApplicationInfoViewController.swift in Sources */,
 				1146BB711E42624A0077D419 /* Lesson.swift in Sources */,
@@ -578,6 +586,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				11FBAA371ED7093500401489 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 11FBAA371ED7093500401489 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1168A8831E34CEF000A28865 /* Project object */;
 }
