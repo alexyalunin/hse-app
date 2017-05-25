@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Day{
+class Day {
     
     var date: Date
     var lessons: [Lesson]
@@ -17,5 +17,4 @@ class Day{
         self.date = date
         self.lessons = lessons
     }
-    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Lesson{
+class Lesson {
     
     var date: Date
     var dayOfWeek: Int
