@@ -18,7 +18,7 @@ enum keyType:Int{
         case .Default:
             return ""
         case .Email:
-            return "Корпоративная почта"
+            return "Введите корпоративную почту"
         case .Password:
             return "Пароль"
         }
@@ -52,22 +52,16 @@ class MainTextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        mTFsetup()
+        setUp()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        mTFsetup()
+        setUp()
     }
     
-    func mTFsetup(){
-        borderStyle = UITextBorderStyle.line
-        layer.cornerRadius = 5
-        layer.borderColor = hseColor.cgColor
-        layer.borderWidth = 1
-        frame.size.height = 48
-
-        let padding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.size.height))
+    func setUp(){
+        let padding = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.size.height))
         self.leftView = padding
         self.leftViewMode = UITextFieldViewMode.always
     }

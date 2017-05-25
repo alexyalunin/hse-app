@@ -68,6 +68,18 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
             navigationController.followScrollView(tableView, delay: 50.0)
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDefaults.standard.bool(forKey: "hasEnteredEmail") {
+            return
+        }
+        if let authVC =
+            storyboard?.instantiateViewController(withIdentifier: "AuthViewController")
+                as? AuthViewController {
+            present(authVC, animated: true, completion: nil)
+        }
+    }
 
     // MARK: - LessonDataDelegate
     
@@ -165,7 +177,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     @IBAction func setScheduleInterval(from segue: UIStoryboardSegue) {
         
         if let sourceController = segue.source as? ChooseIntervalTableViewController {
-            // TODO: - It is possible not to just clean all data and load new one, but to compare the dates, make a request with the interval which is outside of the interval of the data and append/insert new data to the existing one
+            // TODO: - It is possible instead of cleaning all data and loading new one, to compare the dates, make a request with the interval which is outside of the interval of the data and append/insert new data to the existing one
             if (Calendar.current.compare(dateStart, to: sourceController.intervalStart, toGranularity: .day) != .orderedSame) || (Calendar.current.compare(dateEnd, to: sourceController.intervalEnd, toGranularity: .day) != .orderedSame) {
                 
                 setUpForViewIsLoading()

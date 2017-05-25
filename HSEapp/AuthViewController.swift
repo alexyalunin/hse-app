@@ -9,16 +9,18 @@
 import UIKit
 @IBDesignable
 class AuthViewController: UIViewController {
-    
-    @IBOutlet weak var mailField: MainTextField!
-    @IBOutlet weak var passwordField: MainTextField!
-    @IBOutlet weak var mainButton: MainButton!
-    @IBOutlet weak var helpButton: HelpButton!
-    
+
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var emailTextField: MainTextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        mailField.type = .Email
-        passwordField.type = .Password
-        mailField.becomeFirstResponder()
+        emailTextField.type = .Email
+        emailTextField.becomeFirstResponder()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        email = emailTextField.text!
+        UserDefaults.standard.set(true, forKey: "hasEnteredEmail")
     }
 }

@@ -8,10 +8,12 @@
 
 import Foundation
 
-let today = Date()
-let inSevenDays = Date(timeInterval: 518400, since: Date())
-
-var email: String = "aayalunin@edu.hse.ru"
+var today: Date {
+    return Date()
+}
+var inSevenDays: Date {
+    return Date(timeInterval: 518400, since: Date())
+}
 
 
 public protocol LessonDataDelegate: class {
@@ -53,9 +55,8 @@ class ScheduleModel {
         
         let dateStart = fromDate.convertDateToMakeRequest()
         let dateEnd   = toDate.convertDateToMakeRequest()
-        print(dateStart)
-        print(dateEnd)
-        let url = "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=\(dateStart)&todate=\(dateEnd)&email=\(email)"
+        
+        let url = "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=\(dateStart)&todate=\(dateEnd)&email=\(email ?? "")"
         
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
