@@ -34,7 +34,7 @@
                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="previousWeek:" destination="ipK-2a-0Us" eventType="touchUpInside" id="KtZ-vo-xtU"/>
+                                        <action selector="previousWeekButtonDidPress:" destination="ipK-2a-0Us" eventType="touchUpInside" id="JzG-kE-5mK"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Последнее обновление: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fD-aq-cbm">
@@ -81,7 +81,7 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="nextWeek:" destination="ipK-2a-0Us" eventType="touchUpInside" id="yiV-Gf-rjE"/>
+                                        <action selector="nextWeekButtonDidPress:" destination="ipK-2a-0Us" eventType="touchUpInside" id="hkq-kO-pyQ"/>
                                     </connections>
                                 </button>
                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7qG-ES-hVj">
@@ -107,7 +107,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="lessonCell" rowHeight="112" id="WYS-ku-IVE" customClass="LessonCell" customModule="HSEmanager" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="140.5" width="375" height="112"/>
+                                <rect key="frame" x="0.0" y="141" width="375" height="112"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WYS-ku-IVE" id="ZXr-AJ-fcP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
@@ -209,7 +209,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="noLessonsCell" rowHeight="45" id="lr5-Dz-kE2">
-                                <rect key="frame" x="0.0" y="252.5" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="253" width="375" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lr5-Dz-kE2" id="ZqS-dn-obH">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -243,14 +243,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="5VD-aU-FQp" id="yEq-ql-9JL"/>
                         <outlet property="bottomActivityIndicator" destination="7qG-ES-hVj" id="bTx-Yy-9bm"/>
                         <outlet property="bottomNoScheduleLabel" destination="D2j-jA-cg4" id="97K-NN-Iy6"/>
                         <outlet property="lastUpdateLabel" destination="0fD-aq-cbm" id="x6m-9R-kIm"/>
                         <outlet property="nextWeekButton" destination="o6i-Qw-qo1" id="RtW-c4-RTx"/>
-                        <outlet property="noScheduleLabel" destination="kgl-Rj-1u3" id="1do-8f-XkO"/>
                         <outlet property="previousWeekButton" destination="ylB-Jf-9lz" id="FNZ-O9-ca9"/>
-                        <segue destination="415-Wn-kz7" kind="showDetail" identifier="fromScheduleToMap" action="showViewController:sender:" id="dRD-RO-Klj"/>
+                        <outlet property="topActivityIndicator" destination="5VD-aU-FQp" id="kng-uO-o4M"/>
+                        <outlet property="topNoScheduleLabel" destination="kgl-Rj-1u3" id="90h-jo-SUk"/>
+                        <segue destination="415-Wn-kz7" kind="showDetail" identifier="From schedule to map" action="showViewController:sender:" id="dRD-RO-Klj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YzW-v5-QQL" userLabel="First Responder" sceneMemberID="firstResponder"/>

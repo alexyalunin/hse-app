@@ -17,7 +17,6 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("address: "+address)
         
         // Initial location
         let initialLocation = CLLocation(latitude: 55.7522200, longitude: 37.6155600)
@@ -45,7 +44,7 @@ class MapViewController: UIViewController {
                 // Add annotation
                 let annotation = MKPointAnnotation()
                 annotation.title = self.address
-                annotation.subtitle = self.address
+                // annotation.subtitle = self.address
                 if let location = placemark.location {
                     annotation.coordinate = location.coordinate
                     // Display the annotation

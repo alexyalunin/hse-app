@@ -26,13 +26,13 @@ class LessonCell: UITableViewCell {
     @IBOutlet weak var addressButton: UIButton!
 
     @IBAction func addressButtonDidTouch(_ sender: Any) {
-        let mydata = "Волоколамское шоссе 15/22"
+        let mydata = lesson?.address
         if (self.delegate != nil) {
             self.delegate.callSegueFromCell(data: mydata as AnyObject)
         }
     }
 
-    func updateUI() {
+    private func updateUI() {
         startTimeLabel?.text = lesson?.startTime
         endTimeLabel?.text = lesson?.endTime
         lessonTypeLabel?.text = lesson?.type

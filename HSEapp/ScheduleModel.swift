@@ -8,6 +8,12 @@
 
 import Foundation
 
+let today = Date()
+let inSevenDays = Date(timeInterval: 518400, since: Date())
+
+var email: String = "aayalunin@edu.hse.ru"
+
+
 public protocol LessonDataDelegate: class {
     func lessonsDidLoad(lessons: NSArray)
 }
@@ -18,7 +24,7 @@ class ScheduleModel {
     weak var delegate: LessonDataDelegate!
     
     func getSchedule(fromDate: Date, toDate: Date, lessons: [Lesson]) -> [Day] {
-        var localLessons:[Lesson] = lessons
+        var localLessons: [Lesson] = lessons
         var date = fromDate
         var days: [Day] = []
         
@@ -42,12 +48,13 @@ class ScheduleModel {
         return days
     }
     
-    func getLessons(fromDate: Date, toDate: Date, with email: String){
+    func getLessons(fromDate: Date, toDate: Date){
         var lessons: [Lesson] = []
         
-        let dateStart = ScheduleModel.convertDateToMakeRequest(date: fromDate)
-        let dateEnd = ScheduleModel.convertDateToMakeRequest(date: toDate)
-        
+        let dateStart = fromDate.convertDateToMakeRequest()
+        let dateEnd   = toDate.convertDateToMakeRequest()
+        print(dateStart)
+        print(dateEnd)
         let url = "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=\(dateStart)&todate=\(dateEnd)&email=\(email)"
         
         var request = URLRequest(url: URL(string: url)!)
@@ -68,29 +75,32 @@ class ScheduleModel {
                     
                     if let lessonsFromJSON = myJSON["Lessons"] as? [[String: Any]]{
                         for lesson in lessonsFromJSON {
-                            let date = ScheduleModel.convertStringToDate(stringDate: lesson["date"] as! String) as Date
-                            let dayOfWeek = lesson["dayOfWeek"] as? Int
-                            let startTime = lesson["beginLesson"] as? String
-                            let endTime = lesson["endLesson"] as? String
-                            let type = lesson["kindOfWork"] as? String
-                            let discipline = lesson["discipline"] as? String
-                            let lecturer = lesson["lecturer"] as? String
-                            let address = lesson["building"] as? String
+                            let dateString  = lesson["date"] as? String
+                            let dayOfWeek   = lesson["dayOfWeek"] as? Int
+                            let startTime   = lesson["beginLesson"] as? String
+                            let endTime     = lesson["endLesson"] as? String
+                            let type        = lesson["kindOfWork"] as? String
+                            let discipline  = lesson["discipline"] as? String
+                            let lecturer    = lesson["lecturer"] as? String
+                            let address     = lesson["building"] as? String
                             let lectureRoom = lesson["auditorium"] as? String
                             
-                            let initLesson = Lesson(date: date, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
+                            let date = dateString?.convertStringToDate(format: "yyyy.MM.dd")
+                            
+                            let initLesson = Lesson(date: date!, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
+                            
                             lessons.append(initLesson)
+                            print(initLesson.discipline)
                         }
                     }
-                    
+                    OperationQueue.main.addOperation({
+                        self.delegate.lessonsDidLoad(lessons: lessons as NSArray)
+                    })
                 }
                 catch
                 {
-                    print("ERROR2")
+                    print("ERROR_2")
                 }
-                OperationQueue.main.addOperation({
-                    self.delegate.lessonsDidLoad(lessons: lessons as NSArray)
-                })
             }
         }
         task.resume()
@@ -104,24 +114,56 @@ class ScheduleModel {
             }
         }
     }
-    
-    static func convertDateToMakeRequest(date: Date) -> String {
+}
+
+
+func getCurrentDateTime() -> String {
+    let currentDateTime = Date()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd.MM.yyyy, HH:mm"
+    return formatter.string(from: currentDateTime)
+}
+
+extension String {
+    func convertStringToDate(format: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: self)!
+    }
+}
+
+extension Date {
+    func convertDateToMakeRequest() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM.dd.yyyy"
-        return formatter.string(from: date)
+        return formatter.string(from: self)
     }
-    
-    static func convertStringToDate(stringDate: String) -> Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
-        return formatter.date(from: stringDate)!
-    }
-    
-    static func getCurrentDate() -> String {
-        let currentDateTime = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy, HH:mm"
-        return formatter.string(from: currentDateTime)
-    }
-    
 }
+
+extension Date {
+    func dayNumberOfWeek() -> Int {
+        return Calendar.current.dateComponents([.weekday], from: self).weekday!
+    }
+    func dayOfWeek() -> String {
+        let day = Calendar.current.dateComponents([.weekday], from: self).weekday!
+        switch day {
+            case 2:
+                return "Понедельник"
+            case 3:
+                return "Вторник"
+            case 4:
+                return "Среда"
+            case 5:
+                return "Четверг"
+            case 6:
+                return "Пятница"
+            case 7:
+                return "Суббота"
+            case 1:
+                return "Воскресенье"
+            default:
+                return ""
+        }
+    }
+}
+

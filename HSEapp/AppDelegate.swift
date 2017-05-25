@@ -12,27 +12,12 @@ var hseColor = UIColor(red: 0/255.0, green: 71/255.0, blue: 136/255.0, alpha: 1.
 var hseColorPassive = UIColor.black.withAlphaComponent(0.5)
 var headerColor = UIColor(red: 216/255.0, green: 216/255.0, blue: 216/255.0, alpha: 1.0)
 
-var today: Date {
-    return Date()
-}
-
-var inSevenDays: Date {
-    return Date(timeInterval: 518400, since: Date())
-}
-
-var email = "aayalunin@edu.hse.ru"
-
 extension UIApplication {
     var statusBarView: UIView? {
         return value(forKey: "statusBar") as? UIView
     }
 }
 
-extension Date {
-    func dayNumberOfWeek() -> Int? {
-        return Calendar.current.dateComponents([.weekday], from: self).weekday
-    }
-}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

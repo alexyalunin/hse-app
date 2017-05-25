@@ -9,17 +9,10 @@
 import UIKit
 import MessageUI
 
-
 class ApplicationInfoViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
     }
     
     @IBAction func contactWithDevelopers(_ sender: Any) {
@@ -35,12 +28,11 @@ class ApplicationInfoViewController: UIViewController, MFMailComposeViewControll
         let appId = "1000814818"
         let url_string = "itms-apps://itunes.apple.com/app/id\(appId)"
         if let url = URL(string: url_string) {
-            //UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 
-    func mailComposeController(_ controller: MFMailComposeViewController,
-                               didFinishWith result: MFMailComposeResult, error: Error?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         switch result.rawValue {
         case MFMailComposeResult.cancelled.rawValue:
             print("Mail cancelled")
