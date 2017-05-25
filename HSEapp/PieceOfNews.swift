@@ -10,10 +10,10 @@ import Foundation
 
 class PieceOfNews{
     
-    var title: String?
+    var title: String
     var descriptionText: String?
     
-    init(title:String, descriptionText:String) {
+    init(title:String, descriptionText:String?) {
         self.title = title
         self.descriptionText = descriptionText
     }

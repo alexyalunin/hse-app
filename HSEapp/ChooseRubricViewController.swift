@@ -31,6 +31,7 @@ class ChooseRubricViewController: UITableViewController {
         coursePickerCell.titleLabel.text = "Курс"
         categoryPickerCell.array = categories
         categoryPickerCell.titleLabel.text = "Рубрика"
+        
     }
     
     

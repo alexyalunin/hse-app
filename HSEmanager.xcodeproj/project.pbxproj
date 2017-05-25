@@ -11,16 +11,18 @@
 		111A27D11E40B6D500E544EB /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A27D01E40B6D500E544EB /* Worker.swift */; };
 		111A27D31E40C0C200E544EB /* WorkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A27D21E40C0C200E544EB /* WorkerManager.swift */; };
 		111E53B71E49EA000071DDE4 /* ChooseRubricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111E53B61E49EA000071DDE4 /* ChooseRubricViewController.swift */; };
+		1126D20C1EB9E63000EB7269 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126D20B1EB9E63000EB7269 /* MapViewController.swift */; };
+		1126D2111EB9E65800EB7269 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1126D2101EB9E65800EB7269 /* MapKit.framework */; };
 		1146BB671E41E9710077D419 /* OneContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB661E41E9710077D419 /* OneContactViewController.swift */; };
 		1146BB6F1E425B0E0077D419 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB6E1E425B0E0077D419 /* SecondaryButton.swift */; };
 		1146BB711E42624A0077D419 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB701E42624A0077D419 /* Lesson.swift */; };
 		1146BB731E42695D0077D419 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB721E42695D0077D419 /* Day.swift */; };
-		1146BB751E4272810077D419 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB741E4272810077D419 /* Week.swift */; };
-		1146BB771E42734B0077D419 /* LessonsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB761E42734B0077D419 /* LessonsManager.swift */; };
 		1146BB791E4348BD0077D419 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB781E4348BD0077D419 /* LessonCell.swift */; };
-		1146BB7D1E43E9F60077D419 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB7C1E43E9F60077D419 /* MainTabBarController.swift */; };
-		1146BB811E45EBC70077D419 /* ChooseWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB801E45EBC70077D419 /* ChooseWeekTableViewController.swift */; };
+		1146BB811E45EBC70077D419 /* ChooseIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB801E45EBC70077D419 /* ChooseIntervalTableViewController.swift */; };
 		1146BB831E462E8F0077D419 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB821E462E8F0077D419 /* TimePickerCell.swift */; };
+		11490A681ECE1D87006AF094 /* ScrollingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A671ECE1D87006AF094 /* ScrollingNavigationController.swift */; };
+		11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */; };
+		11490A6C1ECEE8A6006AF094 /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */; };
 		1168A88F1E34CEF000A28865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A88E1E34CEF000A28865 /* AppDelegate.swift */; };
 		1168A8911E34CEF000A28865 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A8901E34CEF000A28865 /* ScheduleViewController.swift */; };
 		1168A8931E34CEF000A28865 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A8921E34CEF000A28865 /* NewsViewController.swift */; };
@@ -29,8 +31,6 @@
 		1168A89B1E34CEF000A28865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1168A8991E34CEF000A28865 /* LaunchScreen.storyboard */; };
 		1168A8A81E34EC9500A28865 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A8A71E34EC9500A28865 /* ContactsViewController.swift */; };
 		1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181400B1E36B0A0006071CE /* AuthViewController.swift */; };
-		118235461E64A76200698122 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118235451E64A76200698122 /* SwiftyJSON.swift */; };
-		1182354A1E64A7C100698122 /* scheduleDataJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118235491E64A7C100698122 /* scheduleDataJSON.swift */; };
 		11B21FBD1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B21FBC1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift */; };
 		11BBD9281E5772AD003C13E6 /* ApplicationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BBD9271E5772AD003C13E6 /* ApplicationInfoViewController.swift */; };
 		11C2E3F81E3CFD4000D5B717 /* NewsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2E3F71E3CFD4000D5B717 /* NewsSection.swift */; };
@@ -47,16 +47,18 @@
 		111A27D01E40B6D500E544EB /* Worker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		111A27D21E40C0C200E544EB /* WorkerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerManager.swift; sourceTree = "<group>"; };
 		111E53B61E49EA000071DDE4 /* ChooseRubricViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRubricViewController.swift; sourceTree = "<group>"; };
+		1126D20B1EB9E63000EB7269 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		1126D2101EB9E65800EB7269 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1146BB661E41E9710077D419 /* OneContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneContactViewController.swift; sourceTree = "<group>"; };
 		1146BB6E1E425B0E0077D419 /* SecondaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		1146BB701E42624A0077D419 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		1146BB721E42695D0077D419 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		1146BB741E4272810077D419 /* Week.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
-		1146BB761E42734B0077D419 /* LessonsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsManager.swift; sourceTree = "<group>"; };
 		1146BB781E4348BD0077D419 /* LessonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
-		1146BB7C1E43E9F60077D419 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		1146BB801E45EBC70077D419 /* ChooseWeekTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseWeekTableViewController.swift; sourceTree = "<group>"; };
+		1146BB801E45EBC70077D419 /* ChooseIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseIntervalTableViewController.swift; sourceTree = "<group>"; };
 		1146BB821E462E8F0077D419 /* TimePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
+		11490A671ECE1D87006AF094 /* ScrollingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingNavigationController.swift; sourceTree = "<group>"; };
+		11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScrollingNavbar+Sizes.swift"; sourceTree = "<group>"; };
+		11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
 		1168A88B1E34CEF000A28865 /* HSEmanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSEmanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1168A88E1E34CEF000A28865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1168A8901E34CEF000A28865 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -67,8 +69,6 @@
 		1168A89C1E34CEF000A28865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1168A8A71E34EC9500A28865 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		1181400B1E36B0A0006071CE /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		118235451E64A76200698122 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		118235491E64A7C100698122 /* scheduleDataJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scheduleDataJSON.swift; sourceTree = "<group>"; };
 		11B21FBC1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithDetailBlueText.swift; sourceTree = "<group>"; };
 		11BBD9271E5772AD003C13E6 /* ApplicationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoViewController.swift; sourceTree = "<group>"; };
 		11C2E3F71E3CFD4000D5B717 /* NewsSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsSection.swift; sourceTree = "<group>"; };
@@ -85,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1126D2111EB9E65800EB7269 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,11 +111,19 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		1126D20D1EB9E65500EB7269 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1126D2101EB9E65800EB7269 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1146BB681E425A2D0077D419 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				1168A8901E34CEF000A28865 /* ScheduleViewController.swift */,
-				1146BB801E45EBC70077D419 /* ChooseWeekTableViewController.swift */,
+				1146BB801E45EBC70077D419 /* ChooseIntervalTableViewController.swift */,
 				1146BB781E4348BD0077D419 /* LessonCell.swift */,
 				1146BB821E462E8F0077D419 /* TimePickerCell.swift */,
 			);
@@ -126,9 +135,7 @@
 			children = (
 				1146BB701E42624A0077D419 /* Lesson.swift */,
 				1146BB721E42695D0077D419 /* Day.swift */,
-				1146BB741E4272810077D419 /* Week.swift */,
-				1146BB761E42734B0077D419 /* LessonsManager.swift */,
-				118235491E64A7C100698122 /* scheduleDataJSON.swift */,
+				11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 			children = (
 				1168A88D1E34CEF000A28865 /* HSEapp */,
 				1168A88C1E34CEF000A28865 /* Products */,
+				1126D20D1EB9E65500EB7269 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,8 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				1168A8941E34CEF000A28865 /* Main.storyboard */,
-				118235451E64A76200698122 /* SwiftyJSON.swift */,
-				11EB41A71E522AC400F18CB6 /* Tab Bar Controller */,
 				114940AC1E37BEE800EADF6F /* Auth */,
 				11C2E3EE1E3BF8FB00D5B717 /* Schedule */,
 				11C2E3EF1E3BF91100D5B717 /* News */,
@@ -214,6 +220,8 @@
 				1168A8971E34CEF000A28865 /* Assets.xcassets */,
 				1168A8991E34CEF000A28865 /* LaunchScreen.storyboard */,
 				1168A89C1E34CEF000A28865 /* Info.plist */,
+				11490A671ECE1D87006AF094 /* ScrollingNavigationController.swift */,
+				11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 			children = (
 				11D6A0B61E55FC9A00AE7AAB /* SettingsTableViewController.swift */,
 				11BBD9271E5772AD003C13E6 /* ApplicationInfoViewController.swift */,
+				1126D20B1EB9E63000EB7269 /* MapViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -290,14 +299,6 @@
 			children = (
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		11EB41A71E522AC400F18CB6 /* Tab Bar Controller */ = {
-			isa = PBXGroup;
-			children = (
-				1146BB7C1E43E9F60077D419 /* MainTabBarController.swift */,
-			);
-			name = "Tab Bar Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +335,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = ACQW3TZC33;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -373,10 +379,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1126D20C1EB9E63000EB7269 /* MapViewController.swift in Sources */,
+				11490A681ECE1D87006AF094 /* ScrollingNavigationController.swift in Sources */,
 				1168A8931E34CEF000A28865 /* NewsViewController.swift in Sources */,
 				1168A88F1E34CEF000A28865 /* AppDelegate.swift in Sources */,
-				1146BB7D1E43E9F60077D419 /* MainTabBarController.swift in Sources */,
-				1146BB751E4272810077D419 /* Week.swift in Sources */,
 				1168A8A81E34EC9500A28865 /* ContactsViewController.swift in Sources */,
 				11C2E3F81E3CFD4000D5B717 /* NewsSection.swift in Sources */,
 				11F439301E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift in Sources */,
@@ -386,21 +392,20 @@
 				11B21FBD1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift in Sources */,
 				11D430DA1E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift in Sources */,
 				1146BB671E41E9710077D419 /* OneContactViewController.swift in Sources */,
-				1146BB811E45EBC70077D419 /* ChooseWeekTableViewController.swift in Sources */,
+				1146BB811E45EBC70077D419 /* ChooseIntervalTableViewController.swift in Sources */,
 				1146BB831E462E8F0077D419 /* TimePickerCell.swift in Sources */,
-				1146BB771E42734B0077D419 /* LessonsManager.swift in Sources */,
 				111A27D11E40B6D500E544EB /* Worker.swift in Sources */,
 				11C2E3FA1E3CFDCB00D5B717 /* PieceOfNews.swift in Sources */,
 				1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */,
 				11EAA1D31E38D3FA004BB846 /* MainButton.swift in Sources */,
 				1112E9321E369F4800BC70A3 /* MainTextField.swift in Sources */,
+				11490A6C1ECEE8A6006AF094 /* ScheduleModel.swift in Sources */,
+				11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */,
 				11BBD9281E5772AD003C13E6 /* ApplicationInfoViewController.swift in Sources */,
-				1182354A1E64A7C100698122 /* scheduleDataJSON.swift in Sources */,
 				1146BB711E42624A0077D419 /* Lesson.swift in Sources */,
 				1146BB731E42695D0077D419 /* Day.swift in Sources */,
 				111E53B71E49EA000071DDE4 /* ChooseRubricViewController.swift in Sources */,
 				1168A8911E34CEF000A28865 /* ScheduleViewController.swift in Sources */,
-				118235461E64A76200698122 /* SwiftyJSON.swift in Sources */,
 				111A27D31E40C0C200E544EB /* WorkerManager.swift in Sources */,
 				11D6A0B71E55FC9A00AE7AAB /* SettingsTableViewController.swift in Sources */,
 			);

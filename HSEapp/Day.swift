@@ -9,11 +9,13 @@
 import Foundation
 
 class Day{
-    var date: String
-    var lessons: [Lesson]?
     
-    init(date: String, lessons: [Lesson]?) {
+    var date: Date
+    var lessons: [Lesson]
+    
+    init(date: Date, lessons: [Lesson]) {
         self.date = date
         self.lessons = lessons
     }
+    
 }

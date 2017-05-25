@@ -8,35 +8,37 @@
 
 import UIKit
 
+protocol LessonCellDelegate {
+    func callSegueFromCell(data: AnyObject)
+}
+
 class LessonCell: UITableViewCell {
+    
+    var delegate: LessonCellDelegate!
+    
+    var lesson: Lesson? { didSet { updateUI() } }
 
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var lessonTypeLabel: UILabel!
     @IBOutlet weak var disciplineLabel: UILabel!
     @IBOutlet weak var tutorLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var addressButton: UIButton!
 
-    // Classes:
-    
-//    func setUpLessonCellWith(lesson: Lesson) {
-//        startTimeLabel?.text = lesson.startTime
-//        endTimeLabel?.text = lesson.endTime
-//        lessonTypeLabel?.text = lesson.type.desc
-//        disciplineLabel?.text = lesson.discipline
-//        tutorLabel?.text = lesson.tutor.name
-//        addressLabel?.text = lesson.address + ", " + String(describing: lesson.lectureRoom)
-//    }
-    
-    // JSON:
-    
-    func setUpLessonCellWith(lesson: JSON) {
-        startTimeLabel?.text = lesson["startTime"].string
-        endTimeLabel?.text = lesson["endTime"].string
-        lessonTypeLabel?.text = lesson["type"].string
-        disciplineLabel?.text = lesson["discipline"].string
-        tutorLabel?.text = lesson["tutor"].string
-        addressLabel?.text = lesson["address"].string! + ", " + lesson["lectureRoom"].string!
+    @IBAction func addressButtonDidTouch(_ sender: Any) {
+        let mydata = lesson?.address
+        if (self.delegate != nil) {
+            self.delegate.callSegueFromCell(data: mydata as AnyObject)
+        }
+    }
+
+    private func updateUI() {
+        startTimeLabel?.text = lesson?.startTime
+        endTimeLabel?.text = lesson?.endTime
+        lessonTypeLabel?.text = lesson?.type
+        disciplineLabel?.text = lesson?.discipline
+        tutorLabel?.text = lesson?.lecturer
+        addressButton?.setTitle((lesson?.address)! + ", " + (lesson?.lectureRoom)!, for: .normal)
     }
 
 }

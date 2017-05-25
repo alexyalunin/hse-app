@@ -10,8 +10,8 @@ import Foundation
 
 class NewsSection{
     
-    var news: [PieceOfNews]
     var date: String
+    var news: [PieceOfNews]
     
     init(news: [PieceOfNews], date: String) {
         self.news = news
