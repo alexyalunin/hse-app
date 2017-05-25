@@ -14,7 +14,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
-    
+    var fetchResultController: NSFetchedResultsController<Day>!
     
     
     
@@ -92,7 +92,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         } else if nextWeekButtonDidPress {
             newScheduleData = sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd, lessons: lessons as! [Entities.Lesson])
             // scheduleData.append(contentsOf: newScheduleData)
-            nextWeekButtonDidPress = true
+            nextWeekButtonDidPress = false
             
         } else {
             deleteAllRecords()
@@ -100,6 +100,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         }
         
         updateDataBase(with: newScheduleData)
+        
         tableView.reloadData()
         showElements()
     }
