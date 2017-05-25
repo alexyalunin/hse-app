@@ -81,32 +81,79 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     // MARK: - LessonDataDelegate
     
     func lessonsDidLoad(lessons: NSArray) {
+        var newScheduleData: [Entities.Day]
+        
         if previousWeekButtonDidPress {
-            var newScheduleData = sm.getSchedule(fromDate: dateStart, toDate: _dateEnd!, lessons: lessons as! [Entities.Lesson])
-            newScheduleData.append(contentsOf: scheduleData)
-            scheduleData = newScheduleData
+            newScheduleData = sm.getSchedule(fromDate: dateStart, toDate: _dateEnd!, lessons: lessons as! [Entities.Lesson])
+            // newScheduleData.append(contentsOf: scheduleData)
+            // scheduleData = newScheduleData
             previousWeekButtonDidPress = false
             
         } else if nextWeekButtonDidPress {
-            let newScheduleData = sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd, lessons: lessons as! [Entities.Lesson])
-            scheduleData.append(contentsOf: newScheduleData)
+            newScheduleData = sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd, lessons: lessons as! [Entities.Lesson])
+            // scheduleData.append(contentsOf: newScheduleData)
             nextWeekButtonDidPress = true
             
         } else {
-            scheduleData = sm.getSchedule(fromDate: dateStart, toDate: dateEnd, lessons: lessons as! [Entities.Lesson])
+            deleteAllRecords()
+            newScheduleData = sm.getSchedule(fromDate: dateStart, toDate: dateEnd, lessons: lessons as! [Entities.Lesson])
         }
         
-        updateDataBase(with: lessons as! [Entities.Lesson])
+        updateDataBase(with: newScheduleData)
         tableView.reloadData()
         showElements()
     }
     
-    func updateDataBase(with lessons: [Entities.Lesson]) {
-        container?.performBackgroundTask({ context in
-            for lessonsInfo in lessons {
-                // add lesson
+    // MARK: - Database
+    
+    private func updateDataBase(with scheduleData: [Entities.Day]) {
+        print("Starting database loading")
+        container?.performBackgroundTask { context in
+            for dayInfo in scheduleData {
+                let day = Day(context: context)
+                day.date = dayInfo.date as NSDate
+                for lessonInfo in dayInfo.lessons {
+                    let lesson         = Lesson(context: context)
+                    lesson.address     = lessonInfo.address
+                    lesson.date        = lessonInfo.date as NSDate
+                    lesson.discipline  = lessonInfo.discipline
+                    lesson.endTime     = lessonInfo.endTime
+                    lesson.lecturer    = lessonInfo.lecturer
+                    lesson.lectureRoom = lessonInfo.lectureRoom
+                    lesson.startTime   = lessonInfo.startTime
+                    lesson.type        = lessonInfo.type
+                    lesson.day         = day
+                }
             }
-        })
+            try? context.save()
+            print("done database loading")
+            self.printDatabaseStats()
+        }
+    }
+    
+    private func printDatabaseStats() {
+        if let context = container?.viewContext {
+            if let daysCount = try? context.count(for: Day.fetchRequest()) {
+                print("\(daysCount) days")
+            }
+            if let lessonsCount = try? context.count(for: Lesson.fetchRequest()) {
+                print("\(lessonsCount) lessons")
+            }
+        }
+    }
+    
+    func deleteAllRecords() {
+        let context = container?.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Day")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context?.execute(deleteRequest)
+            try context?.save()
+        } catch {
+            print ("Error with delete request")
+        }
     }
     
     // MARK: - Functions
@@ -183,7 +230,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     @IBAction func setScheduleInterval(from segue: UIStoryboardSegue) {
         
         if let sourceController = segue.source as? ChooseIntervalTableViewController {
-            // TODO: - It is possible not to just clean all data and load new one, but to compare the dates, make a request with the interval which is outside of the interval of the data and append/insert new data to the existing one
+            // TODO: - It is possible instead of cleaning all data and loading new one, compare the dates, make a request with the interval which is outside of the interval of the data and append/insert new data to the existing one
             if (Calendar.current.compare(dateStart, to: sourceController.intervalStart, toGranularity: .day) != .orderedSame) || (Calendar.current.compare(dateEnd, to: sourceController.intervalEnd, toGranularity: .day) != .orderedSame) {
                 
                 setUpForViewIsLoading()

@@ -57,8 +57,6 @@ class ScheduleModel {
         
         let dateStart = fromDate.convertDateToMakeRequest()
         let dateEnd   = toDate.convertDateToMakeRequest()
-        print(dateStart)
-        print(dateEnd)
         let url = "http://92.242.58.221/ruzservice.svc/v2/personlessons?fromdate=\(dateStart)&todate=\(dateEnd)&email=\(email)"
         
         var request = URLRequest(url: URL(string: url)!)
@@ -80,7 +78,6 @@ class ScheduleModel {
                     if let lessonsFromJSON = myJSON["Lessons"] as? [[String: Any]]{
                         for lesson in lessonsFromJSON {
                             let dateString  = lesson["date"] as? String
-                            let dayOfWeek   = lesson["dayOfWeek"] as? Int
                             let startTime   = lesson["beginLesson"] as? String
                             let endTime     = lesson["endLesson"] as? String
                             let type        = lesson["kindOfWork"] as? String
@@ -91,10 +88,9 @@ class ScheduleModel {
                             
                             let date = dateString?.convertStringToDate(format: "yyyy.MM.dd")
                             
-                            let initLesson = Entities.Lesson(date: date!, dayOfWeek: dayOfWeek!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
+                            let initLesson = Entities.Lesson(date: date!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
                             
                             lessons.append(initLesson)
-                            print(initLesson.discipline)
                         }
                     }
                     OperationQueue.main.addOperation({
