@@ -81,7 +81,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         } else if nextWeekButtonDidPress {
             let newScheduleData = sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd, lessons: lessons as! [Lesson])
             scheduleData.append(contentsOf: newScheduleData)
-            nextWeekButtonDidPress = true
+            nextWeekButtonDidPress = false
             
         } else {
             scheduleData = sm.getSchedule(fromDate: dateStart, toDate: dateEnd, lessons: lessons as! [Lesson])
