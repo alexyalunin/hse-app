@@ -11,10 +11,8 @@ import CoreData
 
 class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonDataDelegate {
     
-    
     var fetchResultController: NSFetchedResultsController<Day>!
     let fetchDaysRequest: NSFetchRequest<Day> = Day.fetchRequest()
-    
     
     private var sm = ScheduleModel()
     
@@ -22,13 +20,6 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     public var dateStart: Date = today
     public var dateEnd: Date   = inSevenDays
-    
-    
-    // TODO: - In order to get new data without overriding the existing one I use variables _dateStart, _dateEnd to make requests with special interval and then boolean variables to define where the request has been sent from in lessonsDidLoad, you can find better solution
-    private var _dateStart: Date?
-    private var _dateEnd: Date?
-    private var previousWeekButtonDidPress = false
-    private var nextWeekButtonDidPress = false
     
     
     @IBOutlet weak var previousWeekButton: UIButton!
@@ -42,15 +33,15 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     @IBAction func previousWeekButtonDidPress(_ sender: Any) {
         setUpForPreviousWeekButtonDidPress()
-        _dateEnd   = Date(timeInterval: -86400, since: dateStart)
+        let _dateEnd  = Date(timeInterval: -86400, since: dateStart)
         dateStart  = Date(timeInterval: -604800, since: dateStart)
-        sm.getSchedule(fromDate: dateStart, toDate: _dateEnd!)
+        sm.getSchedule(fromDate: dateStart, toDate: _dateEnd)
     }
     @IBAction func nextWeekButtonDidPress(_ sender: Any) {
         setUpForNextWeekButtonDidPress()
-        _dateStart = Date(timeInterval: 86400, since: dateEnd)
+        let _dateStart = Date(timeInterval: 86400, since: dateEnd)
         dateEnd    = Date(timeInterval: 604800, since: dateEnd)
-        sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd)
+        sm.getSchedule(fromDate: _dateStart, toDate: dateEnd)
     }
     
     
@@ -87,6 +78,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         }
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if UserDefaults.standard.bool(forKey: "hasEnteredEmail") {
@@ -100,19 +92,25 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     }
 
     
+    
     // MARK: - LessonDataDelegate
     
-    func lessonsDidLoad(lessons: NSArray) {
-        if previousWeekButtonDidPress {
-            var newScheduleData = sm.getSchedule(fromDate: dateStart, toDate: _dateEnd!, lessons: lessons as! [Lesson])
-            newScheduleData.append(contentsOf: scheduleData)
-            scheduleData = newScheduleData
-            previousWeekButtonDidPress = false
-            
-        } else if nextWeekButtonDidPress {
-            let newScheduleData = sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd, lessons: lessons as! [Lesson])
-            scheduleData.append(contentsOf: newScheduleData)
-            nextWeekButtonDidPress = false
+    func lessonsDidLoad() {
+        loadDays()
+        tableView.reloadData()
+        showElements()
+        
+        printDatabaseStats()
+    }
+    
+    
+    
+    // MARK: - Core Data
+    
+    private func loadDays() {
+        do {
+            let sectionSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+            fetchDaysRequest.sortDescriptors = [sectionSortDescriptor]
             
             let days = try container?.viewContext.fetch(fetchDaysRequest)
             scheduleData = days!
@@ -190,7 +188,6 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     }
     
     private func setUpForPreviousWeekButtonDidPress(){
-        previousWeekButtonDidPress     = true
         previousWeekButton.isHidden    = true
         lastUpdateLabel.isHidden       = true
         topNoScheduleLabel.isHidden    = false
@@ -198,7 +195,6 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     }
     
     private func setUpForNextWeekButtonDidPress(){
-        nextWeekButtonDidPress         = true
         nextWeekButton.isHidden        = true
         bottomNoScheduleLabel.isHidden = false
         bottomActivityIndicator.startAnimating()
@@ -235,7 +231,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     @IBAction func setScheduleInterval(from segue: UIStoryboardSegue) {
         
         if let sourceController = segue.source as? ChooseIntervalTableViewController {
-            // TODO: - It is possible instead of cleaning all data and loading new one, to compare the dates, make a request with the interval which is outside of the interval of the data and append/insert new data to the existing one
+            // TODO: - It is possible instead of cleaning all data and loading new one, compare the dates, make a request with the interval which is outside of the interval of the data and append/insert new data to the existing one
             if (Calendar.current.compare(dateStart, to: sourceController.intervalStart, toGranularity: .day) != .orderedSame) || (Calendar.current.compare(dateEnd, to: sourceController.intervalEnd, toGranularity: .day) != .orderedSame) {
                 
                 setUpForViewIsLoading()

@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import CoreData
 
+
 var today: Date {
     return Date()
 }
@@ -23,7 +24,6 @@ let dayClassName: String  = String(describing: Day.self)
 var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
 
-
 public protocol LessonDataDelegate: class {
     func lessonsDidLoad()
 }
@@ -33,45 +33,7 @@ class ScheduleModel {
     
     weak var delegate: LessonDataDelegate!
     
-//
-//    func getSchedule(fromDate: Date, toDate: Date) {
-//        
-//        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-//            let fetchLessonsRequest: NSFetchRequest<Lesson> = Lesson.fetchRequest()
-// 
-//            do {
-//                var lessons = try appDelegate.persistentContainer.viewContext.fetch(fetchLessonsRequest)
-//                
-//                var date = fromDate
-//                
-//                while date <= toDate {
-//                    if date.dayNumberOfWeek() != 1 {
-//                        
-//                        let day = Day(context: appDelegate.persistentContainer.viewContext)
-//                        day.date = date as NSDate
-//                        
-//                        for lesson in lessons {
-//                            print(lessons.count)
-//                            print(lesson.date!)
-//                            if Calendar.current.compare(lesson.date! as Date, to: date, toGranularity: .day) == .orderedSame {
-//                                day.addToLessons(lesson)
-//                                lessons.remove(at: 0)
-//                            } else {
-//                                break
-//                            }
-//                        }
-//                        
-//                        appDelegate.saveContext()
-//                    }
-//                    date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-//                }
-//            }
-//            catch {
-//                print(error)
-//            }
-//        }
-//    }
-//    
+ 
     // - You will definitely need some explanation here, I bet this is the best possible solution
     func getSchedule(fromDate: Date, toDate: Date){
         

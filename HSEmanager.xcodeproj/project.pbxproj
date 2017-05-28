@@ -14,8 +14,6 @@
 		1126D20C1EB9E63000EB7269 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126D20B1EB9E63000EB7269 /* MapViewController.swift */; };
 		1126D2111EB9E65800EB7269 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1126D2101EB9E65800EB7269 /* MapKit.framework */; };
 		1146BB671E41E9710077D419 /* OneContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB661E41E9710077D419 /* OneContactViewController.swift */; };
-		1146BB711E42624A0077D419 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB701E42624A0077D419 /* Lesson.swift */; };
-		1146BB731E42695D0077D419 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB721E42695D0077D419 /* Day.swift */; };
 		1146BB791E4348BD0077D419 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB781E4348BD0077D419 /* LessonCell.swift */; };
 		1146BB811E45EBC70077D419 /* ChooseIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB801E45EBC70077D419 /* ChooseIntervalTableViewController.swift */; };
 		1146BB831E462E8F0077D419 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB821E462E8F0077D419 /* TimePickerCell.swift */; };
@@ -29,10 +27,10 @@
 		1168A8981E34CEF000A28865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1168A8971E34CEF000A28865 /* Assets.xcassets */; };
 		1168A89B1E34CEF000A28865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1168A8991E34CEF000A28865 /* LaunchScreen.storyboard */; };
 		1168A8A81E34EC9500A28865 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A8A71E34EC9500A28865 /* ContactsViewController.swift */; };
-		116D440B1EDAFFE500E59E20 /* Lesson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44071EDAFFE400E59E20 /* Lesson+CoreDataClass.swift */; };
-		116D440C1EDAFFE500E59E20 /* Lesson+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44081EDAFFE400E59E20 /* Lesson+CoreDataProperties.swift */; };
-		116D440D1EDAFFE500E59E20 /* Day+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44091EDAFFE500E59E20 /* Day+CoreDataClass.swift */; };
-		116D440E1EDAFFE500E59E20 /* Day+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D440A1EDAFFE500E59E20 /* Day+CoreDataProperties.swift */; };
+		116D44131EDB431100E59E20 /* Day+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D440F1EDB431100E59E20 /* Day+CoreDataClass.swift */; };
+		116D44141EDB431100E59E20 /* Day+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44101EDB431100E59E20 /* Day+CoreDataProperties.swift */; };
+		116D44151EDB431100E59E20 /* Lesson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44111EDB431100E59E20 /* Lesson+CoreDataClass.swift */; };
+		116D44161EDB431100E59E20 /* Lesson+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44121EDB431100E59E20 /* Lesson+CoreDataProperties.swift */; };
 		1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181400B1E36B0A0006071CE /* AuthViewController.swift */; };
 		11B21FBD1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B21FBC1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift */; };
 		11BBD9281E5772AD003C13E6 /* ApplicationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BBD9271E5772AD003C13E6 /* ApplicationInfoViewController.swift */; };
@@ -53,8 +51,6 @@
 		1126D20B1EB9E63000EB7269 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1126D2101EB9E65800EB7269 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1146BB661E41E9710077D419 /* OneContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneContactViewController.swift; sourceTree = "<group>"; };
-		1146BB701E42624A0077D419 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
-		1146BB721E42695D0077D419 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		1146BB781E4348BD0077D419 /* LessonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
 		1146BB801E45EBC70077D419 /* ChooseIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseIntervalTableViewController.swift; sourceTree = "<group>"; };
 		1146BB821E462E8F0077D419 /* TimePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
@@ -70,10 +66,10 @@
 		1168A89A1E34CEF000A28865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1168A89C1E34CEF000A28865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1168A8A71E34EC9500A28865 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
-		116D44071EDAFFE400E59E20 /* Lesson+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lesson+CoreDataClass.swift"; sourceTree = "<group>"; };
-		116D44081EDAFFE400E59E20 /* Lesson+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lesson+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		116D44091EDAFFE500E59E20 /* Day+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataClass.swift"; sourceTree = "<group>"; };
-		116D440A1EDAFFE500E59E20 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		116D440F1EDB431100E59E20 /* Day+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataClass.swift"; sourceTree = "<group>"; };
+		116D44101EDB431100E59E20 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		116D44111EDB431100E59E20 /* Lesson+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lesson+CoreDataClass.swift"; sourceTree = "<group>"; };
+		116D44121EDB431100E59E20 /* Lesson+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lesson+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1181400B1E36B0A0006071CE /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		11B21FBC1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithDetailBlueText.swift; sourceTree = "<group>"; };
 		11BBD9271E5772AD003C13E6 /* ApplicationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoViewController.swift; sourceTree = "<group>"; };
@@ -139,8 +135,6 @@
 		1146BB691E425A350077D419 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1146BB701E42624A0077D419 /* Lesson.swift */,
-				1146BB721E42695D0077D419 /* Day.swift */,
 				11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */,
 			);
 			name = Model;
@@ -206,13 +200,13 @@
 		1168A88D1E34CEF000A28865 /* HSEapp */ = {
 			isa = PBXGroup;
 			children = (
-				116D43FA1EDA09CB00E59E20 /* CoreData */,
 				1168A8941E34CEF000A28865 /* Main.storyboard */,
 				114940AC1E37BEE800EADF6F /* Auth */,
 				11C2E3EE1E3BF8FB00D5B717 /* Schedule */,
 				11C2E3EF1E3BF91100D5B717 /* News */,
 				11C2E3F01E3BF91800D5B717 /* Contacts */,
 				11C2E3F11E3BF91F00D5B717 /* Settings */,
+				116D43FA1EDA09CB00E59E20 /* CoreData */,
 				1168A8A21E34CF2300A28865 /* Supporting files */,
 			);
 			path = HSEapp;
@@ -234,10 +228,10 @@
 		116D43FA1EDA09CB00E59E20 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				116D44071EDAFFE400E59E20 /* Lesson+CoreDataClass.swift */,
-				116D44081EDAFFE400E59E20 /* Lesson+CoreDataProperties.swift */,
-				116D44091EDAFFE500E59E20 /* Day+CoreDataClass.swift */,
-				116D440A1EDAFFE500E59E20 /* Day+CoreDataProperties.swift */,
+				116D440F1EDB431100E59E20 /* Day+CoreDataClass.swift */,
+				116D44101EDB431100E59E20 /* Day+CoreDataProperties.swift */,
+				116D44111EDB431100E59E20 /* Lesson+CoreDataClass.swift */,
+				116D44121EDB431100E59E20 /* Lesson+CoreDataProperties.swift */,
 				11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */,
 			);
 			name = CoreData;
@@ -401,7 +395,7 @@
 				1168A8931E34CEF000A28865 /* NewsViewController.swift in Sources */,
 				1168A88F1E34CEF000A28865 /* AppDelegate.swift in Sources */,
 				1168A8A81E34EC9500A28865 /* ContactsViewController.swift in Sources */,
-				116D440B1EDAFFE500E59E20 /* Lesson+CoreDataClass.swift in Sources */,
+				116D44151EDB431100E59E20 /* Lesson+CoreDataClass.swift in Sources */,
 				11C2E3F81E3CFD4000D5B717 /* NewsSection.swift in Sources */,
 				11F439301E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift in Sources */,
 				11C2E3FC1E3CFF3F00D5B717 /* NewsManager.swift in Sources */,
@@ -409,11 +403,11 @@
 				11B21FBD1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift in Sources */,
 				11D430DA1E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift in Sources */,
 				1146BB671E41E9710077D419 /* OneContactViewController.swift in Sources */,
+				116D44131EDB431100E59E20 /* Day+CoreDataClass.swift in Sources */,
 				1146BB811E45EBC70077D419 /* ChooseIntervalTableViewController.swift in Sources */,
-				116D440E1EDAFFE500E59E20 /* Day+CoreDataProperties.swift in Sources */,
 				1146BB831E462E8F0077D419 /* TimePickerCell.swift in Sources */,
+				116D44161EDB431100E59E20 /* Lesson+CoreDataProperties.swift in Sources */,
 				111A27D11E40B6D500E544EB /* Worker.swift in Sources */,
-				116D440C1EDAFFE500E59E20 /* Lesson+CoreDataProperties.swift in Sources */,
 				11C2E3FA1E3CFDCB00D5B717 /* PieceOfNews.swift in Sources */,
 				1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */,
 				1112E9321E369F4800BC70A3 /* MainTextField.swift in Sources */,
@@ -421,8 +415,7 @@
 				11FBAA381ED7093500401489 /* DataModel.xcdatamodeld in Sources */,
 				11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */,
 				11BBD9281E5772AD003C13E6 /* ApplicationInfoViewController.swift in Sources */,
-				1146BB711E42624A0077D419 /* Lesson.swift in Sources */,
-				1146BB731E42695D0077D419 /* Day.swift in Sources */,
+				116D44141EDB431100E59E20 /* Day+CoreDataProperties.swift in Sources */,
 				111E53B71E49EA000071DDE4 /* ChooseRubricViewController.swift in Sources */,
 				1168A8911E34CEF000A28865 /* ScheduleViewController.swift in Sources */,
 				111A27D31E40C0C200E544EB /* WorkerManager.swift in Sources */,
