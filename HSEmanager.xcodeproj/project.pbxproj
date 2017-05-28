@@ -14,7 +14,6 @@
 		1126D20C1EB9E63000EB7269 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126D20B1EB9E63000EB7269 /* MapViewController.swift */; };
 		1126D2111EB9E65800EB7269 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1126D2101EB9E65800EB7269 /* MapKit.framework */; };
 		1146BB671E41E9710077D419 /* OneContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB661E41E9710077D419 /* OneContactViewController.swift */; };
-		1146BB6F1E425B0E0077D419 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB6E1E425B0E0077D419 /* SecondaryButton.swift */; };
 		1146BB711E42624A0077D419 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB701E42624A0077D419 /* Lesson.swift */; };
 		1146BB731E42695D0077D419 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB721E42695D0077D419 /* Day.swift */; };
 		1146BB791E4348BD0077D419 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB781E4348BD0077D419 /* LessonCell.swift */; };
@@ -30,6 +29,10 @@
 		1168A8981E34CEF000A28865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1168A8971E34CEF000A28865 /* Assets.xcassets */; };
 		1168A89B1E34CEF000A28865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1168A8991E34CEF000A28865 /* LaunchScreen.storyboard */; };
 		1168A8A81E34EC9500A28865 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168A8A71E34EC9500A28865 /* ContactsViewController.swift */; };
+		116D440B1EDAFFE500E59E20 /* Lesson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44071EDAFFE400E59E20 /* Lesson+CoreDataClass.swift */; };
+		116D440C1EDAFFE500E59E20 /* Lesson+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44081EDAFFE400E59E20 /* Lesson+CoreDataProperties.swift */; };
+		116D440D1EDAFFE500E59E20 /* Day+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D44091EDAFFE500E59E20 /* Day+CoreDataClass.swift */; };
+		116D440E1EDAFFE500E59E20 /* Day+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D440A1EDAFFE500E59E20 /* Day+CoreDataProperties.swift */; };
 		1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181400B1E36B0A0006071CE /* AuthViewController.swift */; };
 		11B21FBD1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B21FBC1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift */; };
 		11BBD9281E5772AD003C13E6 /* ApplicationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BBD9271E5772AD003C13E6 /* ApplicationInfoViewController.swift */; };
@@ -39,6 +42,7 @@
 		11D430DA1E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D430D91E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift */; };
 		11D6A0B71E55FC9A00AE7AAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6A0B61E55FC9A00AE7AAB /* SettingsTableViewController.swift */; };
 		11F439301E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4392F1E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift */; };
+		11FBAA381ED7093500401489 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +53,6 @@
 		1126D20B1EB9E63000EB7269 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1126D2101EB9E65800EB7269 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1146BB661E41E9710077D419 /* OneContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneContactViewController.swift; sourceTree = "<group>"; };
-		1146BB6E1E425B0E0077D419 /* SecondaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		1146BB701E42624A0077D419 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		1146BB721E42695D0077D419 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		1146BB781E4348BD0077D419 /* LessonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
@@ -67,6 +70,10 @@
 		1168A89A1E34CEF000A28865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1168A89C1E34CEF000A28865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1168A8A71E34EC9500A28865 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		116D44071EDAFFE400E59E20 /* Lesson+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lesson+CoreDataClass.swift"; sourceTree = "<group>"; };
+		116D44081EDAFFE400E59E20 /* Lesson+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lesson+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		116D44091EDAFFE500E59E20 /* Day+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataClass.swift"; sourceTree = "<group>"; };
+		116D440A1EDAFFE500E59E20 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1181400B1E36B0A0006071CE /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		11B21FBC1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithDetailBlueText.swift; sourceTree = "<group>"; };
 		11BBD9271E5772AD003C13E6 /* ApplicationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +83,7 @@
 		11D430D91E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceOfNewsViewController.swift; sourceTree = "<group>"; };
 		11D6A0B61E55FC9A00AE7AAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		11F4392F1E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAndEmailTableViewController.swift; sourceTree = "<group>"; };
+		11FBAA371ED7093500401489 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +149,6 @@
 		1146BB6A1E425A3C0077D419 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1146BB6E1E425B0E0077D419 /* SecondaryButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 		1168A88D1E34CEF000A28865 /* HSEapp */ = {
 			isa = PBXGroup;
 			children = (
+				116D43FA1EDA09CB00E59E20 /* CoreData */,
 				1168A8941E34CEF000A28865 /* Main.storyboard */,
 				114940AC1E37BEE800EADF6F /* Auth */,
 				11C2E3EE1E3BF8FB00D5B717 /* Schedule */,
@@ -221,6 +229,18 @@
 				11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		116D43FA1EDA09CB00E59E20 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				116D44071EDAFFE400E59E20 /* Lesson+CoreDataClass.swift */,
+				116D44081EDAFFE400E59E20 /* Lesson+CoreDataProperties.swift */,
+				116D44091EDAFFE500E59E20 /* Day+CoreDataClass.swift */,
+				116D440A1EDAFFE500E59E20 /* Day+CoreDataProperties.swift */,
+				11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		11B21FBB1E4B3E73006B7E12 /* View */ = {
@@ -381,21 +401,24 @@
 				1168A8931E34CEF000A28865 /* NewsViewController.swift in Sources */,
 				1168A88F1E34CEF000A28865 /* AppDelegate.swift in Sources */,
 				1168A8A81E34EC9500A28865 /* ContactsViewController.swift in Sources */,
+				116D440B1EDAFFE500E59E20 /* Lesson+CoreDataClass.swift in Sources */,
 				11C2E3F81E3CFD4000D5B717 /* NewsSection.swift in Sources */,
 				11F439301E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift in Sources */,
-				1146BB6F1E425B0E0077D419 /* SecondaryButton.swift in Sources */,
 				11C2E3FC1E3CFF3F00D5B717 /* NewsManager.swift in Sources */,
 				1146BB791E4348BD0077D419 /* LessonCell.swift in Sources */,
 				11B21FBD1E4B3EAC006B7E12 /* CellWithDetailBlueText.swift in Sources */,
 				11D430DA1E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift in Sources */,
 				1146BB671E41E9710077D419 /* OneContactViewController.swift in Sources */,
 				1146BB811E45EBC70077D419 /* ChooseIntervalTableViewController.swift in Sources */,
+				116D440E1EDAFFE500E59E20 /* Day+CoreDataProperties.swift in Sources */,
 				1146BB831E462E8F0077D419 /* TimePickerCell.swift in Sources */,
 				111A27D11E40B6D500E544EB /* Worker.swift in Sources */,
+				116D440C1EDAFFE500E59E20 /* Lesson+CoreDataProperties.swift in Sources */,
 				11C2E3FA1E3CFDCB00D5B717 /* PieceOfNews.swift in Sources */,
 				1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */,
 				1112E9321E369F4800BC70A3 /* MainTextField.swift in Sources */,
 				11490A6C1ECEE8A6006AF094 /* ScheduleModel.swift in Sources */,
+				11FBAA381ED7093500401489 /* DataModel.xcdatamodeld in Sources */,
 				11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */,
 				11BBD9281E5772AD003C13E6 /* ApplicationInfoViewController.swift in Sources */,
 				1146BB711E42624A0077D419 /* Lesson.swift in Sources */,
@@ -574,6 +597,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				11FBAA371ED7093500401489 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 11FBAA371ED7093500401489 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1168A8831E34CEF000A28865 /* Project object */;
 }

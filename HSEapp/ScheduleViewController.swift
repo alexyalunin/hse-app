@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonDataDelegate {
-
+    
+    
+    var fetchResultController: NSFetchedResultsController<Day>!
+    let fetchDaysRequest: NSFetchRequest<Day> = Day.fetchRequest()
+    
+    
     private var sm = ScheduleModel()
     
     private var scheduleData: [Day] = []
@@ -17,11 +23,13 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     public var dateStart: Date = today
     public var dateEnd: Date   = inSevenDays
     
+    
     // TODO: - In order to get new data without overriding the existing one I use variables _dateStart, _dateEnd to make requests with special interval and then boolean variables to define where the request has been sent from in lessonsDidLoad, you can find better solution
     private var _dateStart: Date?
     private var _dateEnd: Date?
     private var previousWeekButtonDidPress = false
     private var nextWeekButtonDidPress = false
+    
     
     @IBOutlet weak var previousWeekButton: UIButton!
     @IBOutlet weak var nextWeekButton: UIButton!
@@ -31,18 +39,21 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     @IBOutlet weak var bottomActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var bottomNoScheduleLabel: UILabel!
     
+    
     @IBAction func previousWeekButtonDidPress(_ sender: Any) {
         setUpForPreviousWeekButtonDidPress()
         _dateEnd   = Date(timeInterval: -86400, since: dateStart)
         dateStart  = Date(timeInterval: -604800, since: dateStart)
-        sm.getLessons(fromDate: dateStart, toDate: _dateEnd!)
+        sm.getSchedule(fromDate: dateStart, toDate: _dateEnd!)
     }
     @IBAction func nextWeekButtonDidPress(_ sender: Any) {
         setUpForNextWeekButtonDidPress()
         _dateStart = Date(timeInterval: 86400, since: dateEnd)
         dateEnd    = Date(timeInterval: 604800, since: dateEnd)
-        sm.getLessons(fromDate: _dateStart!, toDate: dateEnd)
+        sm.getSchedule(fromDate: _dateStart!, toDate: dateEnd)
     }
+    
+    
     
     // MARK: - Controller lifecycle
     
@@ -56,16 +67,23 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         tableView.backgroundView = refreshControl
         
-        setUpForViewIsLoading()
+        showElements()
+        loadDays()
         
-        sm.getLessons(fromDate: dateStart, toDate: dateEnd)
+        if scheduleData.isEmpty {
+            
+            setUpForViewIsLoading()
+            sm.getSchedule(fromDate: dateStart, toDate: dateEnd)
+        }
+        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if let navigationController = navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(tableView, delay: 50.0)
+            navigationController.followScrollView(tableView, delay: 0.0)
         }
     }
     
@@ -81,6 +99,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         }
     }
 
+    
     // MARK: - LessonDataDelegate
     
     func lessonsDidLoad(lessons: NSArray) {
@@ -95,13 +114,46 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
             scheduleData.append(contentsOf: newScheduleData)
             nextWeekButtonDidPress = false
             
-        } else {
-            scheduleData = sm.getSchedule(fromDate: dateStart, toDate: dateEnd, lessons: lessons as! [Lesson])
+            let days = try container?.viewContext.fetch(fetchDaysRequest)
+            scheduleData = days!
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    
+    private func printDatabaseStats() {
+        if let context = container?.viewContext {
+            if let daysCount = try? context.count(for: Day.fetchRequest()) {
+                print("\(daysCount) days")
+            }
+            if let lessonsCount = try? context.count(for: Lesson.fetchRequest()) {
+                print("\(lessonsCount) lessons")
+            }
         }
         
-        tableView.reloadData()
-        showElements()
+// - If you need to check lessons in days
+//        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
+//        
+//        do {
+//            let days = try container?.viewContext.fetch(fetchRequest)
+//            
+//            for day in days! {
+//                print((day.date)!)
+//                for lesson in day.lessons!{
+//                    if let lesson = lesson as? Lesson {
+//                        print(lesson.discipline!)
+//                    }
+//                }
+//            }
+//        }
+//        catch {
+//            print(error)
+//        }
     }
+
+    
     
     // MARK: - Functions
     
@@ -109,10 +161,12 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         sm.refreshBegin(refreshEnd: {(x:Int) -> () in
             self.dateStart = today
             self.dateEnd   = inSevenDays
-            self.sm.getLessons(fromDate: self.dateStart, toDate: self.dateEnd)
+            self.sm.deleteAllRecords()
+            self.sm.getSchedule(fromDate: self.dateStart, toDate: self.dateEnd)
         })
     }
 
+    
     private func showElements(){
         previousWeekButton.isHidden    = false
         nextWeekButton.isHidden        = false
@@ -150,11 +204,14 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         bottomActivityIndicator.startAnimating()
     }
     
+    
+    
     // MARK: - LessonCellDelegate
     
     func callSegueFromCell(data: AnyObject) {
         self.performSegue(withIdentifier: "From schedule to map", sender: data)
     }
+    
     
     
     // MARK: - Segues
@@ -174,6 +231,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         }
     }
     
+    
     @IBAction func setScheduleInterval(from segue: UIStoryboardSegue) {
         
         if let sourceController = segue.source as? ChooseIntervalTableViewController {
@@ -187,10 +245,13 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
                 dateStart = sourceController.intervalStart
                 dateEnd   = sourceController.intervalEnd
                 
-                sm.getLessons(fromDate: dateStart, toDate: dateEnd)
+                sm.deleteAllRecords()
+                sm.getSchedule(fromDate: dateStart, toDate: dateEnd)
             }
         }
     }
+    
+    
     
     // MARK: - Table configuration
 
@@ -198,25 +259,27 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         return scheduleData.count
     }
     
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if scheduleData[section].lessons.count != 0{
-            return scheduleData[section].lessons.count
+        if scheduleData[section].lessons?.count != 0{
+            return scheduleData[section].lessons!.count
         } else {
             return 1
         }
     }
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if !(scheduleData[indexPath.section].lessons.isEmpty)
+        if (scheduleData[indexPath.section].lessons?.count)! > 0
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "lessonCell", for: indexPath)
             
-            let lesson = scheduleData[indexPath.section].lessons[indexPath.row]
+            let lesson = scheduleData[indexPath.section].lessons?[indexPath.row]
             
             if let lessonCell = cell as? LessonCell {
                 lessonCell.delegate = self
-                lessonCell.lesson = lesson
+                lessonCell.lesson = lesson as? Lesson
             }
             return cell
             
@@ -225,6 +288,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
             return cell
         }
     }
+    
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -236,13 +300,15 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         let formatter = DateFormatter()
         formatter.dateStyle = DateFormatter.Style.medium
         
-        label.text = scheduleData[section].date.dayOfWeek() + ", " + formatter.string(from: scheduleData[section].date)
+        label.text = (scheduleData[section].date! as Date).dayOfWeek() + ", " + formatter.string(from: scheduleData[section].date! as Date)
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightSemibold)
         
         headerView.addSubview(label)
         
         return headerView
     }
+    
+    
     
     // MARK: - Table design
     
