@@ -27,18 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // MARK: TabBar
+        // MARK: - TabBar
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().barTintColor = .white
         UITabBar.appearance().tintColor = hseColor
         UITabBar.appearance().unselectedItemTintColor = .gray
         
-        // MARK: NavBar
+        // MARK: - NavBar
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = hseColor
         UINavigationBar.appearance().tintColor = .white
         
-        // MARK: StatusBar
+        // MARK: - StatusBar
         UIApplication.shared.statusBarView?.backgroundColor = hseColor
         UIApplication.shared.statusBarStyle = .lightContent
         

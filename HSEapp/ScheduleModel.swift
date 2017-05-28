@@ -6,7 +6,9 @@
 //  Copyright © 2017 Alexander. All rights reserved.
 //
 
+import UIKit
 import Foundation
+import CoreData
 
 var today: Date {
     return Date()
@@ -17,9 +19,15 @@ var inSevenDays: Date {
 
 var email: String = "aayalunin@edu.hse.ru"
 
+let lessonClassName: String = String(describing: Lesson.self)
+let dayClassName: String  = String(describing: Day.self)
+
+var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+
+
 
 public protocol LessonDataDelegate: class {
-    func lessonsDidLoad(lessons: NSArray)
+    func lessonsDidLoad()
 }
 
 
@@ -27,33 +35,47 @@ class ScheduleModel {
     
     weak var delegate: LessonDataDelegate!
     
-    func getSchedule(fromDate: Date, toDate: Date, lessons: [Entities.Lesson]) -> [Entities.Day] {
-        var localLessons: [Entities.Lesson] = lessons
-        var date = fromDate
-        var days: [Entities.Day] = []
-        
-        while date <= toDate {
-            if date.dayNumberOfWeek() != 1 {
-                var dayLessons: [Entities.Lesson] = []
-                for lesson in localLessons {
-                    if Calendar.current.compare(lesson.date, to: date, toGranularity: .day) == .orderedSame {
-                        dayLessons.append(lesson)
-                        localLessons.remove(at: 0)
-                    } else {
-                        break
-                    }
-                }
-                let day = Entities.Day(date: date, lessons: dayLessons)
-                days.append(day)
-            }
-            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-        }
-        
-        return days
-    }
-    
-    func getLessons(fromDate: Date, toDate: Date){
-        var lessons: [Entities.Lesson] = []
+//
+//    func getSchedule(fromDate: Date, toDate: Date) {
+//        
+//        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+//            let fetchLessonsRequest: NSFetchRequest<Lesson> = Lesson.fetchRequest()
+// 
+//            do {
+//                var lessons = try appDelegate.persistentContainer.viewContext.fetch(fetchLessonsRequest)
+//                
+//                var date = fromDate
+//                
+//                while date <= toDate {
+//                    if date.dayNumberOfWeek() != 1 {
+//                        
+//                        let day = Day(context: appDelegate.persistentContainer.viewContext)
+//                        day.date = date as NSDate
+//                        
+//                        for lesson in lessons {
+//                            print(lessons.count)
+//                            print(lesson.date!)
+//                            if Calendar.current.compare(lesson.date! as Date, to: date, toGranularity: .day) == .orderedSame {
+//                                day.addToLessons(lesson)
+//                                lessons.remove(at: 0)
+//                            } else {
+//                                break
+//                            }
+//                        }
+//                        
+//                        appDelegate.saveContext()
+//                    }
+//                    date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+//                }
+//            }
+//            catch {
+//                print(error)
+//            }
+//        }
+//    }
+//    
+    // - You will definitely need some explanation here, I bet this is the best possible solution
+    func getSchedule(fromDate: Date, toDate: Date){
         
         let dateStart = fromDate.convertDateToMakeRequest()
         let dateEnd   = toDate.convertDateToMakeRequest()
@@ -75,26 +97,47 @@ class ScheduleModel {
                 {
                     let myJSON = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                     
-                    if let lessonsFromJSON = myJSON["Lessons"] as? [[String: Any]]{
-                        for lesson in lessonsFromJSON {
-                            let dateString  = lesson["date"] as? String
-                            let startTime   = lesson["beginLesson"] as? String
-                            let endTime     = lesson["endLesson"] as? String
-                            let type        = lesson["kindOfWork"] as? String
-                            let discipline  = lesson["discipline"] as? String
-                            let lecturer    = lesson["lecturer"] as? String
-                            let address     = lesson["building"] as? String
-                            let lectureRoom = lesson["auditorium"] as? String
+                    if var lessonsFromJSON = myJSON["Lessons"] as? [[String: Any]] {
+                        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
                             
-                            let date = dateString?.convertStringToDate(format: "yyyy.MM.dd")
+                            var date = fromDate
                             
-                            let initLesson = Entities.Lesson(date: date!, startTime: startTime!, endTime: endTime!, type: type!, discipline: discipline!, lecturer: lecturer!, address: address!, lectureRoom: lectureRoom!)
-                            
-                            lessons.append(initLesson)
+                            while date <= toDate {
+                                if date.dayNumberOfWeek() != 1 {
+                                    let day = Day(context: appDelegate.persistentContainer.viewContext)
+                                    day.date = date as NSDate
+
+                                    for lessonJSON in lessonsFromJSON {
+                                        let lessonJSONDate = (lessonJSON["date"] as? String)?.convertStringToDate(format: "yyyy.MM.dd") as NSDate?
+                                        
+                                        if Calendar.current.compare(lessonJSONDate! as Date, to: date, toGranularity: .day) == .orderedSame {
+                                            
+                                            let lesson = Lesson(context: appDelegate.persistentContainer.viewContext)
+                                            
+                                            lesson.date        = (lessonJSON["date"] as? String)?.convertStringToDate(format: "yyyy.MM.dd") as NSDate?
+                                            lesson.startTime   = lessonJSON["beginLesson"] as? String
+                                            lesson.endTime     = lessonJSON["endLesson"] as? String
+                                            lesson.type        = lessonJSON["kindOfWork"] as? String
+                                            lesson.discipline  = lessonJSON["discipline"] as? String
+                                            lesson.lecturer    = lessonJSON["lecturer"] as? String
+                                            lesson.address     = lessonJSON["building"] as? String
+                                            lesson.lectureRoom = lessonJSON["auditorium"] as? String
+                                            
+                                            day.addToLessons(lesson)
+                                            lessonsFromJSON.remove(at: 0)
+                                            
+                                        } else {
+                                            break
+                                        }
+                                    }
+                                }
+                                date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+                            }
+                            appDelegate.saveContext()
                         }
                     }
                     OperationQueue.main.addOperation({
-                        self.delegate.lessonsDidLoad(lessons: lessons as NSArray)
+                        self.delegate.lessonsDidLoad()
                     })
                 }
                 catch
@@ -105,6 +148,21 @@ class ScheduleModel {
         }
         task.resume()
     }
+    
+    
+    func deleteAllRecords() {
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: dayClassName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        let context = container?.viewContext
+        
+        do {
+            try context?.execute(deleteRequest)
+            try context?.save()
+        } catch {
+            print ("Error with delete request")
+        }
+    }
+
     
     func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
         DispatchQueue.global(qos: .default).async() {
@@ -144,6 +202,7 @@ extension Date {
     func dayNumberOfWeek() -> Int {
         return Calendar.current.dateComponents([.weekday], from: self).weekday!
     }
+    
     func dayOfWeek() -> String {
         let day = Calendar.current.dateComponents([.weekday], from: self).weekday!
         switch day {
