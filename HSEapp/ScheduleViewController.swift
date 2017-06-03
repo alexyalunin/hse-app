@@ -9,17 +9,30 @@
 import UIKit
 import CoreData
 
-class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonDataDelegate {
+class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonDataDelegate, NSFetchedResultsControllerDelegate {
     
-    var fetchResultController: NSFetchedResultsController<Day>!
-    let fetchDaysRequest: NSFetchRequest<Day> = Day.fetchRequest()
     
     private var sm = ScheduleModel()
+    var fetchedResultsController: NSFetchedResultsController<Day>!
     
-    private var scheduleData: [Day] = []
     
-    public var dateStart: Date = today
-    public var dateEnd: Date   = inSevenDays
+    public var dateStart: Date {
+        get {
+            return UserDefaults.standard.value(forKey: "dateStart") as! Date
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "dateStart")
+        }
+    }
+    
+    public var dateEnd: Date {
+        get {
+            return UserDefaults.standard.value(forKey: "dateEnd") as! Date
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "dateEnd")
+        }
+    }
     
     
     @IBOutlet weak var previousWeekButton: UIButton!
@@ -33,20 +46,22 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     @IBAction func previousWeekButtonDidPress(_ sender: Any) {
         setUpForPreviousWeekButtonDidPress()
-        let _dateEnd  = Date(timeInterval: -86400, since: dateStart)
-        dateStart  = Date(timeInterval: -604800, since: dateStart)
+        let _dateEnd = Date(timeInterval: -86400, since: dateStart)
+        dateStart    = Date(timeInterval: -604800, since: dateStart)
         sm.getSchedule(fromDate: dateStart, toDate: _dateEnd)
     }
+    
     @IBAction func nextWeekButtonDidPress(_ sender: Any) {
         setUpForNextWeekButtonDidPress()
         let _dateStart = Date(timeInterval: 86400, since: dateEnd)
-        dateEnd    = Date(timeInterval: 604800, since: dateEnd)
+        dateEnd        = Date(timeInterval: 604800, since: dateEnd)
         sm.getSchedule(fromDate: _dateStart, toDate: dateEnd)
     }
     
     
     
     // MARK: - Controller lifecycle
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +76,13 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         showElements()
         loadDays()
         
-        if scheduleData.isEmpty {
+        if (fetchedResultsController.fetchedObjects?.isEmpty)! {
             
             setUpForViewIsLoading()
+            dateStart = today
+            dateEnd = inSevenDays
             sm.getSchedule(fromDate: dateStart, toDate: dateEnd)
         }
-        
     }
     
     
@@ -81,9 +97,14 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         if UserDefaults.standard.bool(forKey: "hasEnteredEmail") {
+            if let lastUpdate = UserDefaults.standard.string(forKey: "lastUpdate") {
+                lastUpdateLabel.text = "Последнее обновление: " + lastUpdate
+            }
             return
         }
+        
         if let authVC =
             storyboard?.instantiateViewController(withIdentifier: "AuthViewController")
                 as? AuthViewController {
@@ -95,11 +116,13 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     // MARK: - LessonDataDelegate
     
+    
     func lessonsDidLoad() {
         loadDays()
         tableView.reloadData()
         showElements()
         
+        makeUpdate()
         printDatabaseStats()
     }
     
@@ -107,19 +130,23 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     // MARK: - Core Data
     
+    
     private func loadDays() {
+        let request: NSFetchRequest<Day> = Day.fetchRequest()
+        
+        let sectionSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        request.sortDescriptors = [sectionSortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: container!.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
         do {
-            let sectionSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
-            fetchDaysRequest.sortDescriptors = [sectionSortDescriptor]
-            
-            let days = try container?.viewContext.fetch(fetchDaysRequest)
-            scheduleData = days!
-        }
-        catch {
-            print(error)
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FetchedResultsController: \(error)")
         }
     }
-    
+
     
     private func printDatabaseStats() {
         if let context = container?.viewContext {
@@ -130,30 +157,17 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
                 print("\(lessonsCount) lessons")
             }
         }
-        
-// - If you need to check lessons in days
-//        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
-//        
-//        do {
-//            let days = try container?.viewContext.fetch(fetchRequest)
-//            
-//            for day in days! {
-//                print((day.date)!)
-//                for lesson in day.lessons!{
-//                    if let lesson = lesson as? Lesson {
-//                        print(lesson.discipline!)
-//                    }
-//                }
-//            }
-//        }
-//        catch {
-//            print(error)
-//        }
     }
 
     
     
     // MARK: - Functions
+    
+    
+    private func makeUpdate(){
+        UserDefaults.standard.set(getCurrentDateTime(), forKey: "lastUpdate")
+        lastUpdateLabel.text = "Последнее обновление: " + UserDefaults.standard.string(forKey: "lastUpdate")!
+    }
     
     func refresh(sender:AnyObject) {
         sm.refreshBegin(refreshEnd: {(x:Int) -> () in
@@ -174,7 +188,6 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         topActivityIndicator.stopAnimating()
         bottomActivityIndicator.stopAnimating()
         refreshControl?.endRefreshing()
-        lastUpdateLabel.text = "Последнее обновление: " + getCurrentDateTime()
     }
     
     private func setUpForViewIsLoading(){
@@ -204,6 +217,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     // MARK: - LessonCellDelegate
     
+    
     func callSegueFromCell(data: AnyObject) {
         self.performSegue(withIdentifier: "From schedule to map", sender: data)
     }
@@ -211,6 +225,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     
     // MARK: - Segues
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -235,7 +250,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
             if (Calendar.current.compare(dateStart, to: sourceController.intervalStart, toGranularity: .day) != .orderedSame) || (Calendar.current.compare(dateEnd, to: sourceController.intervalEnd, toGranularity: .day) != .orderedSame) {
                 
                 setUpForViewIsLoading()
-                scheduleData.removeAll()
+                sm.deleteAllRecords()
                 tableView.reloadData()
                 
                 dateStart = sourceController.intervalStart
@@ -250,39 +265,53 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     
     // MARK: - Table configuration
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return scheduleData.count
+        
+        return (fetchedResultsController.fetchedObjects?.count)!
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if scheduleData[section].lessons?.count != 0{
-            return scheduleData[section].lessons!.count
-        } else {
-            return 1
+        
+        if let day = fetchedResultsController.fetchedObjects?[section] {
+            
+            if day.lessons?.count != 0 {
+                return day.lessons!.count
+            } else {
+                return 1
+            }
         }
+        return 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (scheduleData[indexPath.section].lessons?.count)! > 0
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "lessonCell", for: indexPath)
+        if let day = fetchedResultsController.fetchedObjects?[indexPath.section] {
             
-            let lesson = scheduleData[indexPath.section].lessons?[indexPath.row]
-            
-            if let lessonCell = cell as? LessonCell {
-                lessonCell.delegate = self
-                lessonCell.lesson = lesson as? Lesson
+            if (day.lessons?.count)! > 0
+            {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "lessonCell", for: indexPath)
+                
+                let lesson = day.lessons?[indexPath.row]
+                
+                if let lessonCell = cell as? LessonCell {
+                    lessonCell.delegate = self
+                    lessonCell.lesson = lesson as? Lesson
+                }
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "noLessonsCell", for: indexPath)
+                return cell
             }
-            return cell
-            
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "noLessonsCell", for: indexPath)
-            return cell
         }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noLessonsCell", for: indexPath)
+        return cell
     }
     
     
@@ -294,9 +323,12 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
         let label = UILabel(frame: CGRect(x: 15,y: 0, width: tableView.bounds.size.width, height: 30))
         
         let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.medium
+        formatter.dateStyle = DateFormatter.Style.full
         
-        label.text = (scheduleData[section].date! as Date).dayOfWeek() + ", " + formatter.string(from: scheduleData[section].date! as Date)
+        if let day = fetchedResultsController.fetchedObjects?[section] {
+            label.text = (formatter.string(from: day.date! as Date)).uppercased()
+
+        }
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightSemibold)
         
         headerView.addSubview(label)
@@ -307,6 +339,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     
     
     // MARK: - Table design
+    
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
@@ -328,7 +361,39 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, LessonD
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+ 
     
+    
+//    
+//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.beginUpdates()
+//    }
+//    
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//        switch type {
+//        case .insert: tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+//        case .delete: tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+//        default: break
+//        }
+//    }
+//    
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        switch type {
+//        case .insert:
+//            tableView.insertRows(at: [newIndexPath!], with: .fade)
+//        case .delete:
+//            tableView.deleteRows(at: [indexPath!], with: .fade)
+//        case .update:
+//            tableView.reloadRows(at: [indexPath!], with: .fade)
+//        case .move:
+//            tableView.deleteRows(at: [indexPath!], with: .fade)
+//            tableView.insertRows(at: [newIndexPath!], with: .fade)
+//        }
+//    }
+//    
+//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.endUpdates()
+//    }
 }
 
 

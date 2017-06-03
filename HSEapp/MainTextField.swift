@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum keyType:Int{
+enum keyType: Int {
     case Default
     case Email
     case Password
     
-    var desc:String{
+    var desc: String {
         switch self {
         case .Default:
             return ""
@@ -28,7 +28,16 @@ enum keyType:Int{
 @IBDesignable
 class MainTextField: UITextField {
     
-    var type:keyType = .Default{
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let lineView = UIView(frame: CGRect(x: 0, y: 100, width: 320, height: 1))
+        lineView.layer.borderWidth = 1.0
+        lineView.layer.borderColor = UIColor.black.cgColor
+        self.addSubview(lineView)
+    }
+    
+    var type: keyType = .Default{
         didSet{
             switch self.type{
             case .Default:

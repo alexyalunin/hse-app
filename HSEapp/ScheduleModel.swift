@@ -164,26 +164,26 @@ extension Date {
         return Calendar.current.dateComponents([.weekday], from: self).weekday!
     }
     
-    func dayOfWeek() -> String {
-        let day = Calendar.current.dateComponents([.weekday], from: self).weekday!
-        switch day {
-            case 2:
-                return "Понедельник"
-            case 3:
-                return "Вторник"
-            case 4:
-                return "Среда"
-            case 5:
-                return "Четверг"
-            case 6:
-                return "Пятница"
-            case 7:
-                return "Суббота"
-            case 1:
-                return "Воскресенье"
-            default:
-                return ""
-        }
-    }
+//    func dayOfWeek() -> String {
+//        let day = Calendar.current.dateComponents([.weekday], from: self).weekday!
+//        switch day {
+//            case 2:
+//                return "Понедельник"
+//            case 3:
+//                return "Вторник"
+//            case 4:
+//                return "Среда"
+//            case 5:
+//                return "Четверг"
+//            case 6:
+//                return "Пятница"
+//            case 7:
+//                return "Суббота"
+//            case 1:
+//                return "Воскресенье"
+//            default:
+//                return ""
+//        }
+//    }
 }
 
