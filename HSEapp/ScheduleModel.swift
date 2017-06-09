@@ -11,31 +11,16 @@ import Foundation
 import CoreData
 
 
-var today: Date {
-    return Date()
-}
-var inSevenDays: Date {
-    return Date(timeInterval: 518400, since: Date())
-}
-
-let lessonClassName: String = String(describing: Lesson.self)
-let dayClassName: String  = String(describing: Day.self)
-
-var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-
-
-public protocol LessonDataDelegate: class {
-    func lessonsDidLoad()
+public protocol ScheduleDataDelegate: class {
+    func scheduleDidLoad(days: [Day])
 }
 
 
 class ScheduleModel {
-    
-    weak var delegate: LessonDataDelegate!
-    
- 
-    // - You will definitely need some explanation here, I bet this is the best possible solution
-    func getSchedule(fromDate: Date, toDate: Date){
+    weak var delegate: ScheduleDataDelegate!
+
+    func getSchedule(fromDate: Date, toDate: Date) {
+        var days = [Day]()
         
         let dateStart = fromDate.convertDateToMakeRequest()
         let dateEnd   = toDate.convertDateToMakeRequest()
@@ -67,7 +52,7 @@ class ScheduleModel {
                                 if date.dayNumberOfWeek() != 1 {
                                     let day = Day(context: appDelegate.persistentContainer.viewContext)
                                     day.date = date as NSDate
-
+                                    
                                     for lessonJSON in lessonsFromJSON {
                                         let lessonJSONDate = (lessonJSON["date"] as? String)?.convertStringToDate(format: "yyyy.MM.dd") as NSDate?
                                         
@@ -91,6 +76,7 @@ class ScheduleModel {
                                             break
                                         }
                                     }
+                                    days.append(day)
                                 }
                                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
                             }
@@ -98,7 +84,7 @@ class ScheduleModel {
                         }
                     }
                     OperationQueue.main.addOperation({
-                        self.delegate.lessonsDidLoad()
+                        self.delegate.scheduleDidLoad(days: days)
                     })
                 }
                 catch
@@ -109,81 +95,9 @@ class ScheduleModel {
         }
         task.resume()
     }
-    
-    
-    func deleteAllRecords() {
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: dayClassName)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        let context = container?.viewContext
-        
-        do {
-            try context?.execute(deleteRequest)
-            try context?.save()
-        } catch {
-            print ("Error with delete request")
-        }
-    }
 
-    
-    func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
-        DispatchQueue.global(qos: .default).async() {
-            sleep(1)
-            DispatchQueue.main.async() {
-                refreshEnd(0)
-            }
-        }
-    }
 }
 
 
-func getCurrentDateTime() -> String {
-    let currentDateTime = Date()
-    let formatter = DateFormatter()
-    formatter.dateFormat = "dd.MM.yyyy, HH:mm"
-    return formatter.string(from: currentDateTime)
-}
 
-extension String {
-    func convertStringToDate(format: String) -> Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        return formatter.date(from: self)!
-    }
-}
-
-extension Date {
-    func convertDateToMakeRequest() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM.dd.yyyy"
-        return formatter.string(from: self)
-    }
-}
-
-extension Date {
-    func dayNumberOfWeek() -> Int {
-        return Calendar.current.dateComponents([.weekday], from: self).weekday!
-    }
-    
-//    func dayOfWeek() -> String {
-//        let day = Calendar.current.dateComponents([.weekday], from: self).weekday!
-//        switch day {
-//            case 2:
-//                return "Понедельник"
-//            case 3:
-//                return "Вторник"
-//            case 4:
-//                return "Среда"
-//            case 5:
-//                return "Четверг"
-//            case 6:
-//                return "Пятница"
-//            case 7:
-//                return "Суббота"
-//            case 1:
-//                return "Воскресенье"
-//            default:
-//                return ""
-//        }
-//    }
-}
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1112E9321E369F4800BC70A3 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1112E9311E369F4800BC70A3 /* MainTextField.swift */; };
 		111A27D11E40B6D500E544EB /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A27D01E40B6D500E544EB /* Worker.swift */; };
 		111A27D31E40C0C200E544EB /* WorkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A27D21E40C0C200E544EB /* WorkerManager.swift */; };
 		111E53B71E49EA000071DDE4 /* ChooseRubricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111E53B61E49EA000071DDE4 /* ChooseRubricViewController.swift */; };
@@ -39,12 +38,13 @@
 		11C2E3FC1E3CFF3F00D5B717 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2E3FB1E3CFF3F00D5B717 /* NewsManager.swift */; };
 		11D430DA1E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D430D91E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift */; };
 		11D6A0B71E55FC9A00AE7AAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6A0B61E55FC9A00AE7AAB /* SettingsTableViewController.swift */; };
+		11DB185B1EEAC4D800B63FAB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB185A1EEAC4D800B63FAB /* Utils.swift */; };
+		11DB185D1EEAD73200B63FAB /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB185C1EEAD73200B63FAB /* CoreDataModel.swift */; };
 		11F439301E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4392F1E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift */; };
 		11FBAA381ED7093500401489 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1112E9311E369F4800BC70A3 /* MainTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		111A27D01E40B6D500E544EB /* Worker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		111A27D21E40C0C200E544EB /* WorkerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerManager.swift; sourceTree = "<group>"; };
 		111E53B61E49EA000071DDE4 /* ChooseRubricViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRubricViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		11C2E3FB1E3CFF3F00D5B717 /* NewsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		11D430D91E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceOfNewsViewController.swift; sourceTree = "<group>"; };
 		11D6A0B61E55FC9A00AE7AAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		11DB185A1EEAC4D800B63FAB /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		11DB185C1EEAD73200B63FAB /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		11F4392F1E4CC9EE0022AD0F /* PhoneAndEmailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAndEmailTableViewController.swift; sourceTree = "<group>"; };
 		11FBAA371ED7093500401489 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,35 +149,10 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		1146BB6B1E425A680077D419 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1112E9311E369F4800BC70A3 /* MainTextField.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		1146BB6C1E425A8C0077D419 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				1181400B1E36B0A0006071CE /* AuthViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		1146BB6D1E425A930077D419 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		114940AC1E37BEE800EADF6F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				1146BB6D1E425A930077D419 /* Model */,
-				1146BB6B1E425A680077D419 /* View */,
-				1146BB6C1E425A8C0077D419 /* Controller */,
+				1181400B1E36B0A0006071CE /* AuthViewController.swift */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -216,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				1168A88E1E34CEF000A28865 /* AppDelegate.swift */,
+				11DB185A1EEAC4D800B63FAB /* Utils.swift */,
 				1168A8971E34CEF000A28865 /* Assets.xcassets */,
 				1168A8991E34CEF000A28865 /* LaunchScreen.storyboard */,
 				1168A89C1E34CEF000A28865 /* Info.plist */,
@@ -232,6 +210,7 @@
 				116D44101EDB431100E59E20 /* Day+CoreDataProperties.swift */,
 				116D44111EDB431100E59E20 /* Lesson+CoreDataClass.swift */,
 				116D44121EDB431100E59E20 /* Lesson+CoreDataProperties.swift */,
+				11DB185C1EEAD73200B63FAB /* CoreDataModel.swift */,
 				11FBAA361ED7093500401489 /* DataModel.xcdatamodeld */,
 			);
 			name = CoreData;
@@ -392,6 +371,7 @@
 			files = (
 				1126D20C1EB9E63000EB7269 /* MapViewController.swift in Sources */,
 				11490A681ECE1D87006AF094 /* ScrollingNavigationController.swift in Sources */,
+				11DB185D1EEAD73200B63FAB /* CoreDataModel.swift in Sources */,
 				1168A8931E34CEF000A28865 /* NewsViewController.swift in Sources */,
 				1168A88F1E34CEF000A28865 /* AppDelegate.swift in Sources */,
 				1168A8A81E34EC9500A28865 /* ContactsViewController.swift in Sources */,
@@ -410,7 +390,7 @@
 				111A27D11E40B6D500E544EB /* Worker.swift in Sources */,
 				11C2E3FA1E3CFDCB00D5B717 /* PieceOfNews.swift in Sources */,
 				1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */,
-				1112E9321E369F4800BC70A3 /* MainTextField.swift in Sources */,
+				11DB185B1EEAC4D800B63FAB /* Utils.swift in Sources */,
 				11490A6C1ECEE8A6006AF094 /* ScheduleModel.swift in Sources */,
 				11FBAA381ED7093500401489 /* DataModel.xcdatamodeld in Sources */,
 				11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */,
