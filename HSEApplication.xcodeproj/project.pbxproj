@@ -57,7 +57,7 @@
 		11490A671ECE1D87006AF094 /* ScrollingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingNavigationController.swift; sourceTree = "<group>"; };
 		11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScrollingNavbar+Sizes.swift"; sourceTree = "<group>"; };
 		11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
-		1168A88B1E34CEF000A28865 /* hse-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hse-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1168A88B1E34CEF000A28865 /* HSEApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSEApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1168A88E1E34CEF000A28865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1168A8901E34CEF000A28865 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		1168A8921E34CEF000A28865 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		1168A8821E34CEF000A28865 = {
 			isa = PBXGroup;
 			children = (
-				1168A88D1E34CEF000A28865 /* hse-app */,
+				1168A88D1E34CEF000A28865 /* HSEApplication */,
 				1168A88C1E34CEF000A28865 /* Products */,
 				1126D20D1EB9E65500EB7269 /* Frameworks */,
 			);
@@ -169,12 +169,12 @@
 		1168A88C1E34CEF000A28865 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1168A88B1E34CEF000A28865 /* hse-app.app */,
+				1168A88B1E34CEF000A28865 /* HSEApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1168A88D1E34CEF000A28865 /* hse-app */ = {
+		1168A88D1E34CEF000A28865 /* HSEApplication */ = {
 			isa = PBXGroup;
 			children = (
 				1168A8941E34CEF000A28865 /* Main.storyboard */,
@@ -186,7 +186,7 @@
 				116D43FA1EDA09CB00E59E20 /* CoreData */,
 				1168A8A21E34CF2300A28865 /* Supporting files */,
 			);
-			path = "hse-app";
+			path = HSEApplication;
 			sourceTree = "<group>";
 		};
 		1168A8A21E34CF2300A28865 /* Supporting files */ = {
@@ -294,9 +294,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1168A88A1E34CEF000A28865 /* hse-app */ = {
+		1168A88A1E34CEF000A28865 /* HSEApplication */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1168A89F1E34CEF000A28865 /* Build configuration list for PBXNativeTarget "hse-app" */;
+			buildConfigurationList = 1168A89F1E34CEF000A28865 /* Build configuration list for PBXNativeTarget "HSEApplication" */;
 			buildPhases = (
 				1168A8871E34CEF000A28865 /* Sources */,
 				1168A8881E34CEF000A28865 /* Frameworks */,
@@ -306,9 +306,9 @@
 			);
 			dependencies = (
 			);
-			name = "hse-app";
+			name = HSEApplication;
 			productName = HSEapp;
-			productReference = 1168A88B1E34CEF000A28865 /* hse-app.app */;
+			productReference = 1168A88B1E34CEF000A28865 /* HSEApplication.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -333,7 +333,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1168A8861E34CEF000A28865 /* Build configuration list for PBXProject "hse-app" */;
+			buildConfigurationList = 1168A8861E34CEF000A28865 /* Build configuration list for PBXProject "HSEApplication" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -346,7 +346,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1168A88A1E34CEF000A28865 /* hse-app */,
+				1168A88A1E34CEF000A28865 /* HSEApplication */,
 			);
 		};
 /* End PBXProject section */
@@ -523,10 +523,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ACQW3TZC33;
-				INFOPLIST_FILE = "$(SRCROOT)/hse-app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/HSEApplication/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "alexander.hse-app";
+				PRODUCT_BUNDLE_IDENTIFIER = alexander.HSEApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -538,10 +538,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ACQW3TZC33;
-				INFOPLIST_FILE = "$(SRCROOT)/hse-app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/HSEApplication/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "alexander.hse-app";
+				PRODUCT_BUNDLE_IDENTIFIER = alexander.HSEApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -551,7 +551,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1168A8861E34CEF000A28865 /* Build configuration list for PBXProject "hse-app" */ = {
+		1168A8861E34CEF000A28865 /* Build configuration list for PBXProject "HSEApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1168A89D1E34CEF000A28865 /* Debug */,
@@ -560,7 +560,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1168A89F1E34CEF000A28865 /* Build configuration list for PBXNativeTarget "hse-app" */ = {
+		1168A89F1E34CEF000A28865 /* Build configuration list for PBXNativeTarget "HSEApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1168A8A01E34CEF000A28865 /* Debug */,

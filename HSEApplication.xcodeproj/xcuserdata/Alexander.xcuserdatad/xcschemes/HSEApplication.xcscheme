@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1168A88A1E34CEF000A28865"
-               BuildableName = "hse-app.app"
-               BlueprintName = "hse-app"
-               ReferencedContainer = "container:hse-app.xcodeproj">
+               BuildableName = "HSEApplication.app"
+               BlueprintName = "HSEApplication"
+               ReferencedContainer = "container:HSEApplication.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1168A88A1E34CEF000A28865"
-            BuildableName = "hse-app.app"
-            BlueprintName = "hse-app"
-            ReferencedContainer = "container:hse-app.xcodeproj">
+            BuildableName = "HSEApplication.app"
+            BlueprintName = "HSEApplication"
+            ReferencedContainer = "container:HSEApplication.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1168A88A1E34CEF000A28865"
-            BuildableName = "hse-app.app"
-            BlueprintName = "hse-app"
-            ReferencedContainer = "container:hse-app.xcodeproj">
+            BuildableName = "HSEApplication.app"
+            BlueprintName = "HSEApplication"
+            ReferencedContainer = "container:HSEApplication.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1168A88A1E34CEF000A28865"
-            BuildableName = "hse-app.app"
-            BlueprintName = "hse-app"
-            ReferencedContainer = "container:hse-app.xcodeproj">
+            BuildableName = "HSEApplication.app"
+            BlueprintName = "HSEApplication"
+            ReferencedContainer = "container:HSEApplication.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
