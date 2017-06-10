@@ -40,5 +40,5 @@ class LessonCell: UITableViewCell {
         tutorLabel?.text = lesson?.lecturer
         addressButton?.setTitle((lesson?.address)! + ", " + (lesson?.lectureRoom)!, for: .normal)
     }
-
+    
 }

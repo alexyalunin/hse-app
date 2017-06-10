@@ -155,12 +155,12 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
         })
     }
     
-    private func updateLastUpdateLabel(){
+    func updateLastUpdateLabel(){
         UserDefaults.standard.set(getCurrentDateTime(), forKey: "lastUpdate")
         lastUpdateLabel.text = "Последнее обновление: " + UserDefaults.standard.string(forKey: "lastUpdate")!
     }
     
-    private func showElements(){
+    func showElements(){
         previousWeekButton.isHidden    = false
         nextWeekButton.isHidden        = false
         lastUpdateLabel.isHidden       = false
@@ -171,7 +171,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
         refreshControl?.endRefreshing()
     }
     
-    private func setUpForViewIsLoading(){
+    func setUpForViewIsLoading(){
         previousWeekButton.isHidden    = true
         nextWeekButton.isHidden        = true
         lastUpdateLabel.isHidden       = true
@@ -181,7 +181,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
         bottomActivityIndicator.stopAnimating()
     }
     
-    private func setUpForPreviousWeekButtonDidPress(){
+    func setUpForPreviousWeekButtonDidPress(){
         previousWeekButton.isHidden    = true
         lastUpdateLabel.isHidden       = true
         topNoScheduleLabel.isHidden    = false
@@ -189,7 +189,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
         previousWeekButtonDidPress     = true
     }
     
-    private func setUpForNextWeekButtonDidPress(){
+    func setUpForNextWeekButtonDidPress(){
         nextWeekButton.isHidden        = true
         bottomNoScheduleLabel.isHidden = false
         bottomActivityIndicator.startAnimating()
@@ -209,16 +209,20 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "From schedule to map" {
+        switch segue.identifier! {
+        case "From schedule to map":
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController as! MapViewController
             targetController.address = sender as! String
-            
-        } else if segue.identifier == "From schedule to set interval" {
+
+        case "From schedule to set interval":
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController as! ChooseIntervalTableViewController
             targetController.intervalStart = dateStart
             targetController.intervalEnd   = dateEnd
+        
+        default:
+            return
         }
     }
     
@@ -278,7 +282,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        headerView.backgroundColor = headerColor
+        headerView.backgroundColor = Colors.headerColor
         
         let label = UILabel(frame: CGRect(x: 15,y: 0, width: tableView.bounds.size.width, height: 30))
         

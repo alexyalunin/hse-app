@@ -13,15 +13,12 @@ import UIKit
 
 // MARK: - Dates
 
-var today: Date {
-    return Date()
-}
-var inSevenDays: Date {
-    return Date(timeInterval: 60*60*24*6, since: Date())
-}
+let today = Date()
+let inSevenDays = Date(timeInterval: 60*60*24*6, since: Date())
 
 
 // MARK: - Entities' names
+
 
 let lessonClassName: String = String(describing: Lesson.self)
 let dayClassName: String  = String(describing: Day.self)
@@ -30,9 +27,11 @@ let dayClassName: String  = String(describing: Day.self)
 // MARK: - Colors
 
 
-var hseColor = UIColor(red: 0/255.0, green: 71/255.0, blue: 136/255.0, alpha: 1.0)
-var hseColorPassive = UIColor.black.withAlphaComponent(0.5)
-var headerColor = UIColor(red: 216/255.0, green: 216/255.0, blue: 216/255.0, alpha: 1.0)
+struct Colors {
+    static let hseColor = UIColor(hex: "004788")
+    static let hseColorPassive = UIColor.black.withAlphaComponent(0.5)
+    static let headerColor = UIColor(hex: "D8D8D8")
+}
 
 
 // MARK: - CoreData
@@ -84,6 +83,20 @@ func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
 extension UIApplication {
     var statusBarView: UIView? {
         return value(forKey: "statusBar") as? UIView
+    }
+}
+
+extension UIColor {
+    convenience init(hex: String) {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0, blue: CGFloat(rgbValue & 0x0000FF) / 255.0, alpha: CGFloat(1.0))
     }
 }
 
