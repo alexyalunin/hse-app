@@ -54,7 +54,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = makeHeaderWithDate(tableView: tableView, date: nm.allNews[section].date, dateStyle: .medium)
+        let header = makeHeaderWithDate(tableView: tableView, date: nm.allNews[section].date, dateStyle: .long)
         return header
     }
     
@@ -89,7 +89,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 destinationViewController?.pieceOfNews = pieceOfNewsAtIndexPath(indexPath: IndexPath as NSIndexPath)
             }
             if let IndexPathForSection = self.newsTableView.indexPath(for: sender as! UITableViewCell){
-                destinationViewController?.titleOfNavBar = String(describing: dateAtIndexPath(indexPath: IndexPathForSection as NSIndexPath).date)
+                let date = dateAtIndexPath(indexPath: IndexPathForSection as NSIndexPath).date
+                let formatter = DateFormatter()
+                formatter.dateStyle = .long
+                destinationViewController?.titleOfNavBar = formatter.string(from: date)
             }
         }
         if (segue.identifier == "rubricSegue") {

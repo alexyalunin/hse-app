@@ -118,6 +118,13 @@ extension UIColor {
 }
 
 extension String {
+    
+    var containsNonWhitespace: Bool {
+        return !self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
+
+extension String {
     func convertStringToDate(format: String) -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -144,6 +151,12 @@ extension NSDate {
 extension Date {
     func dayNumberOfWeek() -> Int {
         return Calendar.current.dateComponents([.weekday], from: self).weekday!
+    }
+    
+    func convertDateToString(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self as Date)
     }
 }
 

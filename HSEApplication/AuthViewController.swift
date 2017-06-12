@@ -7,7 +7,7 @@
 //
 
 import UIKit
-@IBDesignable
+
 class AuthViewController: UIViewController {
 
     @IBOutlet weak var continueButton: UIButton!
@@ -15,10 +15,9 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var viewWithTextField: UIView!
 
     @IBAction func continueButtonDidPress(_ sender: Any) {
-        guard let text = emailTextField.text, !text.isEmpty else {
-            return
+        if (emailTextField.text?.containsNonWhitespace)! {
+            performSegue(withIdentifier: "From auth to schedule", sender: emailTextField.text! + "@edu.hse.ru")
         }
-        performSegue(withIdentifier: "From auth to schedule", sender: text + "@edu.hse.ru")
     }
     
     override func viewDidLoad() {

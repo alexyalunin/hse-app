@@ -187,6 +187,10 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
         nextWeekButtonDidPress         = true
     }
     
+    @IBAction func done(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     // MARK: - LessonCellDelegate
     
@@ -204,7 +208,9 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
         case "From schedule to map":
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController as! MapViewController
-            targetController.address = sender as! String
+            targetController.address = sender as? String
+            targetController.title = ""
+            targetController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.done(_:)))
 
         case "From schedule to set interval":
             let destinationNavigationController = segue.destination as! UINavigationController
@@ -216,6 +222,7 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
             return
         }
     }
+    
     
     @IBAction func setScheduleInterval(from segue: UIStoryboardSegue) {
         if let sourceController = segue.source as? ChooseIntervalTableViewController {

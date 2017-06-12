@@ -23,9 +23,9 @@ class NewsManager{
         let new7 = PieceOfNews(title: "1 курс Теория вероятностей гр.162 и 165 (преп. Фурманов К.К.)", descriptionText: "Внимание! Сегодня 7 июня (среда) -отменяются семинарские занятия по теории вероятностей (преп.Фурнманов К.К.)-преподаватель болен. Занятия состоятся 15 июня (четверг) гр.165 в 10.30 ауд.414;группа 162 в 12.10 ауд.414")
         let new8 = PieceOfNews(title: "Конкурс «Мобильный прорыв»", descriptionText: "Финансовый университет приглашает студентов программы «Бизнес-информатика» принять участие в Межвузовском конкурсе разработчиков «Мобильный прорыв». Конкурс - открытое соревнование среди разработчиков мобильных приложений по созданию лучшего технологического решения для корпоративного рынка на основе российской технологической мобильной платформы «ОПТИМУМ».")
         let ns1 = NewsSection(news: [new1, new2], date: "09.06.17".convertStringToDate(format: "dd.MM.yy"))
-        let ns2 = NewsSection(news: [new3, new4], date: "08.01.17".convertStringToDate(format: "dd.MM.yy"))
-        let ns3 = NewsSection(news: [new5, new6], date: "07.01.17".convertStringToDate(format: "dd.MM.yy"))
-        let ns4 = NewsSection(news: [new7, new8], date: "06.01.17".convertStringToDate(format: "dd.MM.yy"))
+        let ns2 = NewsSection(news: [new3, new4], date: "08.06.17".convertStringToDate(format: "dd.MM.yy"))
+        let ns3 = NewsSection(news: [new5, new6], date: "07.06.17".convertStringToDate(format: "dd.MM.yy"))
+        let ns4 = NewsSection(news: [new7, new8], date: "06.06.17".convertStringToDate(format: "dd.MM.yy"))
         
         allNews = [ns1, ns2, ns3, ns4]
     }

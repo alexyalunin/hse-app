@@ -256,7 +256,7 @@
                         <outlet property="previousWeekButton" destination="ylB-Jf-9lz" id="FNZ-O9-ca9"/>
                         <outlet property="topActivityIndicator" destination="5VD-aU-FQp" id="kng-uO-o4M"/>
                         <outlet property="topNoScheduleLabel" destination="kgl-Rj-1u3" id="90h-jo-SUk"/>
-                        <segue destination="415-Wn-kz7" kind="showDetail" identifier="From schedule to map" action="showViewController:sender:" id="dRD-RO-Klj"/>
+                        <segue destination="JCx-qK-58R" kind="showDetail" identifier="From schedule to map" id="Apr-1y-5ls"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YzW-v5-QQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -515,7 +515,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cRJ-SS-cw3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NEB-VD-Y61">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sR-J3-BUv">
@@ -825,11 +825,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xrl-2T-qDx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J2x-gS-cn4">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hOI-do-j3X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="contactCell" id="oJD-Qt-ICd">
@@ -1088,7 +1088,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="yrV-b5-SPs" kind="relationship" relationship="rootViewController" id="jDC-M3-20B"/>
+                        <segue destination="sVy-EN-OoJ" kind="relationship" relationship="rootViewController" id="BoJ-L7-4Rf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhh-99-qd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1307,7 +1307,7 @@
             </objects>
             <point key="canvasLocation" x="2134" y="2156"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Карта-->
         <scene sceneID="yuS-Ia-Vxp">
             <objects>
                 <viewController id="sVy-EN-OoJ" customClass="MapViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -1316,35 +1316,29 @@
                         <viewControllerLayoutGuide type="bottom" id="C7F-JF-AP8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rR0-Cy-uq2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5kC-WA-XJ1">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5kC-WA-XJ1" firstAttribute="leading" secondItem="rR0-Cy-uq2" secondAttribute="leading" id="1Iz-tM-lL9"/>
-                            <constraint firstItem="5kC-WA-XJ1" firstAttribute="top" secondItem="QtV-Jf-eSt" secondAttribute="bottom" id="ITL-Vb-S8W"/>
-                            <constraint firstAttribute="trailing" secondItem="5kC-WA-XJ1" secondAttribute="trailing" id="NdR-Ga-5L5"/>
-                            <constraint firstItem="5kC-WA-XJ1" firstAttribute="bottom" secondItem="C7F-JF-AP8" secondAttribute="top" id="fDS-gT-qLq"/>
+                            <constraint firstItem="5kC-WA-XJ1" firstAttribute="bottom" secondItem="C7F-JF-AP8" secondAttribute="top" id="HoX-iN-wc9"/>
+                            <constraint firstItem="5kC-WA-XJ1" firstAttribute="leading" secondItem="rR0-Cy-uq2" secondAttribute="leading" id="Spx-KX-8G9"/>
+                            <constraint firstAttribute="trailing" secondItem="5kC-WA-XJ1" secondAttribute="trailing" id="TX3-QT-80s"/>
+                            <constraint firstItem="5kC-WA-XJ1" firstAttribute="top" secondItem="QtV-Jf-eSt" secondAttribute="bottom" id="ZSr-Fs-kAT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bEj-F5-IcS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bTG-fy-b3m">
-                            <connections>
-                                <action selector="done:" destination="sVy-EN-OoJ" id="Mn0-9B-bBC"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Карта" id="bEj-F5-IcS"/>
                     <connections>
                         <outlet property="mapView" destination="5kC-WA-XJ1" id="fRN-BI-TVr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5Q-Yx-2xD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3888.8000000000002" y="2927.5862068965521"/>
+            <point key="canvasLocation" x="1340" y="2155.7721139430287"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wln-4c-c4G">
@@ -1394,9 +1388,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="sVy-EN-OoJ" kind="relationship" relationship="rootViewController" id="gZ4-zR-dVr"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79I-tf-jCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1519,6 +1510,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="adt-FE-ms4"/>
-        <segue reference="dRD-RO-Klj"/>
+        <segue reference="Apr-1y-5ls"/>
     </inferredMetricsTieBreakers>
 </document>
