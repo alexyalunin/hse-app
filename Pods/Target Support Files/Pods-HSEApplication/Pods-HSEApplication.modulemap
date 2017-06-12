@@ -1,0 +1,6 @@
+framework module Pods_HSEApplication {
+  umbrella header "Pods-HSEApplication-umbrella.h"
+
+  export *
+  module * { export * }
+}
