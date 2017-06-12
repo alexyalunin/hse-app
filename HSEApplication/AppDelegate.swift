@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: - StatusBar
         UIApplication.shared.statusBarView?.backgroundColor = Colors.hseColor
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        // MARK: - GoogleMaps
+        GMSServices.provideAPIKey("AIzaSyAaJcL121K3vNoefQ669EIs_k776C8O4Wc")
         
         return true
     }

@@ -28,7 +28,7 @@ class PhoneAndEmailTableViewController: UITableViewController, MFMailComposeView
         // - make a call
         if indexPath.row == 0{
             let phoneNumber = phoneCell.mainTextLabel.text!
-            if let url = URL(string: "tel://\(phoneNumber)") {
+            if URL(string: "tel://\(phoneNumber)") != nil {
                 //UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
