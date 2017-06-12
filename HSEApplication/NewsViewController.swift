@@ -52,21 +52,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nm.allNews[section].date
-    }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        headerView.backgroundColor = Colors.headerColor
-        
-        let label = UILabel(frame: CGRect(x: 15,y: 0, width: tableView.bounds.size.width, height: 30))
-        label.text = String(describing: nm.allNews[section].date)
-        label.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightSemibold)
-        
-        headerView.addSubview(label)
-        
-        return headerView
+        let header = makeHeaderWithDate(tableView: tableView, date: nm.allNews[section].date, dateStyle: .medium)
+        return header
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

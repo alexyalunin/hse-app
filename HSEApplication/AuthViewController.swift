@@ -14,6 +14,13 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var viewWithTextField: UIView!
 
+    @IBAction func continueButtonDidPress(_ sender: Any) {
+        guard let text = emailTextField.text, !text.isEmpty else {
+            return
+        }
+        performSegue(withIdentifier: "From auth to schedule", sender: text + "@edu.hse.ru")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViewWithTextField()
@@ -21,8 +28,10 @@ class AuthViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        email = emailTextField.text! + "@edu.hse.ru"
-        UserDefaults.standard.set(true, forKey: "hasEnteredEmail")
+        if segue.identifier == "From auth to schedule" {
+            email = sender as? String
+            UserDefaults.standard.set(true, forKey: "hasEnteredEmail")
+        }
     }
     
     private func setUpViewWithTextField() {

@@ -29,7 +29,7 @@ let dayClassName: String  = String(describing: Day.self)
 
 struct Colors {
     static let hseColor = UIColor(hex: "004788")
-    static let hseColorPassive = UIColor.black.withAlphaComponent(0.5)
+    static let blackPassiveColor = UIColor.black.withAlphaComponent(0.5)
     static let headerColor = UIColor(hex: "D8D8D8")
 }
 
@@ -76,6 +76,23 @@ func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
     }
 }
 
+func makeHeaderWithDate(tableView: UITableView, date: Date, dateStyle: DateFormatter.Style) -> UIView? {
+    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+    headerView.backgroundColor = Colors.headerColor
+    
+    let label = UILabel(frame: CGRect(x: 15,y: 0, width: tableView.bounds.size.width, height: 30))
+    
+    let formatter = DateFormatter()
+    formatter.dateStyle = dateStyle
+    
+    label.text = formatter.string(from: date).uppercased()
+    label.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightSemibold)
+    
+    headerView.addSubview(label)
+    
+    return headerView
+}
+
 
 // MARK: - Extensions
 
@@ -113,6 +130,14 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM.dd.yyyy"
         return formatter.string(from: self)
+    }
+}
+
+extension NSDate {
+    func convertDateToString(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self as Date)
     }
 }
 

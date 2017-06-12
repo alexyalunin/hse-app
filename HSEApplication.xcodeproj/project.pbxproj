@@ -129,7 +129,6 @@
 				1168A8901E34CEF000A28865 /* ScheduleViewController.swift */,
 				1146BB801E45EBC70077D419 /* ChooseIntervalTableViewController.swift */,
 				1146BB781E4348BD0077D419 /* LessonCell.swift */,
-				1146BB821E462E8F0077D419 /* TimePickerCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -140,13 +139,6 @@
 				11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		1146BB6A1E425A3C0077D419 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 		114940AC1E37BEE800EADF6F /* Auth */ = {
@@ -228,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				1146BB691E425A350077D419 /* Model */,
-				1146BB6A1E425A3C0077D419 /* View */,
 				1146BB681E425A2D0077D419 /* Controller */,
 			);
 			name = Schedule;
@@ -238,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				11C2E3F31E3CFBED00D5B717 /* Model */,
-				11C2E3F41E3CFBF500D5B717 /* View */,
 				11C2E3F21E3CFBDC00D5B717 /* Controller */,
 			);
 			name = News;
@@ -270,6 +260,7 @@
 				1168A8921E34CEF000A28865 /* NewsViewController.swift */,
 				11D430D91E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift */,
 				111E53B61E49EA000071DDE4 /* ChooseRubricViewController.swift */,
+				1146BB821E462E8F0077D419 /* TimePickerCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -282,13 +273,6 @@
 				11C2E3FB1E3CFF3F00D5B717 /* NewsManager.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		11C2E3F41E3CFBF500D5B717 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -86,15 +86,6 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let navigationController = navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(tableView, delay: 0.0)
-        }
-    }
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -280,21 +271,8 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        headerView.backgroundColor = Colors.headerColor
-        
-        let label = UILabel(frame: CGRect(x: 15,y: 0, width: tableView.bounds.size.width, height: 30))
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.full
-        
-        label.text = formatter.string(from: scheduleData[section].date! as Date).uppercased()
-        label.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightSemibold)
-        
-        headerView.addSubview(label)
-        
-        return headerView
+        let header = makeHeaderWithDate(tableView: tableView, date: scheduleData[section].date! as Date, dateStyle: .full)
+        return header
     }
     
     

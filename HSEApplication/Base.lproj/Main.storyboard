@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--Расписание-->
         <scene sceneID="Q1t-U4-UBA">
             <objects>
-                <tableViewController id="ipK-2a-0Us" customClass="ScheduleViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ipK-2a-0Us" customClass="ScheduleViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="100" sectionHeaderHeight="18" sectionFooterHeight="18" id="82o-EN-SAD">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,11 +106,11 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="lessonCell" rowHeight="112" id="WYS-ku-IVE" customClass="LessonCell" customModule="HSEmanager" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141" width="375" height="112"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="lessonCell" rowHeight="112" id="WYS-ku-IVE" customClass="LessonCell" customModule="HSEApplication" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="140.5" width="375" height="112"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WYS-ku-IVE" id="ZXr-AJ-fcP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="111.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k07-JK-YSZ">
@@ -120,17 +120,17 @@
                                                 <constraint firstAttribute="height" constant="14" id="mw1-Le-hBY"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UA9-kK-fWb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UA9-kK-fWb">
                                             <rect key="frame" x="15" y="89.5" width="34" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="34" id="X3E-MM-SkD"/>
                                                 <constraint firstAttribute="height" constant="14" id="a6N-Jj-FvE"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKd-6L-ajh">
@@ -146,22 +146,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кирсанов Александр Петрович" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RP4-8G-Wh1">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кирсанов Александр Петрович" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RP4-8G-Wh1">
                                             <rect key="frame" x="76" y="73.5" width="291" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="13" id="Fwb-7x-V7J"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лекция" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRc-Ow-etc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лекция" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRc-Ow-etc">
                                             <rect key="frame" x="76" y="8" width="291" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="14" id="oOB-nV-GMr"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nh-Ln-V6c">
@@ -204,15 +204,16 @@
                                     <outlet property="disciplineLabel" destination="GdG-t5-Ijl" id="1hV-ly-8cP"/>
                                     <outlet property="endTimeLabel" destination="UA9-kK-fWb" id="YBc-Hb-blq"/>
                                     <outlet property="lessonTypeLabel" destination="bRc-Ow-etc" id="f4P-Py-sw0"/>
+                                    <outlet property="lineView" destination="LKd-6L-ajh" id="5Ym-6E-W4i"/>
                                     <outlet property="startTimeLabel" destination="k07-JK-YSZ" id="3lb-y7-z7i"/>
                                     <outlet property="tutorLabel" destination="RP4-8G-Wh1" id="bsz-10-HE9"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="noLessonsCell" rowHeight="45" id="lr5-Dz-kE2">
-                                <rect key="frame" x="0.0" y="253" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="252.5" width="375" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lr5-Dz-kE2" id="ZqS-dn-obH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нет занятий" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgL-pb-x6t">
@@ -265,7 +266,7 @@
         <!--Доска объявлений-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="NewsViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="NewsViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -279,7 +280,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="newsCell" textLabel="inG-jw-qcG" style="IBUITableViewCellStyleDefault" id="ZmO-Nm-PhX">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZmO-Nm-PhX" id="mts-Pi-7fg">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -332,7 +333,7 @@
         <!--Рубрики-->
         <scene sceneID="4Ln-cd-i5w">
             <objects>
-                <tableViewController id="PBc-xt-sSx" customClass="ChooseRubricViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="PBc-xt-sSx" customClass="ChooseRubricViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="d8U-yP-dbh">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,11 +341,11 @@
                         <sections>
                             <tableViewSection id="ia1-As-ZuS">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="kHz-BB-D0J" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="kHz-BB-D0J" customClass="TimePickerCell" customModule="HSEApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kHz-BB-D0J" id="HZz-OL-U5l">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld0-Jx-7KU">
@@ -386,11 +387,11 @@
                                             <outlet property="tlTop" destination="zwX-1a-3e9" id="DbH-DF-mEl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="wXa-wh-8gS" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="wXa-wh-8gS" customClass="TimePickerCell" customModule="HSEApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="295" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wXa-wh-8gS" id="jzh-XT-wBJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iln-ve-5a8">
@@ -459,12 +460,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUk-G7-hTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-962" y="3583"/>
+            <point key="canvasLocation" x="-962" y="3608"/>
         </scene>
         <!--Piece Of News View Controller-->
         <scene sceneID="Xjh-LQ-q26">
             <objects>
-                <viewController id="bB5-74-acf" customClass="PieceOfNewsViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bB5-74-acf" customClass="PieceOfNewsViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TDi-op-RW5"/>
                         <viewControllerLayoutGuide type="bottom" id="CBv-zL-26j"/>
@@ -508,7 +509,7 @@
         <!--One Contact View Controller-->
         <scene sceneID="1Gf-SH-jfH">
             <objects>
-                <viewController id="1pQ-cg-cc0" customClass="OneContactViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1pQ-cg-cc0" customClass="OneContactViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6SY-yf-tDU"/>
                         <viewControllerLayoutGuide type="bottom" id="cRJ-SS-cw3"/>
@@ -586,7 +587,7 @@
         <!--Phone And Email Table View Controller-->
         <scene sceneID="Cr3-4l-bLn">
             <objects>
-                <tableViewController storyboardIdentifier="PhoneAndEmailTableViewController" id="k3X-wj-2KJ" customClass="PhoneAndEmailTableViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PhoneAndEmailTableViewController" id="k3X-wj-2KJ" customClass="PhoneAndEmailTableViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="62" sectionHeaderHeight="1" sectionFooterHeight="18" id="p0r-zI-N0Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -594,11 +595,11 @@
                         <sections>
                             <tableViewSection id="mWe-5v-vfl">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="6Go-FM-q3W" customClass="CellWithDetailBlueText" customModule="HSEmanager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="6Go-FM-q3W" customClass="CellWithDetailBlueText" customModule="HSEApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Go-FM-q3W" id="kP4-sU-KEC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+7 (495) 772-95-90*550-70" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTw-Lx-aIo">
@@ -647,11 +648,11 @@
                                             <outlet property="mainTextLabel" destination="bTw-Lx-aIo" id="sFg-hZ-EMh"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="x0a-dR-mhL" customClass="CellWithDetailBlueText" customModule="HSEmanager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="x0a-dR-mhL" customClass="CellWithDetailBlueText" customModule="HSEApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="97" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0a-dR-mhL" id="G8l-cm-QFw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="msamokhin@hse.ru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ax4-Tv-W10">
@@ -722,7 +723,7 @@
         <!--Application Info View Controller-->
         <scene sceneID="Yr0-VC-GSN">
             <objects>
-                <viewController id="E08-hi-asY" customClass="ApplicationInfoViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="E08-hi-asY" customClass="ApplicationInfoViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4dj-Av-yd3"/>
                         <viewControllerLayoutGuide type="bottom" id="007-OM-5sX"/>
@@ -760,7 +761,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWk-4T-24R" customClass="MainButton" customModule="HSEmanager" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWk-4T-24R" customClass="MainButton" customModule="HSEApplication" customModuleProvider="target">
                                 <rect key="frame" x="16" y="283" width="343" height="42"/>
                                 <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -774,7 +775,7 @@
                                     <action selector="contactWithDevelopers:" destination="E08-hi-asY" eventType="touchUpInside" id="gbI-32-BQZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-eO-22L" customClass="MainButton" customModule="HSEmanager" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-eO-22L" customClass="MainButton" customModule="HSEApplication" customModuleProvider="target">
                                 <rect key="frame" x="16" y="333" width="343" height="42"/>
                                 <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -813,12 +814,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28v-SQ-PKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2133.5999999999999" y="2879.9100449775115"/>
+            <point key="canvasLocation" x="2095" y="2928"/>
         </scene>
         <!--Contacts View Controller-->
         <scene sceneID="ycT-u1-Gfs">
             <objects>
-                <viewController id="yrV-b5-SPs" customClass="ContactsViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yrV-b5-SPs" customClass="ContactsViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bz2-DS-4lm"/>
                         <viewControllerLayoutGuide type="bottom" id="xrl-2T-qDx"/>
@@ -835,7 +836,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJD-Qt-ICd" id="maP-ZQ-sH1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -914,7 +915,7 @@
         <!--Введите корпоративную почту-->
         <scene sceneID="86q-MU-KhI">
             <objects>
-                <viewController storyboardIdentifier="AuthViewController" id="opP-MU-aeR" customClass="AuthViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" id="opP-MU-aeR" customClass="AuthViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mtw-Ez-cIi"/>
                         <viewControllerLayoutGuide type="bottom" id="Rzj-z9-h0u"/>
@@ -935,8 +936,8 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="continueButtonDidPress:" destination="opP-MU-aeR" eventType="touchUpInside" id="3eI-Ts-B5U"/>
                                     <action selector="previousWeekButtonDidPress:" destination="ipK-2a-0Us" eventType="touchUpInside" id="Ejw-mv-TrQ"/>
-                                    <segue destination="49e-Tb-3d3" kind="presentation" identifier="" modalTransitionStyle="flipHorizontal" id="aNq-kw-u9n"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJG-cH-g0q">
@@ -1000,6 +1001,7 @@
                         <outlet property="continueButton" destination="N3W-7o-lqT" id="cpF-4G-s1s"/>
                         <outlet property="emailTextField" destination="bq0-76-vL9" id="5ux-mk-rY8"/>
                         <outlet property="viewWithTextField" destination="qTg-X2-TzX" id="tMT-Z0-9EM"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="From auth to schedule" id="Tnb-br-l7c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGd-mF-xEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1036,8 +1038,8 @@
         <!--Расписание-->
         <scene sceneID="dLN-QJ-oaU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="09D-Ar-jaS" customClass="ScrollingNavigationController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Расписание" image="calendar" selectedImage="calendar-fill" id="eQM-ea-YvL"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="09D-Ar-jaS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Расписание" image="calendar" selectedImage="calendar-filled" id="eQM-ea-YvL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="uKT-XI-sSy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1057,7 +1059,7 @@
         <scene sceneID="hKR-Y9-D5m">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rz6-bs-l3R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Объявления" image="list" selectedImage="list-fill" id="W3p-ts-Acx"/>
+                    <tabBarItem key="tabBarItem" title="Объявления" image="news" selectedImage="news-filled" id="W3p-ts-Acx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="ZtE-Ly-tHi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1073,11 +1075,11 @@
             </objects>
             <point key="canvasLocation" x="-599.20000000000005" y="1433.433283358321"/>
         </scene>
-        <!--Контакты-->
+        <!--Карта-->
         <scene sceneID="dOE-l1-hdm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JCx-qK-58R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Контакты" image="users" selectedImage="users-fill" id="tTm-Md-gTO"/>
+                    <tabBarItem key="tabBarItem" title="Карта" image="maps" selectedImage="maps-filled" id="tTm-Md-gTO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="VQr-6z-PwN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1116,7 +1118,7 @@
         <!--Еще-->
         <scene sceneID="kN5-AC-DZe">
             <objects>
-                <tableViewController id="DSQ-FD-JnL" customClass="SettingsTableViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="DSQ-FD-JnL" customClass="SettingsTableViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="25" sectionFooterHeight="1" id="etc-uD-ZzW">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1124,11 +1126,11 @@
                         <sections>
                             <tableViewSection id="C2G-MN-ef3">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="XH8-Sx-d70" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="XH8-Sx-d70" customClass="TimePickerCell" customModule="HSEApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XH8-Sx-d70" id="m6A-ut-G2g">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4k-kN-b4K">
@@ -1170,11 +1172,11 @@
                                             <outlet property="tlTop" destination="bey-90-IiI" id="y0Z-gA-WEn"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="z1U-Bf-mHO" customClass="TimePickerCell" customModule="HSEmanager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="z1U-Bf-mHO" customClass="TimePickerCell" customModule="HSEApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="295" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z1U-Bf-mHO" id="mW7-XP-7HW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRY-tk-2MU">
@@ -1224,7 +1226,7 @@
                                         <rect key="frame" x="0.0" y="581" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GC0-eF-4Ex" id="TgA-Pt-aOE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выйти" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bo3-nc-2va">
@@ -1308,7 +1310,7 @@
         <!--Map View Controller-->
         <scene sceneID="yuS-Ia-Vxp">
             <objects>
-                <viewController id="sVy-EN-OoJ" customClass="MapViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sVy-EN-OoJ" customClass="MapViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QtV-Jf-eSt"/>
                         <viewControllerLayoutGuide type="bottom" id="C7F-JF-AP8"/>
@@ -1400,10 +1402,10 @@
             </objects>
             <point key="canvasLocation" x="2949.5999999999999" y="2927.5862068965521"/>
         </scene>
-        <!--Получить расписание-->
+        <!--Выбрать интервал-->
         <scene sceneID="Cyn-kj-lbC">
             <objects>
-                <tableViewController id="FC2-z2-xbg" customClass="ChooseIntervalTableViewController" customModule="HSEmanager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="FC2-z2-xbg" customClass="ChooseIntervalTableViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="jWa-Hm-F4d">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1411,10 +1413,10 @@
                         <color key="sectionIndexBackgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="dateCell" textLabel="iGE-tl-vFe" detailTextLabel="tt1-pg-eVf" style="IBUITableViewCellStyleValue1" id="0Ax-xv-DfU">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ax-xv-DfU" id="y1f-QS-JrZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iGE-tl-vFe">
@@ -1435,10 +1437,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="datePicker" rowHeight="216" id="Vst-qF-Jah">
-                                <rect key="frame" x="0.0" y="100" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vst-qF-Jah" id="GuL-vb-wS8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <datePicker tag="99" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-VJ-Abu">
@@ -1460,10 +1462,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="otherCell" textLabel="TIe-Qa-fxr" style="IBUITableViewCellStyleDefault" id="Hd9-Dp-8fl">
-                                <rect key="frame" x="0.0" y="316" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="315.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hd9-Dp-8fl" id="WgQ-gc-Ybd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TIe-Qa-fxr">
@@ -1481,7 +1483,7 @@
                             <outlet property="dataSource" destination="FC2-z2-xbg" id="gic-in-faw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Получить расписание" id="jO0-1y-Gqx">
+                    <navigationItem key="navigationItem" title="Выбрать интервал" id="jO0-1y-Gqx">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BYx-8R-LN6">
                             <connections>
                                 <action selector="cancel:" destination="FC2-z2-xbg" id="Bku-oA-7p8"/>
@@ -1504,16 +1506,16 @@
     <resources>
         <image name="Mail Button" width="42" height="26"/>
         <image name="Phone Button" width="46" height="46"/>
-        <image name="calendar" width="25" height="25"/>
-        <image name="calendar-fill" width="25" height="25"/>
-        <image name="list" width="25" height="25"/>
-        <image name="list-fill" width="25" height="25"/>
+        <image name="calendar" width="24" height="26"/>
+        <image name="calendar-filled" width="24" height="26"/>
         <image name="logo for info view controller" width="200" height="200"/>
+        <image name="maps" width="25" height="24"/>
+        <image name="maps-filled" width="25" height="24"/>
         <image name="more" width="25" height="17"/>
         <image name="more-filled" width="25" height="18"/>
+        <image name="news" width="26" height="25"/>
+        <image name="news-filled" width="26" height="25"/>
         <image name="sort" width="23" height="18"/>
-        <image name="users" width="25" height="25"/>
-        <image name="users-fill" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="adt-FE-ms4"/>
