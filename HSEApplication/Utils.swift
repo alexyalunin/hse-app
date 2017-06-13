@@ -30,7 +30,7 @@ let dayClassName: String  = String(describing: Day.self)
 struct Colors {
     static let hseColor = UIColor(hex: "004788")
     static let blackPassiveColor = UIColor.black.withAlphaComponent(0.5)
-    static let headerColor = UIColor(hex: "E3E3E3")
+    static let headerColor = UIColor(hex: "E0E0E0")
 }
 
 
