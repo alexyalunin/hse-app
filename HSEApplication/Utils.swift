@@ -30,7 +30,7 @@ let dayClassName: String  = String(describing: Day.self)
 struct Colors {
     static let hseColor = UIColor(hex: "004788")
     static let blackPassiveColor = UIColor.black.withAlphaComponent(0.5)
-    static let headerColor = UIColor(hex: "D8D8D8")
+    static let headerColor = UIColor(hex: "E3E3E3")
 }
 
 
@@ -85,10 +85,15 @@ func makeHeaderWithDate(tableView: UITableView, date: Date, dateStyle: DateForma
     let formatter = DateFormatter()
     formatter.dateStyle = dateStyle
     
-    label.text = formatter.string(from: date).uppercased()
-    label.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightSemibold)
+    label.text = formatter.string(from: date).uppercaseFirst
+    label.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
     
     headerView.addSubview(label)
+    
+    let topBorder = CALayer()
+    topBorder.frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: 0.5);
+    topBorder.backgroundColor = UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1).cgColor
+    headerView.layer.addSublayer(topBorder)
     
     return headerView
 }
@@ -114,6 +119,18 @@ extension UIColor {
         var rgbValue:UInt32 = 0
         Scanner(string: cString).scanHexInt32(&rgbValue)
         self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0, blue: CGFloat(rgbValue & 0x0000FF) / 255.0, alpha: CGFloat(1.0))
+    }
+}
+
+extension String {
+    var first: String {
+        return String(characters.prefix(1))
+    }
+    var last: String {
+        return String(characters.suffix(1))
+    }
+    var uppercaseFirst: String {
+        return first.uppercased() + String(characters.dropFirst())
     }
 }
 

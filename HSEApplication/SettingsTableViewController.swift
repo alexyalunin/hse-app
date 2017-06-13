@@ -12,6 +12,7 @@ class SettingsTableViewController: UITableViewController {
     
     var selectedIndexPath: IndexPath?
     
+    @IBOutlet weak var emailLabel: UILabel!
     var languages = ["Русский", "Английский"]
     var timeZones = ["GMT+3", "GMT+5"]
     
@@ -27,6 +28,7 @@ class SettingsTableViewController: UITableViewController {
         timeZonePickerCell.titleLabel.text = "Часовой пояс"
         timeZonePickerCell.infoLabel.text = "GMT+3"
         timeZonePickerCell.array = timeZones
+        emailLabel.text = email
     }
 
     // MARK: - Table view data source
