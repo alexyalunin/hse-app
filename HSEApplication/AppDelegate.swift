@@ -19,16 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: - TabBar
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().barTintColor = .white
-        UITabBar.appearance().tintColor = hseColor
+        UITabBar.appearance().tintColor = Colors.hseColor
         UITabBar.appearance().unselectedItemTintColor = .gray
         
         // MARK: - NavBar
         UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barTintColor = hseColor
+        UINavigationBar.appearance().barTintColor = Colors.hseColor
         UINavigationBar.appearance().tintColor = .white
         
         // MARK: - StatusBar
-        UIApplication.shared.statusBarView?.backgroundColor = hseColor
+        UIApplication.shared.statusBarView?.backgroundColor = Colors.hseColor
         UIApplication.shared.statusBarStyle = .lightContent
         
         return true

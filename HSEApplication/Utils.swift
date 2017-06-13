@@ -13,15 +13,12 @@ import UIKit
 
 // MARK: - Dates
 
-var today: Date {
-    return Date()
-}
-var inSevenDays: Date {
-    return Date(timeInterval: 60*60*24*6, since: Date())
-}
+let today = Date()
+let inSevenDays = Date(timeInterval: 60*60*24*6, since: Date())
 
 
 // MARK: - Entities' names
+
 
 let lessonClassName: String = String(describing: Lesson.self)
 let dayClassName: String  = String(describing: Day.self)
@@ -30,9 +27,11 @@ let dayClassName: String  = String(describing: Day.self)
 // MARK: - Colors
 
 
-var hseColor = UIColor(red: 0/255.0, green: 71/255.0, blue: 136/255.0, alpha: 1.0)
-var hseColorPassive = UIColor.black.withAlphaComponent(0.5)
-var headerColor = UIColor(red: 216/255.0, green: 216/255.0, blue: 216/255.0, alpha: 1.0)
+struct Colors {
+    static let hseColor = UIColor(hex: "004788")
+    static let blackPassiveColor = UIColor.black.withAlphaComponent(0.5)
+    static let headerColor = UIColor(hex: "E0E0E0")
+}
 
 
 // MARK: - CoreData
@@ -77,6 +76,28 @@ func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
     }
 }
 
+func makeHeaderWithDate(tableView: UITableView, date: Date, dateStyle: DateFormatter.Style) -> UIView? {
+    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+    headerView.backgroundColor = Colors.headerColor
+    
+    let label = UILabel(frame: CGRect(x: 15,y: 0, width: tableView.bounds.size.width, height: 30))
+    
+    let formatter = DateFormatter()
+    formatter.dateStyle = dateStyle
+    
+    label.text = formatter.string(from: date).uppercaseFirst
+    label.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
+    
+    headerView.addSubview(label)
+    
+    let topBorder = CALayer()
+    topBorder.frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: 0.5);
+    topBorder.backgroundColor = UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1).cgColor
+    headerView.layer.addSublayer(topBorder)
+    
+    return headerView
+}
+
 
 // MARK: - Extensions
 
@@ -84,6 +105,39 @@ func refreshBegin(refreshEnd:@escaping (Int) -> ()) {
 extension UIApplication {
     var statusBarView: UIView? {
         return value(forKey: "statusBar") as? UIView
+    }
+}
+
+extension UIColor {
+    convenience init(hex: String) {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0, blue: CGFloat(rgbValue & 0x0000FF) / 255.0, alpha: CGFloat(1.0))
+    }
+}
+
+extension String {
+    var first: String {
+        return String(characters.prefix(1))
+    }
+    var last: String {
+        return String(characters.suffix(1))
+    }
+    var uppercaseFirst: String {
+        return first.uppercased() + String(characters.dropFirst())
+    }
+}
+
+extension String {
+    
+    var containsNonWhitespace: Bool {
+        return !self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 }
 
@@ -103,9 +157,23 @@ extension Date {
     }
 }
 
+extension NSDate {
+    func convertDateToString(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self as Date)
+    }
+}
+
 extension Date {
     func dayNumberOfWeek() -> Int {
         return Calendar.current.dateComponents([.weekday], from: self).weekday!
+    }
+    
+    func convertDateToString(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self as Date)
     }
 }
 

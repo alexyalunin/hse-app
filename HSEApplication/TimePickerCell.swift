@@ -51,7 +51,7 @@ class TimePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSou
     func ignoreFrameChanges() {
         if isObserving {
             removeObserver(self, forKeyPath: "frame")
-            infoLabel.textColor = hseColor
+            infoLabel.textColor = Colors.hseColor
             isObserving = false
         }
     }
