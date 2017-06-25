@@ -34,10 +34,8 @@ struct Colors {
 }
 
 
-// MARK: - CoreData
+// MARK: - Settings
 
-
-var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
 var email: String? {
     get {
@@ -48,6 +46,32 @@ var email: String? {
         UserDefaults.standard.set(newValue, forKey: "email")
     }
 }
+
+var language: String? {
+    get {
+        return UserDefaults.standard.value(forKey: "language") as? String
+    }
+    set {
+        CoreDataModel.deleteAllRecords()
+        UserDefaults.standard.set(newValue, forKey: "language")
+    }
+}
+
+var timeZone: String? {
+    get {
+        return UserDefaults.standard.value(forKey: "timeZone") as? String
+    }
+    set {
+        CoreDataModel.deleteAllRecords()
+        UserDefaults.standard.set(newValue, forKey: "timeZone")
+    }
+}
+
+
+// MARK: - CoreData
+
+
+var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
 fileprivate extension CoreDataModel {
     class func deleteAllRecords() {
