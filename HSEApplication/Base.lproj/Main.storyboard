@@ -330,138 +330,6 @@
             </objects>
             <point key="canvasLocation" x="-599.20000000000005" y="2155.7721139430287"/>
         </scene>
-        <!--Рубрики-->
-        <scene sceneID="4Ln-cd-i5w">
-            <objects>
-                <tableViewController id="PBc-xt-sSx" customClass="ChooseRubricViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="d8U-yP-dbh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <sections>
-                            <tableViewSection id="ia1-As-ZuS">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="kHz-BB-D0J" customClass="TimePickerCell" customModule="HSEApplication" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="260"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kHz-BB-D0J" id="HZz-OL-U5l">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld0-Jx-7KU">
-                                                    <rect key="frame" x="15" y="12" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Не выбрано" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsy-m7-k7h">
-                                                    <rect key="frame" x="264" y="12" width="96" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mb2-t3-fL8">
-                                                    <rect key="frame" x="0.0" y="41" width="375" height="216"/>
-                                                </pickerView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="bsy-m7-k7h" secondAttribute="trailing" constant="7" id="2dy-0L-h5s"/>
-                                                <constraint firstItem="ld0-Jx-7KU" firstAttribute="leading" secondItem="HZz-OL-U5l" secondAttribute="leadingMargin" constant="7" id="6Ab-pK-ZCh"/>
-                                                <constraint firstAttribute="trailing" secondItem="Mb2-t3-fL8" secondAttribute="trailing" id="Afe-Fl-nHO"/>
-                                                <constraint firstItem="bsy-m7-k7h" firstAttribute="top" secondItem="HZz-OL-U5l" secondAttribute="topMargin" constant="4" id="Dqp-lw-gfp"/>
-                                                <constraint firstItem="Mb2-t3-fL8" firstAttribute="top" secondItem="ld0-Jx-7KU" secondAttribute="bottom" constant="8" symbolic="YES" id="hh9-xD-k22"/>
-                                                <constraint firstItem="Mb2-t3-fL8" firstAttribute="leading" secondItem="HZz-OL-U5l" secondAttribute="leading" id="thg-DU-2I1"/>
-                                                <constraint firstItem="ld0-Jx-7KU" firstAttribute="top" secondItem="HZz-OL-U5l" secondAttribute="topMargin" constant="4" id="zwX-1a-3e9"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="datePicker" destination="Mb2-t3-fL8" id="58y-19-cc8"/>
-                                            <outlet property="dpLead" destination="thg-DU-2I1" id="dm6-ZJ-OgK"/>
-                                            <outlet property="dpTop" destination="hh9-xD-k22" id="iyq-2e-FF8"/>
-                                            <outlet property="dpTrail" destination="Afe-Fl-nHO" id="Yhl-bk-Bjj"/>
-                                            <outlet property="ilTop" destination="Dqp-lw-gfp" id="MQv-1A-aQM"/>
-                                            <outlet property="ilTrail" destination="2dy-0L-h5s" id="1Vz-hU-9V1"/>
-                                            <outlet property="infoLabel" destination="bsy-m7-k7h" id="s46-g4-bEU"/>
-                                            <outlet property="titleLabel" destination="ld0-Jx-7KU" id="Cup-Aw-1dN"/>
-                                            <outlet property="tlLead" destination="6Ab-pK-ZCh" id="2WQ-XI-8Ti"/>
-                                            <outlet property="tlTop" destination="zwX-1a-3e9" id="DbH-DF-mEl"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="260" id="wXa-wh-8gS" customClass="TimePickerCell" customModule="HSEApplication" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="295" width="375" height="260"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wXa-wh-8gS" id="jzh-XT-wBJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iln-ve-5a8">
-                                                    <rect key="frame" x="15" y="12" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Не выбрано" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoD-iM-1sF">
-                                                    <rect key="frame" x="264" y="12" width="96" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaG-XT-vMS">
-                                                    <rect key="frame" x="0.0" y="41" width="375" height="216"/>
-                                                </pickerView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="GaG-XT-vMS" secondAttribute="trailing" id="HZW-Js-96X"/>
-                                                <constraint firstItem="Iln-ve-5a8" firstAttribute="leading" secondItem="jzh-XT-wBJ" secondAttribute="leadingMargin" constant="7" id="Ho5-y0-KKP"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="eoD-iM-1sF" secondAttribute="trailing" constant="7" id="PqW-Ni-cBh"/>
-                                                <constraint firstItem="Iln-ve-5a8" firstAttribute="top" secondItem="jzh-XT-wBJ" secondAttribute="topMargin" constant="4" id="bAm-ID-4ME"/>
-                                                <constraint firstItem="GaG-XT-vMS" firstAttribute="leading" secondItem="jzh-XT-wBJ" secondAttribute="leading" id="ddB-OU-HOi"/>
-                                                <constraint firstItem="GaG-XT-vMS" firstAttribute="top" secondItem="Iln-ve-5a8" secondAttribute="bottom" constant="8" symbolic="YES" id="hy9-52-Bc8"/>
-                                                <constraint firstItem="eoD-iM-1sF" firstAttribute="top" secondItem="jzh-XT-wBJ" secondAttribute="topMargin" constant="4" id="lp2-8X-2Kq"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="datePicker" destination="GaG-XT-vMS" id="wJO-pm-RN0"/>
-                                            <outlet property="dpLead" destination="ddB-OU-HOi" id="SDg-iK-ich"/>
-                                            <outlet property="dpTop" destination="hy9-52-Bc8" id="jTp-AE-s1S"/>
-                                            <outlet property="dpTrail" destination="HZW-Js-96X" id="yRB-ES-eiH"/>
-                                            <outlet property="ilTop" destination="lp2-8X-2Kq" id="HWR-W9-rr8"/>
-                                            <outlet property="ilTrail" destination="PqW-Ni-cBh" id="hfo-0a-Rsf"/>
-                                            <outlet property="infoLabel" destination="eoD-iM-1sF" id="GGg-KN-bQT"/>
-                                            <outlet property="titleLabel" destination="Iln-ve-5a8" id="MOK-eM-tA1"/>
-                                            <outlet property="tlLead" destination="Ho5-y0-KKP" id="CTf-k2-Bvo"/>
-                                            <outlet property="tlTop" destination="bAm-ID-4ME" id="EQn-dE-RJ6"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="PBc-xt-sSx" id="lMx-RL-PLU"/>
-                            <outlet property="delegate" destination="PBc-xt-sSx" id="9Bc-XH-qfA"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Рубрики" id="p2Z-5v-NkT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Auu-uN-g2h">
-                            <connections>
-                                <action selector="cancel:" destination="PBc-xt-sSx" id="KJj-IM-zVc"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="F5i-di-uiQ">
-                            <connections>
-                                <action selector="done:" destination="PBc-xt-sSx" id="xEc-Hb-MmW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="categoryPickerCell" destination="wXa-wh-8gS" id="IVC-sB-fXF"/>
-                        <outlet property="coursePickerCell" destination="kHz-BB-D0J" id="qrv-mt-MHM"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fUk-G7-hTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-962" y="3608"/>
-        </scene>
         <!--Piece Of News View Controller-->
         <scene sceneID="Xjh-LQ-q26">
             <objects>
@@ -1376,7 +1244,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="PBc-xt-sSx" kind="relationship" relationship="rootViewController" id="7ot-4H-0hf"/>
+                        <segue destination="wgH-er-zvw" kind="relationship" relationship="rootViewController" id="E7e-SH-ZMv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UrH-Ae-WyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1552,6 +1420,82 @@
                 <exit id="QWD-8K-dhe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1518" y="3638"/>
+        </scene>
+        <!--Категории-->
+        <scene sceneID="1UH-Ry-Wtu">
+            <objects>
+                <tableViewController id="wgH-er-zvw" customClass="ChooseCategoryViewController" customModule="HSEApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="41S-fe-byE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="detailCell" textLabel="VMz-ZA-d7U" detailTextLabel="Kfm-Oc-4te" style="IBUITableViewCellStyleValue1" id="9OA-Vp-zyx">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9OA-Vp-zyx" id="A0X-EB-Jca">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VMz-ZA-d7U">
+                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kfm-Oc-4te">
+                                            <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="216" id="4Rj-jg-fZD">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Rj-jg-fZD" id="pu8-VU-ZUD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <pickerView tag="98" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zvf-7s-CZd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                        </pickerView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Zvf-7s-CZd" firstAttribute="top" secondItem="pu8-VU-ZUD" secondAttribute="top" id="AJk-lo-7hb"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zvf-7s-CZd" secondAttribute="trailing" id="AMe-Eb-uH7"/>
+                                        <constraint firstItem="Zvf-7s-CZd" firstAttribute="centerY" secondItem="pu8-VU-ZUD" secondAttribute="centerY" id="Sey-hy-dY0"/>
+                                        <constraint firstItem="Zvf-7s-CZd" firstAttribute="leading" secondItem="pu8-VU-ZUD" secondAttribute="leading" id="aSF-Dc-8ra"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wgH-er-zvw" id="fp7-P8-wFI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Категории" id="kyt-7q-QZS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w1T-Id-Qfp">
+                            <connections>
+                                <action selector="cancel:" destination="wgH-er-zvw" id="Bwz-A4-83l"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" id="zqt-D7-oGD">
+                            <connections>
+                                <segue destination="7aL-i2-hbf" kind="unwind" unwindAction="getCategoriesFrom:" id="8Sn-LW-ZiF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lLD-Rw-z2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7aL-i2-hbf" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-962" y="3607"/>
         </scene>
     </scenes>
     <resources>
