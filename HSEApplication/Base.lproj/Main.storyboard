@@ -1106,7 +1106,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="opP-MU-aeR" kind="showDetail" id="mOJ-ps-Kjh"/>
+                                            <segue destination="opP-MU-aeR" kind="showDetail" identifier="From settings to auth" id="mOJ-ps-Kjh"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

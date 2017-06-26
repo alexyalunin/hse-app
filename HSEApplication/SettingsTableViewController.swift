@@ -54,6 +54,10 @@ class SettingsTableViewController: UITableViewController {
             
         case "From settings to info":
             _ = segue.destination as! ApplicationInfoViewController
+            
+        case "From settings to auth":
+            _ = segue.destination as! AuthViewController
+            
         default:
             return
         }
