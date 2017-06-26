@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: - This needs to be converted into UITableViewController
 class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var nm = NewsManager()
@@ -33,6 +34,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(animated)
         newsTableView.reloadData()
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return nm.allNews.count
@@ -96,7 +98,18 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         if (segue.identifier == "rubricSegue") {
-            _ = segue.destination as? ChooseRubricViewController
+            _ = segue.destination as? ChooseCategoryViewController
+        }
+    }
+    
+    @IBAction func getCategories(from segue: UIStoryboardSegue) {
+        if segue.source is ChooseCategoryViewController {
+            
+            //tableView.reloadData()
+            
+            //                dateStart = sourceController.intervalStart
+            //                dateEnd   = sourceController.intervalEnd
+            
         }
     }
     

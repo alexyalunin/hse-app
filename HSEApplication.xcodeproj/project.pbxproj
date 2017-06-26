@@ -15,7 +15,6 @@
 		1146BB671E41E9710077D419 /* OneContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB661E41E9710077D419 /* OneContactViewController.swift */; };
 		1146BB791E4348BD0077D419 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB781E4348BD0077D419 /* LessonCell.swift */; };
 		1146BB811E45EBC70077D419 /* ChooseIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB801E45EBC70077D419 /* ChooseIntervalTableViewController.swift */; };
-		1146BB831E462E8F0077D419 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146BB821E462E8F0077D419 /* TimePickerCell.swift */; };
 		11490A681ECE1D87006AF094 /* ScrollingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A671ECE1D87006AF094 /* ScrollingNavigationController.swift */; };
 		11490A6A1ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */; };
 		11490A6C1ECEE8A6006AF094 /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */; };
@@ -50,7 +49,6 @@
 		1146BB661E41E9710077D419 /* OneContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneContactViewController.swift; sourceTree = "<group>"; };
 		1146BB781E4348BD0077D419 /* LessonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
 		1146BB801E45EBC70077D419 /* ChooseIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseIntervalTableViewController.swift; sourceTree = "<group>"; };
-		1146BB821E462E8F0077D419 /* TimePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
 		11490A671ECE1D87006AF094 /* ScrollingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingNavigationController.swift; sourceTree = "<group>"; };
 		11490A691ECE1DE8006AF094 /* ScrollingNavbar+Sizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScrollingNavbar+Sizes.swift"; sourceTree = "<group>"; };
 		11490A6B1ECEE8A6006AF094 /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
@@ -167,7 +165,7 @@
 				114940AC1E37BEE800EADF6F /* Auth */,
 				11C2E3EE1E3BF8FB00D5B717 /* Schedule */,
 				11C2E3EF1E3BF91100D5B717 /* News */,
-				11C2E3F01E3BF91800D5B717 /* Contacts */,
+				11F49FC11F0151F300D5D76E /* Maps */,
 				11C2E3F11E3BF91F00D5B717 /* Settings */,
 				116D43FA1EDA09CB00E59E20 /* CoreData */,
 				1168A8A21E34CF2300A28865 /* Supporting files */,
@@ -237,9 +235,9 @@
 		11C2E3F11E3BF91F00D5B717 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				11C2E3F01E3BF91800D5B717 /* Contacts */,
 				11D6A0B61E55FC9A00AE7AAB /* SettingsTableViewController.swift */,
 				11BBD9271E5772AD003C13E6 /* ApplicationInfoViewController.swift */,
-				1126D20B1EB9E63000EB7269 /* MapViewController.swift */,
 				11C33EBF1F00453900A825B6 /* CheckmarkTableViewController.swift */,
 			);
 			name = Settings;
@@ -251,7 +249,6 @@
 				1168A8921E34CEF000A28865 /* NewsViewController.swift */,
 				11D430D91E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift */,
 				111E53B61E49EA000071DDE4 /* ChooseRubricViewController.swift */,
-				1146BB821E462E8F0077D419 /* TimePickerCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -264,6 +261,14 @@
 				11C2E3FB1E3CFF3F00D5B717 /* NewsManager.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		11F49FC11F0151F300D5D76E /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				1126D20B1EB9E63000EB7269 /* MapViewController.swift */,
+			);
+			name = Maps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,7 +364,6 @@
 				11D430DA1E3F9CBE00F70BE1 /* PieceOfNewsViewController.swift in Sources */,
 				1146BB671E41E9710077D419 /* OneContactViewController.swift in Sources */,
 				1146BB811E45EBC70077D419 /* ChooseIntervalTableViewController.swift in Sources */,
-				1146BB831E462E8F0077D419 /* TimePickerCell.swift in Sources */,
 				111A27D11E40B6D500E544EB /* Worker.swift in Sources */,
 				11C2E3FA1E3CFDCB00D5B717 /* PieceOfNews.swift in Sources */,
 				1181400C1E36B0A0006071CE /* AuthViewController.swift in Sources */,

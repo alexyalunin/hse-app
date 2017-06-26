@@ -20,8 +20,10 @@ class PieceOfNewsViewController: UIViewController {
         super.viewDidLoad()
         titleOfNews.text = pieceOfNews?.title
         descriptionTextOfNews.text = pieceOfNews?.descriptionText
+        
         titleOfNews.sizeToFit()
         descriptionTextOfNews.sizeToFit()
+        
         self.title = titleOfNavBar
     }
 }

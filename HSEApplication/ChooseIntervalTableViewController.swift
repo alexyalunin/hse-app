@@ -8,21 +8,22 @@
 
 import UIKit
 
-let pickerAnimationDuration = 0.40 // duration for the animation to slide the date picker into view
-let datePickerTag           = 99   // view tag identifiying the date picker view
-
-let titleKey = "title" // key for obtaining the data source item's title
-let dateKey  = "date"  // key for obtaining the data source item's date value
-
-// keep track of which rows have date cells
-let dateStartRow = 0
-let dateEndRow   = 1
-
-let dateCellID   = "dateCell"   // the cells with the start or end date
-let datePickerID = "datePicker" // the cell containing the date picker
-let otherCell    = "otherCell"  // the remaining cells at the end
 
 class ChooseIntervalTableViewController: UITableViewController {
+    
+    let pickerAnimationDuration = 0.40 // duration for the animation to slide the date picker into view
+    let datePickerTag           = 99   // view tag identifiying the date picker view
+    
+    let titleKey = "title" // key for obtaining the data source item's title
+    let dateKey  = "date"  // key for obtaining the data source item's date value
+    
+    // keep track of which rows have date cells
+    let dateStartRow = 0
+    let dateEndRow   = 1
+    
+    let dateCellID   = "dateCell"   // the cells with the start or end date
+    let datePickerID = "datePicker" // the cell containing the date picker
+    let otherCell    = "otherCell"  // the remaining cells at the end
     
     var intervalStart: Date = today
     var intervalEnd: Date = inSevenDays
@@ -44,7 +45,7 @@ class ChooseIntervalTableViewController: UITableViewController {
         [unowned self] in
         
         // obtain the picker view cell's height, works because the cell was pre-defined in our storyboard
-        let pickerViewCellToCheck = self.tableView.dequeueReusableCell(withIdentifier: datePickerID)
+        let pickerViewCellToCheck = self.tableView.dequeueReusableCell(withIdentifier: self.datePickerID)
         
         return pickerViewCellToCheck!.frame.height
         }()
