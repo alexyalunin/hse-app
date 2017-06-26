@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.swift
+//  ContactsTableViewController.swift
 //  HSEapp
 //
 //  Created by Alexander on 22/01/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var wm = WorkerManager()
     
