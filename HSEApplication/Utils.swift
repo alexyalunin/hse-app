@@ -13,6 +13,7 @@ import UIKit
 
 // MARK: - Dates
 
+
 let today = Date()
 let inSevenDays = Date(timeInterval: 60*60*24*6, since: Date())
 
@@ -31,6 +32,7 @@ struct Colors {
     static let hseColor = UIColor(hex: "004788")
     static let blackPassiveColor = UIColor.black.withAlphaComponent(0.5)
     static let headerColor = UIColor(hex: "E0E0E0")
+    static let systemColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
 }
 
 
@@ -76,7 +78,6 @@ var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDe
 fileprivate extension CoreDataModel {
     class func deleteAllRecords() {
         deleteRecordsOfEntity(dayClassName)
-        // add deletion
     }
 }
 
@@ -159,7 +160,6 @@ extension String {
 }
 
 extension String {
-    
     var containsNonWhitespace: Bool {
         return !self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }

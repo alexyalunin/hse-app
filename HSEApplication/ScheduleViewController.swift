@@ -205,14 +205,11 @@ class ScheduleViewController: UITableViewController, LessonCellDelegate, Schedul
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
-        case "From schedule to map":
+        case "From schedule to settings":
             let destinationNavigationController = segue.destination as! UINavigationController
-            let targetController = destinationNavigationController.topViewController as! MapViewController
-            targetController.address = sender as? String
-            targetController.title = ""
-            targetController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.done(_:)))
+            _ = destinationNavigationController.topViewController as! SettingsTableViewController
 
-        case "From schedule to set interval":
+        case "From schedule to choose interval":
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController as! ChooseIntervalTableViewController
             targetController.intervalStart = dateStart

@@ -33,7 +33,7 @@ class AuthViewController: UIViewController {
         }
     }
     
-    private func setUpViewWithTextField() {
+    func setUpViewWithTextField() {
         let bottomBorder = CALayer()
         bottomBorder.frame = CGRect(x: 0, y: viewWithTextField.frame.size.height - 0.5, width: viewWithTextField.frame.size.width, height: 0.5);
         bottomBorder.backgroundColor = UIColor(red: 200/255, green: 199/255, blue: 204/255, alpha: 1).cgColor

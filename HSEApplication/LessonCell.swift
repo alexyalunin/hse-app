@@ -58,5 +58,4 @@ class LessonCell: UITableViewCell {
             addressButton.tintColor   = UIButton(type: UIButtonType.system).titleColor(for: .normal)!
         }
     }
-    
 }

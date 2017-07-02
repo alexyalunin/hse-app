@@ -212,6 +212,10 @@ class ChooseIntervalTableViewController: UITableViewController {
         return cell!
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Показать расписание"
+    }
+    
     /// Adds or removes a UIDatePicker cell below the given indexPath.
     ///
     /// - parameters:
